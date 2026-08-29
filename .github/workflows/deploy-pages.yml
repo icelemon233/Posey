@@ -24,7 +24,7 @@ jobs:
           node-version: 20
           cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-package-lock --include=dev --registry=https://registry.npmjs.org --no-audit --no-fund
       - name: Build web showcase
         env:
           POSEY_PUBLIC_BUILD: "true"
