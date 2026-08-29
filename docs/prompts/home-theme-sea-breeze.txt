@@ -1,0 +1,8 @@
+Asset type: portrait cover image for a mobile photography app home screen
+Primary request: create a breezy, playful lifestyle portrait inspired by a quiet seaside photo walk
+Style/medium: premium editorial photography, candid social-photo-app aesthetic, clean analog film texture, realistic and optimistic
+Composition: vertical 4:5 framing; one young adult subject moving lightly with an open relaxed pose, placed mainly in the right two-thirds; three-quarter or full body; soft pale-blue sky and an abstract sunlit white wall, ample negative space toward the upper-left
+Lighting: bright diffused daylight with a fresh sea-breeze feeling, low contrast
+Palette: sea-salt white, powder blue, washed denim, a tiny lemon-yellow accent
+Text: none
+Constraints: no lettering, no logo, no watermark, no interface mockup, no collage, no dramatic ocean cliff, no dark background, no sexualized pose, no distorted limbs or hands; keep the image pale and calm enough for dark UI text overlays

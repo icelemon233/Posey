@@ -1,0 +1,8 @@
+Asset type: portrait cover image for a mobile photography app home screen
+Primary request: create a warm, cheerful lifestyle portrait with the feeling of taking one last beautiful photo at sunset
+Style/medium: premium editorial photography, candid social-photo-app aesthetic, subtle 35mm film grain, realistic and tender
+Composition: vertical 4:5 framing; one young adult subject in a playful seated or leaning pose, placed mainly in the right two-thirds; three-quarter body; minimal peach plaster wall with soft long shadows and generous negative space toward the upper-left
+Lighting: glowing late-afternoon sunlight, soft and low contrast
+Palette: pale peach, blush shell, warm cream, muted coral accent
+Text: none
+Constraints: no lettering, no logo, no watermark, no interface mockup, no collage, no dark background, no sexualized pose, no distorted limbs or hands; keep the overall exposure bright and pastel for a light mobile interface

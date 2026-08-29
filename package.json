@@ -1,0 +1,43 @@
+{
+  "name": "posey",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.ts",
+    "build": "tsc -b && vite build --config vite.config.ts && node scripts/verify-bundled-ark-key.mjs",
+    "build:web": "tsc -b && vite build --config vite.config.ts",
+    "test": "vitest run",
+    "build:pose-families": "node scripts/build-pose-families.mjs",
+    "plan:research-queue": "node scripts/plan-research-queue.mjs",
+    "verify:research": "npm run build:pose-families && npm run plan:research-queue && node scripts/verify-research.mjs",
+    "gate:research-completion": "node scripts/research-completion-gate.mjs",
+    "test:watch": "vitest",
+    "preview": "vite preview --config vite.config.ts",
+    "cap:sync": "zsh scripts/cap-sync.sh",
+    "android:debug": "zsh scripts/android-debug.sh",
+    "ios:simulator": "zsh scripts/ios-simulator.sh",
+    "cap:open:ios": "cap open ios",
+    "cap:open:android": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.4.3",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/ios": "^7.4.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.5",
+    "vitest": "^2.1.8"
+  }
+}

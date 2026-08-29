@@ -1,0 +1,31 @@
+node_modules/
+dist/
+.DS_Store
+coverage/
+*.log
+*.tsbuildinfo
+api-key.txt
+doubao-api-key.txt
+.env.local
+.env.*.local
+capacitor.config.js
+capacitor.config.d.ts
+vite.config.js
+vite.config.d.ts
+android/.gradle/
+android/local.properties
+ios/App/Pods/
+ios/App/DerivedData/
+ios/DerivedData*/
+output/
+tmp/
+Xcode_*/
+
+# Local IDE performance settings
+.vscode/
+
+# Internal research and visual QA evidence
+research/xiaohongshu/screenshots/
+research/xiaohongshu/deep-read-batches/
+docs/screenshots/
+design/

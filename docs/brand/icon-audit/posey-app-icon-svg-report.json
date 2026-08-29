@@ -1,0 +1,17 @@
+{
+  "valid": true,
+  "source": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/public/brand/posepilot-app-icon.svg",
+  "viewBox": "0 0 1024 1024",
+  "element_counts": {
+    "svg": 1,
+    "defs": 1,
+    "linearGradient": 1,
+    "stop": 3,
+    "rect": 1,
+    "path": 4,
+    "g": 1
+  },
+  "path_commands": 20,
+  "warnings": [],
+  "passes_basic_audit": true
+}

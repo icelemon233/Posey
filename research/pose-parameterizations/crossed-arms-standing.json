@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "crossed-arms-standing",
+  "title": "抱臂站姿",
+  "tags": ["全身", "站姿", "手臂交叉", "镜像可用"],
+  "source": {
+    "platform": "owned",
+    "usageStatus": "owned",
+    "capturedAt": "2026-08-19T06:31:10Z",
+    "licenseEvidence": "Posey original abstract skeleton; no Xiaohongshu pixels, contours, or creator artwork were copied."
+  },
+  "shotType": "full-body",
+  "mirrorAllowed": true,
+  "normalization": {
+    "origin": "hip-center",
+    "scaleBasis": "torso-length",
+    "referenceScale": 0.27
+  },
+  "landmarks": {
+    "nose": { "position": { "x": 0.5, "y": 0.12 }, "visible": true, "weight": 0.55, "critical": false },
+    "leftEyeInner": { "position": { "x": 0.486, "y": 0.111 }, "visible": true, "weight": 0.15, "critical": false },
+    "leftEye": { "position": { "x": 0.477, "y": 0.11 }, "visible": true, "weight": 0.2, "critical": false },
+    "leftEyeOuter": { "position": { "x": 0.468, "y": 0.113 }, "visible": true, "weight": 0.15, "critical": false },
+    "rightEyeInner": { "position": { "x": 0.514, "y": 0.111 }, "visible": true, "weight": 0.15, "critical": false },
+    "rightEye": { "position": { "x": 0.523, "y": 0.11 }, "visible": true, "weight": 0.2, "critical": false },
+    "rightEyeOuter": { "position": { "x": 0.532, "y": 0.113 }, "visible": true, "weight": 0.15, "critical": false },
+    "leftEar": { "position": { "x": 0.452, "y": 0.135 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightEar": { "position": { "x": 0.548, "y": 0.135 }, "visible": true, "weight": 0.25, "critical": false },
+    "leftMouth": { "position": { "x": 0.488, "y": 0.153 }, "visible": true, "weight": 0.15, "critical": false },
+    "rightMouth": { "position": { "x": 0.512, "y": 0.153 }, "visible": true, "weight": 0.15, "critical": false },
+    "leftShoulder": { "position": { "x": 0.39, "y": 0.25 }, "visible": true, "weight": 0.85, "critical": true },
+    "rightShoulder": { "position": { "x": 0.61, "y": 0.25 }, "visible": true, "weight": 0.85, "critical": true },
+    "leftElbow": { "position": { "x": 0.41, "y": 0.39 }, "visible": true, "weight": 1, "critical": true },
+    "rightElbow": { "position": { "x": 0.59, "y": 0.39 }, "visible": true, "weight": 1, "critical": true },
+    "leftWrist": { "position": { "x": 0.57, "y": 0.34 }, "visible": true, "weight": 1, "critical": true },
+    "rightWrist": { "position": { "x": 0.43, "y": 0.34 }, "visible": true, "weight": 1, "critical": true },
+    "leftPinky": { "position": { "x": 0.585, "y": 0.344 }, "visible": true, "weight": 0.35, "critical": false },
+    "rightPinky": { "position": { "x": 0.415, "y": 0.344 }, "visible": true, "weight": 0.35, "critical": false },
+    "leftIndex": { "position": { "x": 0.588, "y": 0.336 }, "visible": true, "weight": 0.35, "critical": false },
+    "rightIndex": { "position": { "x": 0.412, "y": 0.336 }, "visible": true, "weight": 0.35, "critical": false },
+    "leftThumb": { "position": { "x": 0.575, "y": 0.329 }, "visible": true, "weight": 0.3, "critical": false },
+    "rightThumb": { "position": { "x": 0.425, "y": 0.329 }, "visible": true, "weight": 0.3, "critical": false },
+    "leftHip": { "position": { "x": 0.45, "y": 0.52 }, "visible": true, "weight": 0.65, "critical": false },
+    "rightHip": { "position": { "x": 0.55, "y": 0.52 }, "visible": true, "weight": 0.65, "critical": false },
+    "leftKnee": { "position": { "x": 0.46, "y": 0.73 }, "visible": true, "weight": 0.45, "critical": false },
+    "rightKnee": { "position": { "x": 0.54, "y": 0.73 }, "visible": true, "weight": 0.45, "critical": false },
+    "leftAnkle": { "position": { "x": 0.46, "y": 0.92 }, "visible": true, "weight": 0.45, "critical": true },
+    "rightAnkle": { "position": { "x": 0.54, "y": 0.92 }, "visible": true, "weight": 0.45, "critical": true },
+    "leftHeel": { "position": { "x": 0.452, "y": 0.952 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightHeel": { "position": { "x": 0.548, "y": 0.952 }, "visible": true, "weight": 0.25, "critical": false },
+    "leftFootIndex": { "position": { "x": 0.435, "y": 0.975 }, "visible": true, "weight": 0.3, "critical": true },
+    "rightFootIndex": { "position": { "x": 0.565, "y": 0.975 }, "visible": true, "weight": 0.3, "critical": true }
+  },
+  "relations": [
+    {
+      "type": "near",
+      "from": "leftWrist",
+      "to": "rightElbow",
+      "target": 0.054,
+      "tolerance": 0.13,
+      "critical": true,
+      "simpleHint": "左手再贴近右臂"
+    },
+    {
+      "type": "near",
+      "from": "rightWrist",
+      "to": "leftElbow",
+      "target": 0.054,
+      "tolerance": 0.13,
+      "critical": true,
+      "simpleHint": "右手再贴近左臂"
+    },
+    {
+      "type": "distance",
+      "from": "leftWrist",
+      "to": "rightWrist",
+      "target": 0.14,
+      "tolerance": 0.1,
+      "critical": false,
+      "simpleHint": "双手再收紧一点"
+    }
+  ],
+  "guideContour": [
+    { "x": 0.5, "y": 0.07 },
+    { "x": 0.45, "y": 0.11 },
+    { "x": 0.45, "y": 0.18 },
+    { "x": 0.38, "y": 0.23 },
+    { "x": 0.36, "y": 0.38 },
+    { "x": 0.4, "y": 0.43 },
+    { "x": 0.41, "y": 0.5 },
+    { "x": 0.44, "y": 0.55 },
+    { "x": 0.43, "y": 0.91 },
+    { "x": 0.41, "y": 0.98 },
+    { "x": 0.5, "y": 0.965 },
+    { "x": 0.59, "y": 0.98 },
+    { "x": 0.57, "y": 0.91 },
+    { "x": 0.56, "y": 0.55 },
+    { "x": 0.59, "y": 0.5 },
+    { "x": 0.6, "y": 0.43 },
+    { "x": 0.64, "y": 0.38 },
+    { "x": 0.62, "y": 0.23 },
+    { "x": 0.55, "y": 0.18 },
+    { "x": 0.55, "y": 0.11 },
+    { "x": 0.5, "y": 0.07 }
+  ],
+  "tolerancePresets": {
+    "easy": { "matchThreshold": 72, "stableMs": 600, "landmarkDistance": 0.3, "angleDifferenceDeg": 36 },
+    "standard": { "matchThreshold": 82, "stableMs": 600, "landmarkDistance": 0.22, "angleDifferenceDeg": 26 },
+    "precise": { "matchThreshold": 90, "stableMs": 600, "landmarkDistance": 0.15, "angleDifferenceDeg": 18 }
+  },
+  "review": {
+    "status": "needs-review",
+    "notes": "Research-source admission is complete at 5 posts and 4 stable creators. Coordinates and contour are a Posey-owned abstract draft, not traced from research screenshots. Requires authorized-person calibration across 3-5 body and arm-cross variants, false-pass testing against hands merely held near the chest, and real-device acceptance before approval."
+  }
+}

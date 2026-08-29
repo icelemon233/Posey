@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "standing-look-back-one-hand-pocket",
+  "title": "站立回头并单手插兜",
+  "tags": ["全身", "侧身回头", "单手插兜", "镜像可用"],
+  "source": {
+    "platform": "owned",
+    "usageStatus": "owned",
+    "capturedAt": "2026-08-24T07:00:00Z",
+    "licenseEvidence": "Posey original abstract skeleton; no Xiaohongshu pixels, contours, silhouettes, or creator artwork were copied."
+  },
+  "shotType": "full-body",
+  "mirrorAllowed": true,
+  "normalization": { "origin": "hip-center", "scaleBasis": "torso-length", "referenceScale": 0.3 },
+  "landmarks": {
+    "nose": { "position": { "x": 0.57, "y": 0.14 }, "visible": true, "weight": 0.7, "critical": true },
+    "leftEyeInner": { "position": { "x": 0.556, "y": 0.13 }, "visible": true, "weight": 0.15, "critical": false },
+    "leftEye": { "position": { "x": 0.548, "y": 0.129 }, "visible": true, "weight": 0.2, "critical": false },
+    "leftEyeOuter": { "position": { "x": 0.54, "y": 0.132 }, "visible": true, "weight": 0.15, "critical": false },
+    "rightEyeInner": { "position": { "x": 0.582, "y": 0.129 }, "visible": true, "weight": 0.15, "critical": false },
+    "rightEye": { "position": { "x": 0.59, "y": 0.128 }, "visible": true, "weight": 0.2, "critical": false },
+    "rightEyeOuter": { "position": { "x": 0.598, "y": 0.131 }, "visible": true, "weight": 0.15, "critical": false },
+    "leftEar": { "position": { "x": 0.528, "y": 0.151 }, "visible": true, "weight": 0.2, "critical": false },
+    "rightEar": { "position": { "x": 0.608, "y": 0.149 }, "visible": true, "weight": 0.2, "critical": false },
+    "leftMouth": { "position": { "x": 0.558, "y": 0.164 }, "visible": true, "weight": 0.12, "critical": false },
+    "rightMouth": { "position": { "x": 0.58, "y": 0.162 }, "visible": true, "weight": 0.12, "critical": false },
+    "leftShoulder": { "position": { "x": 0.43, "y": 0.27 }, "visible": true, "weight": 0.95, "critical": true },
+    "rightShoulder": { "position": { "x": 0.61, "y": 0.24 }, "visible": true, "weight": 0.95, "critical": true },
+    "leftElbow": { "position": { "x": 0.38, "y": 0.43 }, "visible": true, "weight": 0.75, "critical": true },
+    "rightElbow": { "position": { "x": 0.64, "y": 0.39 }, "visible": true, "weight": 0.95, "critical": true },
+    "leftWrist": { "position": { "x": 0.36, "y": 0.58 }, "visible": true, "weight": 0.9, "critical": true },
+    "rightWrist": { "position": { "x": 0.56, "y": 0.53 }, "visible": true, "weight": 1, "critical": true },
+    "leftPinky": { "position": { "x": 0.352, "y": 0.599 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightPinky": { "position": { "x": 0.569, "y": 0.539 }, "visible": false, "weight": 0.2, "critical": false },
+    "leftIndex": { "position": { "x": 0.365, "y": 0.602 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightIndex": { "position": { "x": 0.556, "y": 0.541 }, "visible": false, "weight": 0.2, "critical": false },
+    "leftThumb": { "position": { "x": 0.372, "y": 0.588 }, "visible": true, "weight": 0.22, "critical": false },
+    "rightThumb": { "position": { "x": 0.551, "y": 0.526 }, "visible": true, "weight": 0.45, "critical": true },
+    "leftHip": { "position": { "x": 0.46, "y": 0.54 }, "visible": true, "weight": 0.85, "critical": true },
+    "rightHip": { "position": { "x": 0.55, "y": 0.53 }, "visible": true, "weight": 0.95, "critical": true },
+    "leftKnee": { "position": { "x": 0.44, "y": 0.74 }, "visible": true, "weight": 0.5, "critical": false },
+    "rightKnee": { "position": { "x": 0.57, "y": 0.72 }, "visible": true, "weight": 0.5, "critical": false },
+    "leftAnkle": { "position": { "x": 0.42, "y": 0.93 }, "visible": true, "weight": 0.45, "critical": true },
+    "rightAnkle": { "position": { "x": 0.6, "y": 0.91 }, "visible": true, "weight": 0.45, "critical": true },
+    "leftHeel": { "position": { "x": 0.413, "y": 0.958 }, "visible": true, "weight": 0.2, "critical": false },
+    "rightHeel": { "position": { "x": 0.603, "y": 0.938 }, "visible": true, "weight": 0.2, "critical": false },
+    "leftFootIndex": { "position": { "x": 0.39, "y": 0.976 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightFootIndex": { "position": { "x": 0.628, "y": 0.956 }, "visible": true, "weight": 0.25, "critical": false }
+  },
+  "relations": [
+    { "type": "near", "from": "rightWrist", "to": "rightHip", "target": 0.02, "tolerance": 0.075, "critical": true, "simpleHint": "右手再靠近裤兜" },
+    { "type": "minimum-distance", "from": "leftWrist", "to": "leftHip", "target": 0.13, "tolerance": 0.07, "critical": true, "simpleHint": "左手放在兜外面" },
+    { "type": "horizontal-offset", "from": "nose", "to": "rightHip", "target": 0.02, "tolerance": 0.07, "critical": true, "simpleHint": "再回头看向手机" },
+    { "type": "vertical-offset", "from": "leftShoulder", "to": "rightShoulder", "target": 0.03, "tolerance": 0.06, "critical": true, "simpleHint": "身体再侧一点" }
+  ],
+  "guideContour": [
+    { "x": 0.57, "y": 0.08 }, { "x": 0.525, "y": 0.115 }, { "x": 0.52, "y": 0.18 },
+    { "x": 0.42, "y": 0.235 }, { "x": 0.365, "y": 0.42 }, { "x": 0.34, "y": 0.61 },
+    { "x": 0.39, "y": 0.62 }, { "x": 0.445, "y": 0.565 }, { "x": 0.405, "y": 0.93 },
+    { "x": 0.385, "y": 0.985 }, { "x": 0.455, "y": 0.98 }, { "x": 0.505, "y": 0.57 },
+    { "x": 0.575, "y": 0.94 }, { "x": 0.635, "y": 0.965 }, { "x": 0.65, "y": 0.91 },
+    { "x": 0.59, "y": 0.55 }, { "x": 0.65, "y": 0.39 }, { "x": 0.62, "y": 0.225 },
+    { "x": 0.61, "y": 0.18 }, { "x": 0.615, "y": 0.115 }, { "x": 0.57, "y": 0.08 }
+  ],
+  "tolerancePresets": {
+    "easy": { "matchThreshold": 72, "stableMs": 600, "landmarkDistance": 0.18, "angleDifferenceDeg": 28 },
+    "standard": { "matchThreshold": 82, "stableMs": 600, "landmarkDistance": 0.13, "angleDifferenceDeg": 20 },
+    "precise": { "matchThreshold": 90, "stableMs": 600, "landmarkDistance": 0.09, "angleDifferenceDeg": 14 }
+  },
+  "review": {
+    "status": "needs-review",
+    "notes": "Source admission is complete at 5 posts and 5 stable creators. This is a Posey-owned abstract draft. MediaPipe can only approximate a hand in a pocket by wrist-to-hip proximity and can only approximate looking back through head-to-hip and shoulder relationships. Coordinates and thresholds still require real-person and real-device calibration; that acceptance item is intentionally outside this five-day delivery scope."
+  }
+}

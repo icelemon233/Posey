@@ -1,0 +1,185 @@
+{
+  "source": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/docs/brand/posey-app-icon.png",
+  "source_size": [
+    1024,
+    1024
+  ],
+  "mode": "app",
+  "results": [
+    {
+      "size": 16,
+      "path": "docs/brand/icon-audit/posey-app-icon/16.png",
+      "warnings": [],
+      "bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "margins_px": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "occupancy": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.0,
+        "y_px": 0.0,
+        "x_fraction": 0.0,
+        "y_fraction": 0.0
+      },
+      "alpha_levels": 1,
+      "mean_alpha": 255.0
+    },
+    {
+      "size": 18,
+      "path": "docs/brand/icon-audit/posey-app-icon/18.png",
+      "warnings": [],
+      "bbox": [
+        0,
+        0,
+        18,
+        18
+      ],
+      "margins_px": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "occupancy": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.0,
+        "y_px": 0.0,
+        "x_fraction": 0.0,
+        "y_fraction": 0.0
+      },
+      "alpha_levels": 1,
+      "mean_alpha": 255.0
+    },
+    {
+      "size": 22,
+      "path": "docs/brand/icon-audit/posey-app-icon/22.png",
+      "warnings": [],
+      "bbox": [
+        0,
+        0,
+        22,
+        22
+      ],
+      "margins_px": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "occupancy": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.0,
+        "y_px": 0.0,
+        "x_fraction": 0.0,
+        "y_fraction": 0.0
+      },
+      "alpha_levels": 1,
+      "mean_alpha": 255.0
+    },
+    {
+      "size": 32,
+      "path": "docs/brand/icon-audit/posey-app-icon/32.png",
+      "warnings": [],
+      "bbox": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "margins_px": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "occupancy": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.0,
+        "y_px": 0.0,
+        "x_fraction": 0.0,
+        "y_fraction": 0.0
+      },
+      "alpha_levels": 1,
+      "mean_alpha": 255.0
+    },
+    {
+      "size": 128,
+      "path": "docs/brand/icon-audit/posey-app-icon/128.png",
+      "warnings": [],
+      "bbox": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "margins_px": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "occupancy": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.0,
+        "y_px": 0.0,
+        "x_fraction": 0.0,
+        "y_fraction": 0.0
+      },
+      "alpha_levels": 1,
+      "mean_alpha": 255.0
+    },
+    {
+      "size": 512,
+      "path": "docs/brand/icon-audit/posey-app-icon/512.png",
+      "warnings": [],
+      "bbox": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "margins_px": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "occupancy": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.0,
+        "y_px": 0.0,
+        "x_fraction": 0.0,
+        "y_fraction": 0.0
+      },
+      "alpha_levels": 1,
+      "mean_alpha": 255.0
+    }
+  ],
+  "note": "Measurements are warnings; optical judgment at exact target size is required."
+}

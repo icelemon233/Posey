@@ -1,0 +1,185 @@
+{
+  "source": "/private/tmp/posepilot-mark.png",
+  "source_size": [
+    512,
+    512
+  ],
+  "mode": "mark",
+  "results": [
+    {
+      "size": 16,
+      "path": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/docs/brand/icon-audit/mark-previews/16.png",
+      "warnings": [],
+      "bbox": [
+        1,
+        1,
+        15,
+        15
+      ],
+      "margins_px": {
+        "left": 1,
+        "top": 1,
+        "right": 1,
+        "bottom": 1
+      },
+      "occupancy": {
+        "width": 0.875,
+        "height": 0.875
+      },
+      "alpha_centroid_offset": {
+        "x_px": -0.0,
+        "y_px": -0.001,
+        "x_fraction": -0.0,
+        "y_fraction": -0.0
+      },
+      "alpha_levels": 44,
+      "mean_alpha": 90.316
+    },
+    {
+      "size": 18,
+      "path": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/docs/brand/icon-audit/mark-previews/18.png",
+      "warnings": [],
+      "bbox": [
+        1,
+        1,
+        17,
+        17
+      ],
+      "margins_px": {
+        "left": 1,
+        "top": 1,
+        "right": 1,
+        "bottom": 1
+      },
+      "occupancy": {
+        "width": 0.8889,
+        "height": 0.8889
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.0,
+        "y_px": -0.001,
+        "x_fraction": 0.0,
+        "y_fraction": -0.0
+      },
+      "alpha_levels": 73,
+      "mean_alpha": 90.167
+    },
+    {
+      "size": 22,
+      "path": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/docs/brand/icon-audit/mark-previews/22.png",
+      "warnings": [],
+      "bbox": [
+        2,
+        2,
+        20,
+        20
+      ],
+      "margins_px": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "occupancy": {
+        "width": 0.8182,
+        "height": 0.8182
+      },
+      "alpha_centroid_offset": {
+        "x_px": 0.002,
+        "y_px": 0.012,
+        "x_fraction": 0.0001,
+        "y_fraction": 0.0006
+      },
+      "alpha_levels": 78,
+      "mean_alpha": 89.872
+    },
+    {
+      "size": 32,
+      "path": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/docs/brand/icon-audit/mark-previews/32.png",
+      "warnings": [],
+      "bbox": [
+        3,
+        3,
+        29,
+        29
+      ],
+      "margins_px": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "occupancy": {
+        "width": 0.8125,
+        "height": 0.8125
+      },
+      "alpha_centroid_offset": {
+        "x_px": -0.0,
+        "y_px": -0.001,
+        "x_fraction": -0.0,
+        "y_fraction": -0.0
+      },
+      "alpha_levels": 78,
+      "mean_alpha": 89.506
+    },
+    {
+      "size": 128,
+      "path": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/docs/brand/icon-audit/mark-previews/128.png",
+      "warnings": [],
+      "bbox": [
+        12,
+        12,
+        116,
+        116
+      ],
+      "margins_px": {
+        "left": 12,
+        "top": 12,
+        "right": 12,
+        "bottom": 12
+      },
+      "occupancy": {
+        "width": 0.8125,
+        "height": 0.8125
+      },
+      "alpha_centroid_offset": {
+        "x_px": -0.0,
+        "y_px": -0.003,
+        "x_fraction": -0.0,
+        "y_fraction": -0.0
+      },
+      "alpha_levels": 195,
+      "mean_alpha": 89.768
+    },
+    {
+      "size": 512,
+      "path": "/Users/icelemon/Documents/ai_hackathon_2026/PosePilot/docs/brand/icon-audit/mark-previews/512.png",
+      "warnings": [],
+      "bbox": [
+        51,
+        51,
+        461,
+        461
+      ],
+      "margins_px": {
+        "left": 51,
+        "top": 51,
+        "right": 51,
+        "bottom": 51
+      },
+      "occupancy": {
+        "width": 0.8008,
+        "height": 0.8008
+      },
+      "alpha_centroid_offset": {
+        "x_px": -0.001,
+        "y_px": -0.01,
+        "x_fraction": -0.0,
+        "y_fraction": -0.0
+      },
+      "alpha_levels": 253,
+      "mean_alpha": 89.746
+    }
+  ],
+  "note": "Measurements are warnings; optical judgment at exact target size is required."
+}

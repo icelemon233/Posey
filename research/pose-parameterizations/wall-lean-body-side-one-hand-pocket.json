@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "id": "wall-lean-body-side-one-hand-pocket",
+  "title": "身体侧靠墙并单手插兜",
+  "tags": ["全身", "侧靠墙", "单手插兜", "镜像可用"],
+  "source": {
+    "platform": "owned",
+    "usageStatus": "owned",
+    "capturedAt": "2026-08-20T07:25:00Z",
+    "licenseEvidence": "Posey original abstract skeleton; no Xiaohongshu pixels, contours, silhouettes, or creator artwork were copied."
+  },
+  "shotType": "full-body",
+  "mirrorAllowed": true,
+  "normalization": {
+    "origin": "hip-center",
+    "scaleBasis": "torso-length",
+    "referenceScale": 0.3
+  },
+  "landmarks": {
+    "nose": { "position": { "x": 0.54, "y": 0.12 }, "visible": true, "weight": 0.35, "critical": false },
+    "leftEyeInner": { "position": { "x": 0.526, "y": 0.111 }, "visible": true, "weight": 0.12, "critical": false },
+    "leftEye": { "position": { "x": 0.517, "y": 0.11 }, "visible": true, "weight": 0.18, "critical": false },
+    "leftEyeOuter": { "position": { "x": 0.508, "y": 0.113 }, "visible": true, "weight": 0.12, "critical": false },
+    "rightEyeInner": { "position": { "x": 0.554, "y": 0.111 }, "visible": true, "weight": 0.12, "critical": false },
+    "rightEye": { "position": { "x": 0.563, "y": 0.11 }, "visible": true, "weight": 0.18, "critical": false },
+    "rightEyeOuter": { "position": { "x": 0.572, "y": 0.113 }, "visible": true, "weight": 0.12, "critical": false },
+    "leftEar": { "position": { "x": 0.492, "y": 0.137 }, "visible": true, "weight": 0.2, "critical": false },
+    "rightEar": { "position": { "x": 0.588, "y": 0.137 }, "visible": true, "weight": 0.2, "critical": false },
+    "leftMouth": { "position": { "x": 0.528, "y": 0.153 }, "visible": true, "weight": 0.12, "critical": false },
+    "rightMouth": { "position": { "x": 0.552, "y": 0.153 }, "visible": true, "weight": 0.12, "critical": false },
+    "leftShoulder": { "position": { "x": 0.43, "y": 0.28 }, "visible": true, "weight": 0.9, "critical": true },
+    "rightShoulder": { "position": { "x": 0.61, "y": 0.25 }, "visible": true, "weight": 0.9, "critical": true },
+    "leftElbow": { "position": { "x": 0.38, "y": 0.45 }, "visible": true, "weight": 0.75, "critical": true },
+    "rightElbow": { "position": { "x": 0.64, "y": 0.4 }, "visible": true, "weight": 0.95, "critical": true },
+    "leftWrist": { "position": { "x": 0.37, "y": 0.61 }, "visible": true, "weight": 0.85, "critical": true },
+    "rightWrist": { "position": { "x": 0.56, "y": 0.54 }, "visible": true, "weight": 1, "critical": true },
+    "leftPinky": { "position": { "x": 0.362, "y": 0.628 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightPinky": { "position": { "x": 0.568, "y": 0.548 }, "visible": false, "weight": 0.2, "critical": false },
+    "leftIndex": { "position": { "x": 0.374, "y": 0.632 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightIndex": { "position": { "x": 0.555, "y": 0.548 }, "visible": false, "weight": 0.2, "critical": false },
+    "leftThumb": { "position": { "x": 0.38, "y": 0.618 }, "visible": true, "weight": 0.22, "critical": false },
+    "rightThumb": { "position": { "x": 0.548, "y": 0.535 }, "visible": true, "weight": 0.4, "critical": true },
+    "leftHip": { "position": { "x": 0.46, "y": 0.55 }, "visible": true, "weight": 0.8, "critical": true },
+    "rightHip": { "position": { "x": 0.55, "y": 0.54 }, "visible": true, "weight": 0.9, "critical": true },
+    "leftKnee": { "position": { "x": 0.43, "y": 0.75 }, "visible": true, "weight": 0.45, "critical": false },
+    "rightKnee": { "position": { "x": 0.66, "y": 0.7 }, "visible": true, "weight": 0.35, "critical": false },
+    "leftAnkle": { "position": { "x": 0.4, "y": 0.93 }, "visible": true, "weight": 0.4, "critical": true },
+    "rightAnkle": { "position": { "x": 0.71, "y": 0.82 }, "visible": true, "weight": 0.3, "critical": false },
+    "leftHeel": { "position": { "x": 0.39, "y": 0.958 }, "visible": true, "weight": 0.2, "critical": false },
+    "rightHeel": { "position": { "x": 0.72, "y": 0.837 }, "visible": true, "weight": 0.18, "critical": false },
+    "leftFootIndex": { "position": { "x": 0.37, "y": 0.978 }, "visible": true, "weight": 0.25, "critical": false },
+    "rightFootIndex": { "position": { "x": 0.735, "y": 0.846 }, "visible": true, "weight": 0.18, "critical": false }
+  },
+  "relations": [
+    {
+      "type": "distance",
+      "from": "rightWrist",
+      "to": "rightHip",
+      "target": 0.015,
+      "tolerance": 0.07,
+      "critical": true,
+      "simpleHint": "插兜的手再靠近裤兜一点"
+    },
+    {
+      "type": "distance",
+      "from": "leftWrist",
+      "to": "leftHip",
+      "target": 0.105,
+      "tolerance": 0.1,
+      "critical": true,
+      "simpleHint": "另一只手放在兜外面"
+    },
+    {
+      "type": "vertical-offset",
+      "from": "leftShoulder",
+      "to": "rightShoulder",
+      "target": 0.03,
+      "tolerance": 0.055,
+      "critical": true,
+      "simpleHint": "身体再侧靠一点"
+    },
+    {
+      "type": "horizontal-offset",
+      "from": "nose",
+      "to": "rightHip",
+      "target": 0.01,
+      "tolerance": 0.08,
+      "critical": false,
+      "simpleHint": "上半身再靠近墙一点"
+    },
+    {
+      "type": "distance",
+      "from": "leftShoulder",
+      "to": "leftHip",
+      "target": 0.285,
+      "tolerance": 0.09,
+      "critical": true,
+      "simpleHint": "身体别离开墙面"
+    }
+  ],
+  "guideContour": [
+    { "x": 0.54, "y": 0.065 },
+    { "x": 0.492, "y": 0.105 },
+    { "x": 0.49, "y": 0.18 },
+    { "x": 0.42, "y": 0.245 },
+    { "x": 0.365, "y": 0.44 },
+    { "x": 0.345, "y": 0.63 },
+    { "x": 0.39, "y": 0.65 },
+    { "x": 0.445, "y": 0.57 },
+    { "x": 0.405, "y": 0.92 },
+    { "x": 0.365, "y": 0.985 },
+    { "x": 0.47, "y": 0.975 },
+    { "x": 0.56, "y": 0.58 },
+    { "x": 0.645, "y": 0.69 },
+    { "x": 0.69, "y": 0.84 },
+    { "x": 0.755, "y": 0.86 },
+    { "x": 0.735, "y": 0.8 },
+    { "x": 0.67, "y": 0.66 },
+    { "x": 0.59, "y": 0.54 },
+    { "x": 0.655, "y": 0.39 },
+    { "x": 0.625, "y": 0.235 },
+    { "x": 0.59, "y": 0.18 },
+    { "x": 0.588, "y": 0.105 },
+    { "x": 0.54, "y": 0.065 }
+  ],
+  "tolerancePresets": {
+    "easy": { "matchThreshold": 72, "stableMs": 600, "landmarkDistance": 0.3, "angleDifferenceDeg": 36 },
+    "standard": { "matchThreshold": 82, "stableMs": 600, "landmarkDistance": 0.22, "angleDifferenceDeg": 26 },
+    "precise": { "matchThreshold": 90, "stableMs": 600, "landmarkDistance": 0.15, "angleDifferenceDeg": 18 }
+  },
+  "review": {
+    "status": "needs-review",
+    "notes": "Research-source admission is complete at 5 posts and 5 stable creators. Coordinates and contour are a Posey-owned abstract draft, not traced from research screenshots. MediaPipe landmarks can verify torso tilt and exactly-one-hand-near-pocket only; actual wall contact needs segmentation or scene-boundary calibration. Requires authorized-person calibration across left/right wall sides, straight and bent-leg variants, false-pass tests against free-standing one-hand-pocket poses and railing leans, and real-device acceptance before approval."
+  }
+}

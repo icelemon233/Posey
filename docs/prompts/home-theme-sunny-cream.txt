@@ -1,0 +1,8 @@
+Asset type: portrait cover image for a mobile photography app home screen
+Primary request: create a joyful, airy lifestyle portrait that feels like a sunny weekend photo walk
+Style/medium: premium editorial photography, candid social-photo-app aesthetic, soft natural film grain, realistic but gently art-directed
+Composition: vertical 4:5 framing; one young adult subject in a relaxed standing pose, placed mainly in the right two-thirds with generous calm negative space toward the upper-left; full or three-quarter body; simple sunlit cream studio wall and a faint sheer-curtain shadow
+Lighting: warm morning window light, low contrast, luminous skin tones
+Palette: butter cream, warm ivory, pale apricot, small touches of fresh leaf green
+Text: none
+Constraints: no lettering, no logo, no watermark, no interface mockup, no collage, no dark background, no sexualized pose, no distorted limbs or hands; preserve a soft light-toned background that can sit behind dark UI text

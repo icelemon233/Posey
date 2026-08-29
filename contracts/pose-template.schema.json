@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://posey.local/contracts/pose-template.schema.json",
+  "title": "Posey PoseTemplate",
+  "description": "A reviewed pose reference extracted from an authorized demonstration image or a user-owned import.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "source",
+    "shotType",
+    "landmarks",
+    "relations",
+    "tolerancePresets",
+    "review"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 32 }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "usageStatus", "capturedAt"],
+      "properties": {
+        "platform": { "enum": ["xiaohongshu", "owned", "stock", "user-import", "other"] },
+        "url": { "type": "string", "format": "uri" },
+        "creator": { "type": "string", "maxLength": 120 },
+        "postId": { "type": "string", "maxLength": 160 },
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "usageStatus": {
+          "enum": ["research-only", "licensed", "owned", "user-imported"]
+        },
+        "licenseEvidence": { "type": "string", "maxLength": 500 }
+      }
+    },
+    "shotType": { "enum": ["full-body", "three-quarter", "half-body", "seated"] },
+    "mirrorAllowed": { "type": "boolean", "default": true },
+    "normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin", "scaleBasis"],
+      "properties": {
+        "origin": { "const": "hip-center" },
+        "scaleBasis": { "enum": ["torso-length", "shoulder-width"] },
+        "referenceScale": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "landmarks": {
+      "type": "object",
+      "minProperties": 6,
+      "additionalProperties": { "$ref": "#/$defs/targetLandmark" }
+    },
+    "relations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relation" }
+    },
+    "guideContour": {
+      "description": "Optional low-detail normalized contour used only for visual guidance, not body-shape scoring.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/point" }
+    },
+    "tolerancePresets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["easy", "standard", "precise"],
+      "properties": {
+        "easy": { "$ref": "#/$defs/tolerance" },
+        "standard": { "$ref": "#/$defs/tolerance" },
+        "precise": { "$ref": "#/$defs/tolerance" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["draft", "needs-review", "approved", "rejected"] },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string", "maxLength": 1000 }
+      }
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" }
+      }
+    },
+    "targetLandmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["position", "visible", "weight"],
+      "properties": {
+        "position": { "$ref": "#/$defs/point" },
+        "visible": { "type": "boolean" },
+        "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+        "critical": { "type": "boolean", "default": false }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "from", "to", "target", "tolerance", "critical"],
+      "properties": {
+        "type": {
+          "enum": ["distance", "minimum-distance", "vertical-offset", "horizontal-offset", "above", "below", "left-of", "right-of", "angle", "crosses", "near"]
+        },
+        "from": { "type": "string", "minLength": 1 },
+        "to": { "type": "string", "minLength": 1 },
+        "target": { "type": "number" },
+        "tolerance": { "type": "number", "minimum": 0 },
+        "critical": { "type": "boolean" },
+        "simpleHint": { "type": "string", "maxLength": 24 }
+      }
+    },
+    "tolerance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["matchThreshold", "stableMs"],
+      "properties": {
+        "matchThreshold": { "type": "number", "minimum": 0, "maximum": 100 },
+        "stableMs": { "type": "integer", "minimum": 0 },
+        "landmarkDistance": { "type": "number", "minimum": 0 },
+        "angleDifferenceDeg": { "type": "number", "minimum": 0, "maximum": 180 }
+      }
+    }
+  }
+}

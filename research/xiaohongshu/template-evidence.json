@@ -1,0 +1,84 @@
+{
+  "auditedAt": "2026-08-24",
+  "scope": "Maps the seven source-admitted pose families to traceable research observations. Research screenshots remain research-only and are not product assets.",
+  "admissionRule": { "supported": "At least five distinct note ids from at least three stable creator identities, across at least two contexts, with a saved screenshot for every source." },
+  "templates": [
+    {
+      "templateId": "one-hand-in-pocket", "status": "supported", "reason": "5 qualifying posts from 5 stable creators meet the admission rule.",
+      "relation": "one wrist stays near a trouser pocket while the other hand remains outside", "contexts": ["portrait", "street"],
+      "sources": [
+        { "noteId": "6a6734aa000000001f01e4a8", "creatorDisplay": "模特导师娇哥 07-27", "canonicalUrl": "https://www.xiaohongshu.com/explore/6a6734aa000000001f01e4a8", "evidenceKind": "body-and-screenshot", "excerpt": "拍照上镜干货来喽~ 10个手插口袋简单站姿！；标题与正文明确说明男女通用", "visualObservation": "A female and male model visibly demonstrate one-hand pocket standing poses.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6a6734aa000000001f01e4a8.png" },
+        { "noteId": "65f41df60000000012032e19", "creatorDisplay": "爱穿搭的光洙（五五分版本） 2024-03-15", "canonicalUrl": "https://www.xiaohongshu.com/explore/65f41df60000000012032e19", "evidenceKind": "body-and-screenshot", "excerpt": "作者分享真人男生万能拍照动作，建议利用耳机、手机、椅子、车和走路动作。；当前无遮挡教程拼图中可见‘撑伞插兜’", "visualObservation": "A real male subject visibly shows one hand in a pocket while holding an umbrella.", "screenshotPath": "research/xiaohongshu/screenshots/deep-65f41df60000000012032e19.png" },
+        { "noteId": "675712870000000007008711", "creatorDisplay": "摄影师首宇", "canonicalUrl": "https://www.xiaohongshu.com/explore/675712870000000007008711", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly keeps one hand in a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-675712870000000007008711.png" },
+        { "noteId": "66efec7e0000000026033f60", "creatorDisplay": "邱千Elio", "canonicalUrl": "https://www.xiaohongshu.com/explore/66efec7e0000000026033f60", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly keeps one hand in a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-66efec7e0000000026033f60.png" },
+        { "noteId": "6821a647000000000f0316d7", "creatorDisplay": "宏少希畈", "canonicalUrl": "https://www.xiaohongshu.com/explore/6821a647000000000f0316d7", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly keeps one hand in a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6821a647000000000f0316d7.png" }
+      ]
+    },
+    {
+      "templateId": "hand-near-hair-or-forehead", "status": "supported", "reason": "6 qualifying posts from 5 stable creators meet the admission rule.",
+      "relation": "one wrist stays near the hair or forehead area", "contexts": ["portrait", "street"],
+      "sources": [
+        { "noteId": "6a2bb240000000002201ad7d", "creatorDisplay": "阿柒摄影", "canonicalUrl": "https://www.xiaohongshu.com/explore/6a2bb240000000002201ad7d", "evidenceKind": "screenshot", "visualObservation": "A hand is visibly held near the hair or forehead.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6a2bb240000000002201ad7d.png" },
+        { "noteId": "687e4c2f000000001502042e", "creatorDisplay": "harlan", "canonicalUrl": "https://www.xiaohongshu.com/explore/687e4c2f000000001502042e", "evidenceKind": "screenshot", "visualObservation": "A hand is visibly held near the hair or forehead.", "screenshotPath": "research/xiaohongshu/screenshots/deep-687e4c2f000000001502042e.png" },
+        { "noteId": "68862df3000000001301299e", "creatorDisplay": "harlan", "canonicalUrl": "https://www.xiaohongshu.com/explore/68862df3000000001301299e", "evidenceKind": "screenshot", "visualObservation": "A hand is visibly held near the hair or forehead.", "screenshotPath": "research/xiaohongshu/screenshots/deep-68862df3000000001301299e.png" },
+        { "noteId": "66efec7e0000000026033f60", "creatorDisplay": "邱千Elio", "canonicalUrl": "https://www.xiaohongshu.com/explore/66efec7e0000000026033f60", "evidenceKind": "screenshot", "visualObservation": "A hand is visibly held near the hair or forehead.", "screenshotPath": "research/xiaohongshu/screenshots/deep-66efec7e0000000026033f60.png" },
+        { "noteId": "6597c06f000000001e005f1c", "creatorDisplay": "夏至🌱", "canonicalUrl": "https://www.xiaohongshu.com/explore/6597c06f000000001e005f1c", "evidenceKind": "screenshot", "visualObservation": "A hand is visibly held near the hair or forehead.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6597c06f000000001e005f1c.png" }
+      ]
+    },
+    {
+      "templateId": "crossed-arms-standing", "status": "supported", "reason": "7 qualifying posts from 5 stable creators meet the admission rule.",
+      "relation": "both wrists cross toward the opposite arm", "contexts": ["portrait", "street"],
+      "sources": [
+        { "noteId": "675712870000000007008711", "creatorDisplay": "摄影师首宇", "canonicalUrl": "https://www.xiaohongshu.com/explore/675712870000000007008711", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly crosses both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-675712870000000007008711.png" },
+        { "noteId": "687e4c2f000000001502042e", "creatorDisplay": "harlan", "canonicalUrl": "https://www.xiaohongshu.com/explore/687e4c2f000000001502042e", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly crosses both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-687e4c2f000000001502042e.png" },
+        { "noteId": "68862df3000000001301299e", "creatorDisplay": "harlan", "canonicalUrl": "https://www.xiaohongshu.com/explore/68862df3000000001301299e", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly crosses both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-68862df3000000001301299e.png" },
+        { "noteId": "66efec7e0000000026033f60", "creatorDisplay": "邱千Elio", "canonicalUrl": "https://www.xiaohongshu.com/explore/66efec7e0000000026033f60", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly crosses both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-66efec7e0000000026033f60.png" },
+        { "noteId": "65f5b3310000000012037108", "creatorDisplay": "两个➕ 2024-05-10", "canonicalUrl": "https://www.xiaohongshu.com/explore/65f5b3310000000012037108", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly crosses both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-65f5b3310000000012037108.png" }
+      ]
+    },
+    {
+      "templateId": "back-facing-arms-open", "status": "supported", "reason": "9 qualifying posts from 8 stable creators meet the admission rule.",
+      "relation": "a back-facing subject extends both arms away from the torso", "contexts": ["travel", "beach"],
+      "sources": [
+        { "noteId": "687e4c2f000000001502042e", "creatorDisplay": "harlan", "canonicalUrl": "https://www.xiaohongshu.com/explore/687e4c2f000000001502042e", "evidenceKind": "screenshot", "visualObservation": "The back-facing subject visibly opens both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-687e4c2f000000001502042e.png" },
+        { "noteId": "68a8ad43000000001d035d8d", "creatorDisplay": "晚风杺", "canonicalUrl": "https://www.xiaohongshu.com/explore/68a8ad43000000001d035d8d", "evidenceKind": "screenshot", "visualObservation": "The back-facing subject visibly opens both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-68a8ad43000000001d035d8d.png" },
+        { "noteId": "67be9e54000000000603e049", "creatorDisplay": "是有溢点甜💌", "canonicalUrl": "https://www.xiaohongshu.com/explore/67be9e54000000000603e049", "evidenceKind": "screenshot", "visualObservation": "The back-facing subject visibly opens both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-67be9e54000000000603e049.png" },
+        { "noteId": "65d35f36000000000b0141f8", "creatorDisplay": "上海摄影凌子 2024-02-19", "canonicalUrl": "https://www.xiaohongshu.com/explore/65d35f36000000000b0141f8", "evidenceKind": "screenshot", "visualObservation": "The back-facing subject visibly opens both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-65d35f36000000000b0141f8.png" },
+        { "noteId": "66409d42000000001e01a09c", "creatorDisplay": "求你别追我辽 2024-05-12", "canonicalUrl": "https://www.xiaohongshu.com/explore/66409d42000000001e01a09c", "evidenceKind": "screenshot", "visualObservation": "The back-facing subject visibly opens both arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-66409d42000000001e01a09c.png" }
+      ]
+    },
+    {
+      "templateId": "side-lean-arms-open", "status": "supported", "reason": "5 qualifying posts from 5 stable creators meet the admission rule.",
+      "relation": "the torso leans sideways while both arms extend", "contexts": ["travel", "street"],
+      "sources": [
+        { "noteId": "68b28fd5000000001b035ad6", "creatorDisplay": "矢泽青空", "canonicalUrl": "https://www.xiaohongshu.com/explore/68b28fd5000000001b035ad6", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans sideways with open arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-68b28fd5000000001b035ad6.png" },
+        { "noteId": "687e4c2f000000001502042e", "creatorDisplay": "harlan", "canonicalUrl": "https://www.xiaohongshu.com/explore/687e4c2f000000001502042e", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans sideways with open arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-687e4c2f000000001502042e.png" },
+        { "noteId": "68a8ad43000000001d035d8d", "creatorDisplay": "晚风杺", "canonicalUrl": "https://www.xiaohongshu.com/explore/68a8ad43000000001d035d8d", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans sideways with open arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-68a8ad43000000001d035d8d.png" },
+        { "noteId": "6a22bffa000000003503018a", "creatorDisplay": "Ivan 06-05", "canonicalUrl": "https://www.xiaohongshu.com/explore/6a22bffa000000003503018a", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans sideways with open arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6a22bffa000000003503018a.png" },
+        { "noteId": "66384732000000001e038597", "creatorDisplay": "我的逸达 2024-05-09", "canonicalUrl": "https://www.xiaohongshu.com/explore/66384732000000001e038597", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans sideways with open arms.", "screenshotPath": "research/xiaohongshu/screenshots/deep-66384732000000001e038597.png" }
+      ]
+    },
+    {
+      "templateId": "wall-lean-body-side-one-hand-pocket", "status": "supported", "reason": "5 qualifying posts from 5 stable creators meet the admission rule.",
+      "relation": "the body leans sideways near a wall while exactly one hand stays near a pocket", "contexts": ["wall", "street"],
+      "sources": [
+        { "noteId": "6a803bb8000000002402f990", "creatorDisplay": "燕浩楠Holen", "canonicalUrl": "https://www.xiaohongshu.com/explore/6a803bb8000000002402f990", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans near a wall with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6a803bb8000000002402f990.png" },
+        { "noteId": "69b37a4c000000000800df62", "creatorDisplay": "林不爽", "canonicalUrl": "https://www.xiaohongshu.com/explore/69b37a4c000000000800df62", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans near a wall with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-69b37a4c000000000800df62.png" },
+        { "noteId": "665d41050000000014019444", "creatorDisplay": "庆和祝滴断叉老妈 2024-06-03", "canonicalUrl": "https://www.xiaohongshu.com/explore/665d41050000000014019444", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans near a wall with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-665d41050000000014019444.png" },
+        { "noteId": "67d3d38500000000090142d7", "creatorDisplay": "阿喵不社恐", "canonicalUrl": "https://www.xiaohongshu.com/explore/67d3d38500000000090142d7", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans near a wall with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-67d3d38500000000090142d7.png" },
+        { "noteId": "6897fda400000000230260f1", "creatorDisplay": "秋天君", "canonicalUrl": "https://www.xiaohongshu.com/explore/6897fda400000000230260f1", "evidenceKind": "screenshot", "visualObservation": "The subject visibly leans near a wall with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6897fda400000000230260f1.png" }
+      ]
+    },
+    {
+      "templateId": "standing-look-back-one-hand-pocket", "status": "supported", "reason": "5 qualifying posts from 5 stable creators meet the admission rule.",
+      "relation": "a standing side-facing subject looks back while exactly one hand stays near a pocket", "contexts": ["travel", "street"],
+      "sources": [
+        { "noteId": "66c6ac41000000001f03db0f", "creatorDisplay": "汐汐爱拍照", "canonicalUrl": "https://www.xiaohongshu.com/explore/66c6ac41000000001f03db0f", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly looks back with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-66c6ac41000000001f03db0f.png" },
+        { "noteId": "682be6c0000000002301f088", "creatorDisplay": "懦夫克星 2025-05-20", "canonicalUrl": "https://www.xiaohongshu.com/explore/682be6c0000000002301f088", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly looks back with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-682be6c0000000002301f088.png" },
+        { "noteId": "685bfaa50000000012033f53", "creatorDisplay": "harlan2025-07-11", "canonicalUrl": "https://www.xiaohongshu.com/explore/685bfaa50000000012033f53", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly looks back with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-685bfaa50000000012033f53.png" },
+        { "noteId": "69e774f4000000002202859b", "creatorDisplay": "JaffenChen 04-27", "canonicalUrl": "https://www.xiaohongshu.com/explore/69e774f4000000002202859b", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly looks back with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-69e774f4000000002202859b.png" },
+        { "noteId": "6821a647000000000f0316d7", "creatorDisplay": "宏少希畈", "canonicalUrl": "https://www.xiaohongshu.com/explore/6821a647000000000f0316d7", "evidenceKind": "screenshot", "visualObservation": "The standing subject visibly looks back with one hand at a pocket.", "screenshotPath": "research/xiaohongshu/screenshots/deep-6821a647000000000f0316d7.png" }
+      ]
+    }
+  ]
+}

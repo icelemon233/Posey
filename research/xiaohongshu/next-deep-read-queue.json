@@ -1,0 +1,661 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24",
+  "purpose": "Prioritize which unopened Xiaohongshu candidates to deep-read next. Queue membership is never pose evidence.",
+  "evidenceBoundary": "Titles, search queries, engagement and queue priority cannot qualify a pose family. Only a saved detail-page review may change admission counts.",
+  "sourceSnapshot": {
+    "uniqueCandidates": 2195,
+    "deepReadCount": 291,
+    "observedFamilies": 194
+  },
+  "targetSnapshots": [
+    {
+      "familyId": "standing-one-arm-up",
+      "query": "手部动作拍照姿势",
+      "qualifyingPostCount": 2,
+      "qualifyingCreatorCount": 2,
+      "missingQualifyingPosts": 3,
+      "missingQualifyingCreators": 1,
+      "queuedCandidateCount": 20
+    }
+  ],
+  "count": 20,
+  "items": [
+    {
+      "priority": 1,
+      "noteId": "68ea43ab00000000040108e5",
+      "title": "帮普通人存一些富士直出拍照姿势📸",
+      "creatorDisplay": "小杰爱拍照 2025-10-11",
+      "creatorId": "686bf08b000000001e03bb82",
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/68ea43ab00000000040108e5",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": true,
+        "creatorIsNewForFamily": true,
+        "queryOverlapCount": 0,
+        "titleHintMatch": false,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 2,
+      "noteId": "6a3b82c40000000008032b99",
+      "title": "存一些万能好看的海边拍照姿势📷📷",
+      "creatorDisplay": "听岛屿 06-24",
+      "creatorId": "65f3d11f000000000b033630",
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6a3b82c40000000008032b99",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": true,
+        "creatorIsNewForFamily": true,
+        "queryOverlapCount": 0,
+        "titleHintMatch": false,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 3,
+      "noteId": "6a7482360000000028031575",
+      "title": "赛里木湖｜9组元气旅游拍照姿势合集",
+      "creatorDisplay": "深圳摄影师明仔 08-08",
+      "creatorId": "69af5f3500000000320284dd",
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6a7482360000000028031575",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": true,
+        "creatorIsNewForFamily": true,
+        "queryOverlapCount": 0,
+        "titleHintMatch": false,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 4,
+      "noteId": "67bdba07000000002a00248c",
+      "title": "这就是世界著名手势吗",
+      "creatorDisplay": "消失的蟑螂（方的一批版） 2025-10-30",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/67bdba07000000002a00248c",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 5,
+      "noteId": "6870930d000000002203035e",
+      "title": "不会画手的人只能自己拍n个动作参考…",
+      "creatorDisplay": "开元通宝✨ 2025-07-11",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6870930d000000002203035e",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 6,
+      "noteId": "68a5e223000000001d02df8c",
+      "title": "关于脚球男拍照动作参考素材",
+      "creatorDisplay": "万应锭 2025-08-20",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/68a5e223000000001d02df8c",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 7,
+      "noteId": "68c2aed9000000001d02b42e",
+      "title": "原来这个手势叫“以下范上”？🤔",
+      "creatorDisplay": "足球少年志 2025-09-11",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/68c2aed9000000001d02b42e",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 8,
+      "noteId": "68c98d2a000000001201d835",
+      "title": "下次见面一起拍这个手势📸",
+      "creatorDisplay": "泡芙卷卷💖 2025-09-17",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/68c98d2a000000001201d835",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 9,
+      "noteId": "69acea03000000001503bd1b",
+      "title": "下次见面一起拍这个手势图~太可爱啦！",
+      "creatorDisplay": "小熊软糖 03-08",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/69acea03000000001503bd1b",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 10,
+      "noteId": "69d3435c000000001f001457",
+      "title": "和女友的拍照动作",
+      "creatorDisplay": "momo 04-06",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/69d3435c000000001f001457",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 11,
+      "noteId": "6a424fbb0000000011013d9d",
+      "title": "毕业照用这些选手手势拍照天下谁人不识君？",
+      "creatorDisplay": "开心快乐每一天 06-29",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6a424fbb0000000011013d9d",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 12,
+      "noteId": "6a56f159000000001003eff5",
+      "title": "下次见面一起拍这个手势叭📷",
+      "creatorDisplay": "Hey huan 07-15",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6a56f159000000001003eff5",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 13,
+      "noteId": "6a71c2b30000000035015da0",
+      "title": "摄影师引导没思路｜一句口诀记动作",
+      "creatorDisplay": "爱拍照的瞳镜子 08-04",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6a71c2b30000000035015da0",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 14,
+      "noteId": "6a82ee1c0000000006004d8c",
+      "title": "如何给女朋友拍照手部动作化解拍照尴尬公式照",
+      "creatorDisplay": "废片急救室 昨天 19:18",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6a82ee1c0000000006004d8c",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 15,
+      "noteId": "661e164400000000010043c3",
+      "title": "情侣手势拍照📷合集 你们最喜欢哪组？",
+      "creatorDisplay": "阿金日记 2024-04-16",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/661e164400000000010043c3",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 16,
+      "noteId": "66eae05000000000250333d2",
+      "title": "存一些不露脸的手势拍照姿势！",
+      "creatorDisplay": "社恐小美 2024-09-18",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/66eae05000000000250333d2",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 17,
+      "noteId": "69c61abf000000001f001b1c",
+      "title": "存一些手势拍照姿势吧📷",
+      "creatorDisplay": "猫不吃鱼 03-27",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/69c61abf000000001f001b1c",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 18,
+      "noteId": "69c64cff000000001a020b82",
+      "title": "存一些手势拍照姿势！",
+      "creatorDisplay": "小小摆烂家 03-27",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/69c64cff000000001a020b82",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 19,
+      "noteId": "6a7665cc000000003302c4b6",
+      "title": "存一些有手就能拍的大片手势照姿势！",
+      "creatorDisplay": "糯叽小桃酥 08-08",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/6a7665cc000000003302c4b6",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": true,
+        "titleRiskFlags": [
+          "possible-compilation-title"
+        ]
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    },
+    {
+      "priority": 20,
+      "noteId": "676a58b60000000009017b8b",
+      "title": "牵我的手 ₌᳐･֊･₌᳐੭",
+      "creatorDisplay": "蟹蟹光临2024-12-24",
+      "creatorId": null,
+      "canonicalUrl": "https://www.xiaohongshu.com/explore/676a58b60000000009017b8b",
+      "matchedQueries": [
+        "手部动作拍照姿势"
+      ],
+      "targetFamilyIds": [
+        "standing-one-arm-up"
+      ],
+      "prioritySignals": {
+        "hasStableCreatorId": false,
+        "creatorIsNewForFamily": false,
+        "queryOverlapCount": 0,
+        "titleHintMatch": false,
+        "titleRiskFlags": []
+      },
+      "basis": "search-query-relevance-only",
+      "reviewStatus": "unopened-not-evidence",
+      "requiredChecks": [
+        "open-detail-page",
+        "confirm-visible-real-human-action",
+        "exclude-ai-or-synthetic-imagery",
+        "exclude-unattributed-compilation-or-repost",
+        "record-stable-creator-id",
+        "record-body-visual-relations-and-visible-comments-separately"
+      ]
+    }
+  ]
+}
