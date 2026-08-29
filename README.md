@@ -1,5 +1,12 @@
 # Posey
 
+## License and usage
+
+Posey is proprietary software. All rights are reserved by Chen Wenhao. The
+repository and its assets are provided for private evaluation and demonstration
+only. Copying, modifying, redistributing, commercial use, or creating
+derivative works requires prior written permission.
+
 Posey 是一个移动端姿势参考相机。先从姿势库选择喜欢的线稿，再打开相机照着调整并手动拍摄；也可以上传人物照片，用 AI Pose 生成目标姿势。
 
 ## 当前功能
