@@ -9,6 +9,7 @@ import { PoseyAiPoseIcon } from './components/PoseyAiPoseIcon';
 import { DEFAULT_AI_POSE_PREFERENCES, generateAiPose, type AiPosePreferences, type AiPoseRequest } from './aiPose';
 import { formatAiPoseCompletedAt, MAX_ACTIVE_AI_POSE_JOBS, MAX_COMPLETED_AI_POSE_JOBS, retainRecentCompletedAiPoseJobs } from './aiPoseJobs';
 import { BUILTIN_TEMPLATES } from './data/templates';
+import { publicAssetUrl } from './publicAsset';
 import {
   addNativeBackgroundAiPoseListener,
   cancelNativeBackgroundAiPose,
@@ -445,7 +446,7 @@ export default function App() {
   const [selected, setSelected] = useState<PoseTemplate>(BUILTIN_TEMPLATES[0]);
   const [sourceMode, setSourceMode] = useState<SourceMode>(nativeDebugMode === 'upload-camera' ? 'upload' : 'camera');
   const [shuffleScope, setShuffleScope] = useState<ShuffleScope>(readStoredShuffleScope);
-  const [capturedUrl, setCapturedUrl] = useState(() => nativeDebugMode === 'result' ? '/poses/one-hand-in-pocket.webp' : '');
+  const [capturedUrl, setCapturedUrl] = useState(() => nativeDebugMode === 'result' ? publicAssetUrl('/poses/one-hand-in-pocket.webp') : '');
   const [notice, setNotice] = useState('');
   const [cameraStatus, setCameraStatus] = useState<CameraStatus>('idle');
   const [cameraMessage, setCameraMessage] = useState('');
@@ -467,10 +468,10 @@ export default function App() {
     : nativeDebugMode === 'ai-background'
     ? [{ createdAt: Date.now(), id: 'debug-generating', native: false, state: 'generating', targetTitle: '单手插兜' }]
     : nativeDebugMode === 'ai-completed'
-      ? [{ createdAt: Date.now(), id: 'debug-completed', image: '/poses/one-hand-in-pocket.webp', native: false, state: 'completed', targetTitle: '单手插兜' }]
+      ? [{ createdAt: Date.now(), id: 'debug-completed', image: publicAssetUrl('/poses/one-hand-in-pocket.webp'), native: false, state: 'completed', targetTitle: '单手插兜' }]
       : []);
   const [showAiPoseConsent, setShowAiPoseConsent] = useState(false);
-  const [uploadedSourceImage, setUploadedSourceImage] = useState(() => nativeDebugMode === 'upload-camera' || nativeDebugMode === 'ai-queue' ? '/poses/one-hand-in-pocket.webp' : '');
+  const [uploadedSourceImage, setUploadedSourceImage] = useState(() => nativeDebugMode === 'upload-camera' || nativeDebugMode === 'ai-queue' ? publicAssetUrl('/poses/one-hand-in-pocket.webp') : '');
   const [uploadingSource, setUploadingSource] = useState(false);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle');
   const [homeTheme, setHomeTheme] = useState<HomeTheme>(() => {
@@ -1091,7 +1092,7 @@ export default function App() {
           <div className="camera-shade" />
           <img
             className={activeTemplate.category === 'half' ? 'pose-guide-image pose-guide-image--half' : 'pose-guide-image'}
-            src={`/pose-guides/${activeTemplate.id}.webp`}
+            src={publicAssetUrl(`/pose-guides/${activeTemplate.id}.webp`)}
             alt=""
             aria-label="动漫姿势线稿引导"
           />
@@ -1180,7 +1181,7 @@ export default function App() {
       } as React.CSSProperties}
     >
       <header className="home-header">
-        <img className="home-wordmark" src="/brand/posey-wordmark.png" alt="Posey" />
+        <img className="home-wordmark" src={publicAssetUrl('/brand/posey-wordmark.png')} alt="Posey" />
       </header>
 
       <div key={libraryPage} className="library-page-content">

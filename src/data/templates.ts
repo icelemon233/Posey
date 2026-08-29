@@ -1,4 +1,5 @@
 import type { LandmarkMap, PoseRelation, PoseTemplate } from '../types';
+import { publicAssetUrl } from '../publicAsset';
 import { EXPANDED_TEMPLATES } from './expandedTemplates';
 
 const point = (x: number, y: number, visibility = 1) => ({ x, y, visibility });
@@ -100,4 +101,5 @@ const FEMALE_ILLUSTRATIONS = new Set([
 export const BUILTIN_TEMPLATES: PoseTemplate[] = [...ORIGINAL_TEMPLATES, ...EXPANDED_TEMPLATES].map((template) => ({
   ...template,
   gender: FEMALE_ILLUSTRATIONS.has(template.id) ? 'female' : 'male',
+  illustration: template.illustration ? publicAssetUrl(template.illustration) : template.illustration,
 }));
