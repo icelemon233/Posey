@@ -30,6 +30,8 @@ jobs:
           POSEY_PUBLIC_BUILD: "true"
           POSEY_PUBLIC_BASE: /Posey-web-demo/
         run: npm run build:web
+      - name: Record source revision
+        run: node scripts/write-web-build-marker.mjs
       - name: Configure demo deploy key
         env:
           DEMO_DEPLOY_KEY: ${{ secrets.POSEY_DEMO_DEPLOY_KEY }}
