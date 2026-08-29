@@ -1,4 +1,4 @@
-name: Deploy Posey web
+name: Publish public demo
 
 on:
   push:
@@ -7,19 +7,14 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: public-demo
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,13 +26,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build web showcase
+        env:
+          POSEY_PUBLIC_BUILD: "true"
+          POSEY_PUBLIC_BASE: /Posey-web-demo/
         run: npm run build:web
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Configure demo deploy key
+        env:
+          DEMO_DEPLOY_KEY: ${{ secrets.POSEY_DEMO_DEPLOY_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEMO_DEPLOY_KEY" > ~/.ssh/posey-demo
+          chmod 600 ~/.ssh/posey-demo
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - name: Publish built files only
+        env:
+          GIT_SSH_COMMAND: ssh -i ~/.ssh/posey-demo -o IdentitiesOnly=yes
+        run: |
+          git clone --depth 1 git@github.com:icelemon233/Posey-web-demo.git public-demo
+          git -C public-demo rm -rf .
+          cp -R dist/. public-demo/
+          touch public-demo/.nojekyll
+          git -C public-demo add --all
+          if git -C public-demo diff --cached --quiet; then
+            echo "Demo is already up to date."
+            exit 0
+          fi
+          git -C public-demo config user.name "github-actions[bot]"
+          git -C public-demo config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C public-demo commit -m "Deploy ${GITHUB_SHA::7}"
+          git -C public-demo push origin main

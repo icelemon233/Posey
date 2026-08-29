@@ -17,10 +17,13 @@ function bundledArkApiKey() {
 }
 
 export default defineConfig(({ command }) => {
-  const apiKey = bundledArkApiKey();
-  if (command === 'build' && !apiKey) throw new Error('缺少 doubao-api-key.txt，无法构建 AI Pose 真机包');
+  const isPublicWebBuild = process.env.POSEY_PUBLIC_BUILD === 'true';
+  const apiKey = isPublicWebBuild ? '' : bundledArkApiKey();
+  if (command === 'build' && !isPublicWebBuild && !apiKey) {
+    throw new Error('缺少 doubao-api-key.txt，无法构建 AI Pose 真机包');
+  }
   return {
-    base: process.env.GITHUB_ACTIONS === 'true' ? '/Posey-web/' : '/',
+    base: process.env.POSEY_PUBLIC_BASE || '/',
     plugins: [react()],
     define: {
       'import.meta.env.VITE_ARK_API_KEY': JSON.stringify(apiKey),

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --config vite.config.ts",
     "build": "tsc -b && vite build --config vite.config.ts && node scripts/verify-bundled-ark-key.mjs",
-    "build:web": "tsc -b && vite build --config vite.config.ts",
+    "build:web": "tsc -b && POSEY_PUBLIC_BUILD=true vite build --config vite.config.ts",
     "test": "vitest run",
     "build:pose-families": "node scripts/build-pose-families.mjs",
     "plan:research-queue": "node scripts/plan-research-queue.mjs",
