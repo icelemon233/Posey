@@ -162,9 +162,9 @@ private final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, 
     }
 
     func cancel(jobID: String) {
+        clear(jobID: jobID)
         session.getAllTasks { tasks in
             tasks.filter { $0.taskDescription == jobID }.forEach { $0.cancel() }
-            self.clear(jobID: jobID)
             self.scheduleNext()
         }
     }
@@ -196,10 +196,11 @@ private final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, 
     }
 
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        guard let jobID = task.taskDescription, jobs().contains(where: { $0.id == jobID }) else { return }
+        guard let jobID = task.taskDescription else { return }
         responseLock.lock()
         let data = responseData.removeValue(forKey: task.taskIdentifier) ?? Data()
         responseLock.unlock()
+        guard jobs().contains(where: { $0.id == jobID }) else { return }
 
         defer {
             try? FileManager.default.removeItem(at: jobsDirectory().appendingPathComponent("\(jobID)-request.json"))
@@ -221,7 +222,7 @@ private final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, 
         guard let payload = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let items = payload["data"] as? [[String: Any]],
               let base64 = items.first?["b64_json"] as? String,
-              let imageData = Data(base64Encoded: base64) else {
+              let imageData = Data(base64Encoded: base64), UIImage(data: imageData) != nil else {
             finish(jobID: jobID, state: "failed", resultData: nil, message: "AI Pose 没有返回可用图片")
             return
         }
@@ -257,7 +258,10 @@ private final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, 
             resultFile: resultFile,
             message: message
         )
-        upsert(record)
+        guard upsert(record) else {
+            if let resultFile { try? FileManager.default.removeItem(at: jobsDirectory().appendingPathComponent(resultFile)) }
+            return
+        }
         DispatchQueue.main.async {
             if UIApplication.shared.applicationState != .active {
                 self.scheduleNotification(state: state, jobID: jobID)
@@ -287,16 +291,17 @@ private final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, 
         UNUserNotificationCenter.current().add(request)
     }
 
-    private func upsert(_ record: PoseyAIJobRecord) {
-        let removed = stateQueue.sync { () -> [PoseyAIJobRecord] in
+    private func upsert(_ record: PoseyAIJobRecord) -> Bool {
+        let outcome = stateQueue.sync { () -> (Bool, [PoseyAIJobRecord]) in
             var records = loadRecords()
-            records.removeAll { $0.id == record.id }
-            records.append(record)
+            guard let index = records.firstIndex(where: { $0.id == record.id }) else { return (false, []) }
+            records[index] = record
             let removed = trimCompletedHistory(&records)
             saveRecords(records)
-            return removed
+            return (true, removed)
         }
-        removeFiles(for: removed)
+        removeFiles(for: outcome.1)
+        return outcome.0
     }
 
     private func pruneCompletedHistory() {

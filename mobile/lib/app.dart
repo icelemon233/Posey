@@ -199,6 +199,7 @@ class _PoseyHomeState extends State<PoseyHome> with WidgetsBindingObserver {
         source: ImageSource.gallery,
         maxWidth: 4096,
         maxHeight: 4096,
+        imageQuality: 90,
       );
       if (file == null || !mounted) return;
       await Navigator.push(

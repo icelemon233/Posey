@@ -158,6 +158,7 @@ class _PoseyCameraScreenState extends State<PoseyCameraScreen>
         source: ImageSource.gallery,
         maxWidth: 4096,
         maxHeight: 4096,
+        imageQuality: 90,
       );
       if (file != null && mounted) await widget.onPhoto(file.path, target);
     } catch (_) {
