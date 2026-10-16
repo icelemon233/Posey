@@ -2,7 +2,7 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-The browser demo of Posey's pose library, themes, camera interface, and optional AI pose generation.
+The browser demo of Posey's pose library, themes, camera interface, and AI Pose flow.
 
 [Open the demo](https://icelemon233.github.io/posey/)
 
@@ -25,6 +25,6 @@ npm run preview:web
 
 The build is written to `web/dist/`. Set `POSEY_PUBLIC_BASE` to the hosting subpath when building; GitHub Actions uses `/posey/` for Pages. The workflow tests pull requests and publishes `main` to GitHub Pages.
 
-AI generation uses the service and API key you configure in Settings. Provider credentials are never bundled in the browser build.
+The public demo shows the AI Pose interface without generating images. Provider credentials are never bundled in the browser build. For AI generation, run the Flutter app and configure your own service and API key in Settings.
 
 The web source is maintained here alongside the Flutter app in `../mobile/`. Usage terms are in [LICENSE](../LICENSE).

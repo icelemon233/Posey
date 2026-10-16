@@ -2,7 +2,7 @@
 
 [English](./README.md) | 简体中文
 
-Posey 的浏览器演示，提供姿势库、主题、相机界面和可选的 AI 姿势生成功能。
+Posey 的浏览器演示，提供姿势库、主题、相机界面和 AI Pose 操作流程。
 
 [打开网页演示](https://icelemon233.github.io/posey/)
 
@@ -25,6 +25,6 @@ npm run preview:web
 
 构建产物位于 `web/dist/`。部署到子路径时，构建前设置 `POSEY_PUBLIC_BASE`；GitHub Actions 使用 Pages 的 `/posey/` 路径。工作流会检查拉取请求，并将 `main` 发布到 GitHub Pages。
 
-AI 生成使用你在设置中填写的服务和 API Key。网页构建不会内置服务凭据。
+公开演示展示 AI Pose 界面，不执行图片生成。网页构建不会内置服务凭据。如需 AI 生成，请运行 Flutter 应用，并在设置中填写自己的服务和 API Key。
 
 网页源码与 `../mobile/` 中的 Flutter 应用在同一仓库维护。使用条款见 [LICENSE](../LICENSE)。

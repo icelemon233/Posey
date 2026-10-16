@@ -39,6 +39,6 @@ Open [localhost:4173](http://localhost:4173/). The Flutter app is in `mobile/`; 
 
 ## AI pose images
 
-AI generation is optional. Configure a supported image service, HTTPS address, model, and your own API key in Settings. Confirming a generation sends the selected photo and reference to that service; provider charges may apply.
+AI generation is optional in the mobile app. Configure a supported image service, HTTPS address, model, and your own API key in Settings. Confirming a generation sends the selected photo and reference to that service; provider charges may apply.
 
 Usage terms are in [LICENSE](./LICENSE).
