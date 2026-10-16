@@ -1,6 +1,16 @@
 # Posey Flutter
 
-共享实现与配置说明见 [项目说明](../README.md)。执行 `flutter pub get --enforce-lockfile`、`flutter analyze`、`flutter test`，再 `flutter run`。
+手机端共享实现与配置说明见 [项目说明](../README.md)，模块边界与状态归属见 [架构说明](./ARCHITECTURE.md)。需要 Flutter 3.47.7 和 Dart 3.13.5。
+
+在此目录执行：
+
+```sh
+flutter pub get --enforce-lockfile
+dart format --output=none --set-exit-if-changed lib test
+flutter analyze --no-pub
+flutter test --no-pub --reporter expanded
+flutter run
+```
 
 `.github/workflows/mobile.yml` 构建 Android 开发调试 APK、iOS 未签名模拟器应用；两端共用 Dart 业务与界面，iOS 的后台 URLSession 管理器位于 `ios/Runner/AppDelegate.swift`。
 

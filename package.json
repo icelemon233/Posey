@@ -1,24 +1,12 @@
 {
-  "name": "posey",
+  "name": "posey-research-tools",
   "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run dev --workspace web",
-    "build": "npm run build:web",
-    "build:web": "npm run build --workspace web",
-    "test": "npm run test:web",
-    "test:web": "npm run test --workspace web",
-    "preview:web": "npm run preview --workspace web",
     "build:pose-families": "node scripts/build-pose-families.mjs",
     "plan:research-queue": "node scripts/plan-research-queue.mjs",
     "verify:research": "node scripts/verify-research.mjs",
     "gate:research-completion": "node scripts/research-completion-gate.mjs"
-  },
-  "workspaces": [
-    "web"
-  ],
-  "engines": {
-    "node": ">=22"
   }
 }
