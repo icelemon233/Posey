@@ -35,7 +35,17 @@ class DevicePoseyStorage implements PoseyStorage {
       preferences.getString('posey.flutter.$key');
   @override
   Future<void> write(String key, String value) async {
-    await preferences.setString('posey.flutter.$key', value);
+    try {
+      if (await preferences.setString('posey.flutter.$key', value)) return;
+    } catch (_) {
+      // The plugin can report failure through either its result or an exception.
+    }
+    try {
+      await preferences.reload();
+    } catch (_) {
+      // Keep the failure visible even when the persisted cache cannot be reread.
+    }
+    throw StateError('设备资料未能保存，请重试。');
   }
 
   @override

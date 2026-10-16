@@ -6,10 +6,12 @@ import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:posey/app/posey_bootstrap.dart';
 import 'package:posey/app/posey_dependencies.dart';
 import 'package:posey/core/json.dart';
 import 'package:posey/core/media/photo_library.dart';
+import 'package:posey/core/storage/posey_storage.dart';
 import 'package:posey/features/ai_pose/ai_configuration.dart';
 import 'package:posey/features/ai_pose/ai_job.dart';
 import 'package:posey/features/ai_pose/ai_job_repository.dart';
@@ -25,6 +27,25 @@ import 'package:posey/features/settings/settings_repository.dart';
 import 'package:posey/features/settings/settings_view_model.dart';
 
 import 'support.dart';
+
+class RejectingPreferences implements SharedPreferences {
+  String cached = '["saved"]';
+  @override
+  String? getString(String key) => cached;
+  @override
+  Future<bool> setString(String key, String value) async {
+    cached = value;
+    return false;
+  }
+
+  @override
+  Future<void> reload() async {
+    cached = '["saved"]';
+  }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
 
 class FailingStorage extends TestStorage {
   FailingStorage(super.directory);
@@ -160,6 +181,15 @@ void main() {
     await model.load();
     return model;
   }
+
+  test('device persistence rejects a false result and does not expose the unsaved cache', () async {
+    final device = DevicePoseyStorage(RejectingPreferences(), directory);
+    await expectLater(
+      device.write('favorites', '["unsaved"]'),
+      throwsStateError,
+    );
+    expect(await device.read('favorites'), '["saved"]');
+  });
 
   test('favorite write failures preserve saved state and later commands can recover', () async {
     final model = await library();
