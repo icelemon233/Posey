@@ -1,20 +1,20 @@
-# Posey
+<p align="center"><img src="./docs/brand/exports/posey-app-icon/128.png" alt="Posey" width="96"></p>
 
-[English](./README.md) | 简体中文
+<h1 align="center">Posey</h1>
 
-面向 Android 和 iOS 的姿势参考相机。找到喜欢的姿势，拍摄时对照构图；参考图只用于预览，不会出现在成片中。
+<p align="center"><a href="./README.md">English</a> · 简体中文</p>
 
-## 可以做什么
+面向 Android 和 iOS 的姿势参考相机。
 
-- 按分类浏览姿势参考，搜索并收藏喜欢的姿势。
-- 调整参考图透明度，按需要镜像显示。
-- 使用相机控制、构图网格，或导入已有照片。
+选择参考姿势，调整透明度或镜像显示，再对照构图拍照。保存的成片不会带上参考图。
+
+- 按分类浏览、搜索姿势，收藏喜欢的参考。
+- 使用相机控制和构图网格，或导入照片。
 - 查看成片，保存到系统相册。
-- 选择配置自己的服务，生成 AI 姿势图片。
 
-## 从源码体验
+## 在手机上运行
 
-准备 Flutter 3.47.7、Dart 3.13.5 和 Android 开发工具；运行 iOS 版本需要 macOS 和 Xcode。
+需要 Flutter 3.47.7、Dart 3.13.5 和 Android 开发工具。构建 iOS 版本需要 macOS 和 Xcode。
 
 ```sh
 cd mobile
@@ -22,12 +22,10 @@ flutter pub get --enforce-lockfile
 flutter run
 ```
 
-相机与相册功能请使用实体手机体验，并在提示时授予所需权限。
+相机与相册功能请在实体手机上体验，并按提示授予访问权限。
 
-## 可选的 AI 功能
+## AI 姿势图片
 
-在设置中填写受支持 AI 服务的 API Key、HTTPS 服务地址与图像模型。确认生成后，所选照片和参考图会发送到该服务，服务商可能按用量收费。
-
-## 许可证
+AI 生成为可选功能。在设置中填写受支持图像服务的 HTTPS 地址、模型和自己的 API Key。确认生成后，所选照片和参考图会发送到该服务，服务商可能按用量收费。
 
 使用条款见 [LICENSE](./LICENSE)。

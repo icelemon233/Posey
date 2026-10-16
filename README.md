@@ -1,20 +1,20 @@
-# Posey
+<p align="center"><img src="./docs/brand/exports/posey-app-icon/128.png" alt="Posey" width="96"></p>
 
-English | [简体中文](./README.zh-CN.md)
+<h1 align="center">Posey</h1>
 
-A pose-reference camera app for Android and iOS. Find a pose you like, use it as a guide while framing a photo, and keep the finished shot free of the reference overlay.
+<p align="center">English · <a href="./README.zh-CN.md">简体中文</a></p>
 
-## What you can do
+A pose-reference camera for Android and iOS.
 
-- Browse pose references by category, search, and save favorites.
-- Adjust the reference's transparency and mirror it to suit the shot.
-- Use camera controls, a composition grid, or an imported photo.
-- Review photos and save them to the system gallery.
-- Optionally generate AI pose images with your own service configuration.
+Choose a reference, adjust its transparency or mirror it, and use it to frame your photo. The reference stays out of the saved shot.
 
-## Try it from source
+- Browse categories, search for poses, and save favorites.
+- Use camera controls and a composition grid, or import a photo.
+- Review shots and save them to the system gallery.
 
-Use Flutter 3.47.7 with Dart 3.13.5, plus Android tooling or macOS with Xcode for iOS.
+## Run on a phone
+
+Use Flutter 3.47.7 and Dart 3.13.5 with Android tooling. iOS builds require macOS and Xcode.
 
 ```sh
 cd mobile
@@ -22,12 +22,10 @@ flutter pub get --enforce-lockfile
 flutter run
 ```
 
-Use a physical phone to try the camera and gallery features, and grant the required permissions when prompted.
+Use a physical phone for camera and gallery features. Grant access when the app requests it.
 
-## Optional AI features
+## AI pose images
 
-In Settings, provide your own API key, HTTPS service address, and image model for the supported AI service. When you confirm generation, the selected photo and reference are sent to that service. Provider usage charges may apply.
+AI generation is optional. Configure a supported image service, HTTPS address, model, and your own API key in Settings. Confirming a generation sends the selected photo and reference to that service; provider charges may apply.
 
-## License
-
-See [LICENSE](./LICENSE) for usage terms.
+Usage terms are in [LICENSE](./LICENSE).
