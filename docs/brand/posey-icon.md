@@ -30,6 +30,6 @@
 - `public/brand/posey-mark-mono.svg`：单色源文件。
 - `public/brand/posey-app-icon.svg`：1024 px App Icon 矢量源。
 - `public/brand/posey-wordmark.png`：首页顶部透明手写字标。
-- `ios/App/App/Assets.xcassets/AppIcon.appiconset/`：iOS 图标。
-- `android/app/src/main/res/`：Android 普通、圆形、自适应和单色图标。
+- `mobile/ios/Runner/Assets.xcassets/AppIcon.appiconset/`：iOS 图标。
+- `mobile/android/app/src/main/res/`：Android 普通、圆形、自适应和单色图标。
 - `docs/brand/exports/posey-mark/`：16、18、22、32、128、512 px 精确导出。

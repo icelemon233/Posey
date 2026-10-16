@@ -31,15 +31,21 @@ jobs:
           cache: true
       - run: flutter pub get --enforce-lockfile
       - run: dart format --output=none --set-exit-if-changed lib test
-      - run: flutter analyze
-      - run: flutter test --reporter expanded
-      - run: flutter build apk --debug
+      - run: flutter analyze --no-pub
+      - run: flutter test --no-pub --reporter expanded
+      - run: flutter build apk --debug --no-pub
+      - run: flutter build apk --release --no-pub
       - name: Hash debug package
         run: sha256sum build/app/outputs/flutter-apk/app-debug.apk
       - uses: actions/upload-artifact@v6
         with:
           name: posey-android-debug
           path: mobile/build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 7
+      - uses: actions/upload-artifact@v6
+        with:
+          name: posey-android-release-preview
+          path: mobile/build/app/outputs/flutter-apk/app-release.apk
           retention-days: 7
   ios:
     runs-on: macos-26
@@ -55,7 +61,7 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get --enforce-lockfile
-      - run: flutter build ios --simulator --debug --no-codesign
+      - run: flutter build ios --simulator --debug --no-codesign --no-pub
       - run: tar -czf posey-ios-simulator.tar.gz -C build/ios/iphonesimulator Runner.app
       - uses: actions/upload-artifact@v6
         with:

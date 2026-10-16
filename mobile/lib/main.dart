@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'app.dart';
-import 'controller.dart';
-import 'services.dart';
+import 'package:posey/app/posey_bootstrap.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  final controller = PoseyController(
-    await DevicePoseyStorage.open(),
-    ArkAiPoseService(),
-  );
-  runApp(PoseyApp(controller: controller));
-  await controller.initialize();
+  runApp(const PoseyBootstrap());
 }

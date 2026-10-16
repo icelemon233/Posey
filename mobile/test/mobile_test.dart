@@ -9,10 +9,14 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:image/image.dart' as image;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:posey/app.dart';
-import 'package:posey/controller.dart';
-import 'package:posey/models.dart';
-import 'package:posey/services.dart';
+
+import 'package:posey/app/posey_app.dart';
+import 'package:posey/app/posey_dependencies.dart';
+import 'package:posey/core/json.dart';
+import 'package:posey/core/storage/posey_storage.dart';
+import 'package:posey/features/ai_pose/ai_configuration.dart';
+import 'package:posey/features/ai_pose/ai_job.dart';
+import 'package:posey/features/ai_pose/ark_ai_pose_service.dart';
 
 import 'support.dart';
 
@@ -21,7 +25,7 @@ void main() {
   late Directory temp;
   late TestStorage storage;
   late DelayedService service;
-  late PoseyController controller;
+  late PoseyDependencies dependencies;
   final photo = Uint8List.fromList(
     image.encodeJpg(image.Image(width: 12, height: 16)),
   );
@@ -29,12 +33,12 @@ void main() {
     temp = await Directory.systemTemp.createTemp('posey-test-');
     storage = TestStorage(temp);
     service = DelayedService();
-    controller = PoseyController(storage, service);
-    await controller.initialize();
-    controller.configuration = const AiConfiguration(key: 'test-key');
+    storage.key = 'test-key';
+    dependencies = PoseyDependencies(storage: storage, aiService: service);
+    await dependencies.initialize();
   });
   tearDown(() async {
-    controller.dispose();
+    dependencies.dispose();
     await temp.delete(recursive: true);
   });
   Future<void> flush() async {
@@ -43,18 +47,31 @@ void main() {
     }
   }
 
+  test('favorite commands persist before publishing saved state', () async {
+    final id = dependencies.library.templates.first.id;
+    await dependencies.library.toggleFavorite(id);
+    expect(dependencies.library.favorites, contains(id));
+    expect(jsonDecode(storage.data['favorites']!), contains(id));
+  });
   test('all fifty native templates and reference images load with source provenance', () async {
-    expect(controller.templates.length, 50);
-    expect(controller.templates.map((pose) => pose.id).toSet().length, 50);
+    expect(dependencies.library.templates.length, 50);
     expect(
-      controller.templates.where((pose) => pose.gender == 'male').length,
+      dependencies.library.templates.map((pose) => pose.id).toSet().length,
+      50,
+    );
+    expect(
+      dependencies.library.templates
+          .where((pose) => pose.gender == 'male')
+          .length,
       23,
     );
     expect(
-      controller.templates.where((pose) => pose.gender == 'female').length,
+      dependencies.library.templates
+          .where((pose) => pose.gender == 'female')
+          .length,
       27,
     );
-    for (final pose in controller.templates) {
+    for (final pose in dependencies.library.templates) {
       expect(
         (await rootBundle.load(pose.illustration)).lengthInBytes,
         greaterThan(0),
@@ -66,35 +83,42 @@ void main() {
     service.prepareGate = Completer<void>();
     final tasks = List.generate(
       3,
-      (_) =>
-          controller.enqueue(controller.templates.first, photo, consent: true),
+      (_) => dependencies.jobs.enqueue(
+        dependencies.library.templates.first,
+        photo,
+        consent: true,
+      ),
     );
-    expect(controller.activeJobs, 3);
+    expect(dependencies.jobs.activeJobs, 3);
     await expectLater(
-      controller.enqueue(controller.templates.first, photo, consent: true),
+      dependencies.jobs.enqueue(
+        dependencies.library.templates.first,
+        photo,
+        consent: true,
+      ),
       throwsStateError,
     );
     service.prepareGate!.complete();
     await Future.wait(tasks);
     await flush();
-    expect(controller.activeJobs, 3);
+    expect(dependencies.jobs.activeJobs, 3);
     expect(service.pending.length, 1);
     final id = service.pending.keys.first;
-    await controller.cancel(id);
+    await dependencies.jobs.cancel(id);
     service.pending[id]!.complete(photo);
     await flush();
-    final job = controller.jobs.firstWhere((job) => job.id == id);
+    final job = dependencies.jobs.jobs.firstWhere((job) => job.id == id);
     expect(job.state, AiJobState.cancelled);
     expect(job.resultPath, isNull);
     expect(service.cancelled, contains(id));
-    expect(controller.activeJobs, 2);
+    expect(dependencies.jobs.activeJobs, 2);
   });
   test('queued jobs freeze their credentials and prompt, and metadata never contains keys', () async {
-    final first = controller.templates.first;
-    await controller.enqueue(first, photo, consent: true);
+    final first = dependencies.library.templates.first;
+    await dependencies.jobs.enqueue(first, photo, consent: true);
     await flush();
-    await controller.enqueue(first, photo, consent: true);
-    await controller.saveConfiguration(
+    await dependencies.jobs.enqueue(first, photo, consent: true);
+    await dependencies.settings.saveConfiguration(
       const AiConfiguration(key: 'different-key'),
       const AiPreferences(face: 'natural'),
     );
@@ -110,7 +134,7 @@ void main() {
     expect(storage.data.values.join(), isNot(contains('different-key')));
     expect(storage.key, 'different-key');
     expect(
-      controller.jobs
+      dependencies.jobs.jobs
           .where((job) => job.state == AiJobState.completed)
           .single
           .resultPath,
@@ -119,7 +143,11 @@ void main() {
   });
   test('no consent means no photo copy and no remote preparation', () async {
     await expectLater(
-      controller.enqueue(controller.templates.first, photo, consent: false),
+      dependencies.jobs.enqueue(
+        dependencies.library.templates.first,
+        photo,
+        consent: false,
+      ),
       throwsStateError,
     );
     expect(service.prepares, 0);
@@ -172,8 +200,8 @@ void main() {
       state: AiJobState.generating,
     );
     storage.data['jobs'] = encodeJobs([job]);
-    await controller.initialize();
-    expect(controller.jobs.single.state, AiJobState.failed);
+    await dependencies.initialize();
+    expect(dependencies.jobs.jobs.single.state, AiJobState.failed);
     expect(service.requests, isEmpty);
   });
   test(
@@ -219,9 +247,9 @@ void main() {
     });
     final api = ArkAiPoseService(clientFactory: () => transport);
     final request = await api.prepare(
-      controller.configuration,
+      dependencies.settings.configuration,
       const AiPreferences(),
-      controller.templates.first,
+      dependencies.library.templates.first,
       photo,
     );
     expect(await api.generate('contract', request), photo);
@@ -247,13 +275,14 @@ void main() {
   testWidgets(
     'favorite and search flows render native reference images and preserve choices',
     (tester) async {
-      await tester.pumpWidget(PoseyApp(controller: controller));
+      await tester.pumpWidget(PoseyApp(dependencies: dependencies));
       await tester.pumpAndSettle();
       expect(find.text('50 个姿势'), findsOneWidget);
-      final first = controller.templates.first;
+      final first = dependencies.library.templates.first;
       await tester.tap(find.byKey(Key('favorite-${first.id}')));
+      await tester.runAsync(() => Future<void>.value());
       await tester.pumpAndSettle();
-      expect(controller.favorites, contains(first.id));
+      expect(dependencies.library.favorites, contains(first.id));
       await tester.tap(find.text('收藏'));
       await tester.pumpAndSettle();
       expect(find.text('1 个姿势'), findsOneWidget);

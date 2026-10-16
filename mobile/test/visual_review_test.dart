@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:posey/app.dart';
-import 'package:posey/controller.dart';
+import 'package:posey/app/posey_app.dart';
+import 'package:posey/features/settings/ai_settings_screen.dart';
+import 'package:posey/app/posey_dependencies.dart';
 
 import 'support.dart';
 
@@ -37,14 +38,14 @@ void main() {
           )..addFont(Future.value(ByteData.sublistView(bytes)))).load();
         }
       });
-      late PoseyController controller;
+      late PoseyDependencies dependencies;
       final boundary = GlobalKey();
       await tester.runAsync(() async {
-        controller = PoseyController(
-          TestStorage(Directory(destination!)),
-          DelayedService(),
+        dependencies = PoseyDependencies(
+          storage: TestStorage(Directory(destination!)),
+          aiService: DelayedService(),
         );
-        await controller.initialize();
+        await dependencies.initialize();
       });
       Future<void> capture(String name) async {
         await tester.runAsync(
@@ -67,11 +68,11 @@ void main() {
       await tester.pumpWidget(
         RepaintBoundary(
           key: boundary,
-          child: PoseyApp(controller: controller),
+          child: PoseyApp(dependencies: dependencies),
         ),
       );
       await capture('posey-library');
-      await tester.tap(find.text(controller.templates.first.title));
+      await tester.tap(find.text(dependencies.library.templates.first.title));
       await capture('posey-detail');
       await tester.pumpWidget(
         RepaintBoundary(
@@ -80,13 +81,13 @@ void main() {
             key: const Key('settings-review'),
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'Roboto', useMaterial3: true),
-            home: AiSettingsScreen(controller: controller),
+            home: AiSettingsScreen(viewModel: dependencies.settings),
           ),
         ),
       );
       await capture('posey-settings');
       await tester.pumpWidget(const SizedBox.shrink());
-      controller.dispose();
+      dependencies.dispose();
     },
     skip: destination == null,
   );
