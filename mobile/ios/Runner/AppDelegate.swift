@@ -35,14 +35,15 @@ private final class PoseyFlutterBackgroundBridge {
       let manager = PoseyBackgroundAIManager.shared
       switch call.method {
       case "start":
-        guard let source = arguments["sourceImage"] as? String,
+        guard let jobID = arguments["jobId"] as? String, UUID(uuidString: jobID) != nil,
+          let source = arguments["sourceImage"] as? String,
           let guide = arguments["guideImage"] as? String, let prompt = arguments["prompt"] as? String,
           let key = arguments["apiKey"] as? String, let endpoint = arguments["endpoint"] as? String,
           let model = arguments["model"] as? String, let title = arguments["targetTitle"] as? String else {
           result(FlutterError(code: "invalid_job", message: "AI Pose 任务信息不完整", details: nil)); return
         }
         do {
-          let id = try manager.start(sourceImage: source, guideImage: guide, prompt: prompt,
+          let id = try manager.start(jobID: jobID, sourceImage: source, guideImage: guide, prompt: prompt,
             apiKey: key, endpoint: endpoint, model: model, targetTitle: title)
           result(["jobId": id])
         } catch { result(FlutterError(code: "start_failed", message: error.localizedDescription, details: nil)) }
@@ -111,12 +112,11 @@ private final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, 
         scheduleNext()
     }
 
-    func start(sourceImage: String, guideImage: String, prompt: String, apiKey: String, endpoint: String, model: String, targetTitle: String) throws -> String {
+    func start(jobID: String, sourceImage: String, guideImage: String, prompt: String, apiKey: String, endpoint: String, model: String, targetTitle: String) throws -> String {
         guard let endpointURL = URL(string: endpoint), endpointURL.scheme == "https" else {
             throw NSError(domain: "PoseyBackgroundAI", code: 1, userInfo: [NSLocalizedDescriptionKey: "AI Pose 服务地址无效"])
         }
 
-        let jobID = UUID().uuidString
         let body: [String: Any] = [
             "model": model,
             "prompt": prompt,

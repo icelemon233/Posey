@@ -218,8 +218,14 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
               ),
               NavigationDestination(
                 icon: Badge(
-                  isLabelVisible: dependencies.jobs.activeJobs > 0,
-                  label: Text('${dependencies.jobs.activeJobs}'),
+                  isLabelVisible:
+                      dependencies.jobs.loadError != null ||
+                      dependencies.jobs.activeJobs > 0,
+                  label: Text(
+                    dependencies.jobs.loadError != null
+                        ? '!'
+                        : '${dependencies.jobs.activeJobs}',
+                  ),
                   child: const Icon(Icons.auto_awesome_outlined),
                 ),
                 label: 'AI Pose',

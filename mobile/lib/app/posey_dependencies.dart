@@ -52,11 +52,7 @@ class PoseyDependencies extends ChangeNotifier {
     error = null;
     _notify();
     try {
-      await Future.wait([
-        library.load(),
-        settings.load(),
-        _jobsRepository.load(),
-      ]);
+      await Future.wait([library.load(), settings.load(), _loadJobs()]);
       if (!_disposed) _state = AppLoadState.ready;
     } catch (failure) {
       if (!_disposed) {
@@ -65,6 +61,14 @@ class PoseyDependencies extends ChangeNotifier {
       }
     }
     _notify();
+  }
+
+  Future<void> _loadJobs() async {
+    try {
+      await _jobsRepository.load();
+    } catch (_) {
+      // AI history has its own recovery UI; offline photography stays available.
+    }
   }
 
   @override

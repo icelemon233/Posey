@@ -24,40 +24,79 @@ class AiJobRepository extends ChangeNotifier {
   List<AiJob> get jobs =>
       List.unmodifiable(_jobs.map((job) => AiJob.fromJson(job.toJson())));
   String? syncError;
+  String? loadError, persistenceError;
   bool _disposed = false, _running = false, _nativeSyncing = false;
   Timer? _poll;
   int _enqueuing = 0;
   int _nativeRevision = 0;
   final _prepared = <String, PreparedAiRequest>{};
+  final _retryReservations = <String>{};
+  final _startingNative = <String>{};
   Future<void> _persistTail = Future.value();
   int get activeJobs => _jobs.where((job) => job.active).length + _enqueuing;
   bool get backgroundSupported => native.supported;
+  bool isRetrying(String id) =>
+      _retryReservations.contains(id) ||
+      _jobs.any((job) => job.retryOf == id && job.active);
   void _notify() {
     if (!_disposed) notifyListeners();
   }
 
   Future<void> load() async {
-    final raw = jsonDecode(await storage.read('jobs') ?? '[]');
-    if (raw is! List) throw const FormatException('AI 任务记录格式无效');
-    _jobs = raw.map((value) => AiJob.fromJson(objectOf(value))).toList();
-    if (_disposed) return;
+    _nativeRevision++;
     _poll?.cancel();
-    if (native.supported) {
-      await syncNative();
-      if (!_disposed) {
+    _poll = null;
+    try {
+      final raw = jsonDecode(await storage.read('jobs') ?? '[]');
+      if (raw is! List) throw const FormatException('AI 任务记录格式无效');
+      final restored = raw
+          .map((value) => AiJob.fromJson(objectOf(value)))
+          .toList();
+      if (restored.map((job) => job.id).toSet().length != restored.length) {
+        throw const FormatException('AI 任务记录包含重复编号');
+      }
+      if (_disposed) return;
+      _jobs = restored;
+      if (native.supported) {
+        await syncNative();
+      } else {
+        for (final job in _jobs.where((job) => job.active)) {
+          job.state = AiJobState.failed;
+          job.message = '上次任务被中断，确认后可以重试。';
+        }
+      }
+      await _persistJobs();
+      loadError = null;
+      if (native.supported && !_disposed) {
         _poll = Timer.periodic(
           const Duration(seconds: 3),
           (_) => unawaited(syncNative()),
         );
       }
-    } else {
-      for (final job in _jobs.where((job) => job.active)) {
-        job.state = AiJobState.failed;
-        job.message = '上次任务被中断，确认后可以重试。';
-      }
+    } catch (_) {
+      loadError = 'AI 任务记录暂时无法读取。可以重新加载，或备份后重置任务记录。';
+      rethrow;
+    } finally {
+      _notify();
     }
-    await _persistJobs();
-    _notify();
+  }
+
+  Future<void> resetUnreadableHistory() async {
+    if (loadError == null) return;
+    final original = await storage.read('jobs');
+    if (original != null) {
+      await storage.write('jobs-recovery-${const Uuid().v4()}', original);
+    }
+    await storage.write('jobs', '[]');
+    await load();
+  }
+
+  Future<void> retryPersistence() async {
+    try {
+      await _persistJobs();
+    } finally {
+      _notify();
+    }
   }
 
   Future<void> enqueue(
@@ -66,17 +105,22 @@ class AiJobRepository extends ChangeNotifier {
     required bool consent,
     required AiConfiguration configuration,
     required AiPreferences preferences,
+    String? retryOf,
   }) async {
     if (_disposed) throw StateError('任务列表已关闭');
+    if (loadError != null) throw StateError('请先在 AI Pose 页面恢复任务记录，再开始生成。');
     if (!consent) throw StateError('请先确认将这张照片和姿势参考发送给 AI 服务');
     configuration.validate();
     if (activeJobs >= maxActiveJobs) {
       throw StateError('最多同时保留 3 个进行中的任务，请等待或取消一个任务');
     }
+    if (retryOf != null && isRetrying(retryOf)) return;
+    if (retryOf != null) _retryReservations.add(retryOf);
     _enqueuing++;
     _notify();
     bool reserved = true;
     String? source;
+    String? startingNativeId;
     try {
       // Freeze model, credentials and preferences before this job enters the queue.
       final prepared = await service.prepare(
@@ -91,46 +135,45 @@ class AiJobRepository extends ChangeNotifier {
         image,
       );
       if (_disposed) throw StateError('任务列表已关闭');
+      final id = const Uuid().v4();
+      final job = AiJob(
+        id: id,
+        targetId: target.id,
+        targetTitle: target.title,
+        sourcePath: source,
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        retryOf: retryOf,
+      );
       if (native.supported) {
-        final id = await native.start(prepared);
-        final index = _jobs.indexWhere((job) => job.id == id);
-        final synced = index < 0 ? null : _jobs[index];
-        final job = AiJob(
-          id: id,
-          targetId: target.id,
-          targetTitle: target.title,
-          sourcePath: source,
-          createdAt: synced?.createdAt ?? DateTime.now().millisecondsSinceEpoch,
-          state: synced?.state ?? AiJobState.queued,
-          resultPath: synced?.resultPath,
-          completedAt: synced?.completedAt,
-          message: synced?.message,
-        );
-        if (index < 0) {
-          _jobs.insert(0, job);
-        } else {
-          _jobs[index] = job;
+        startingNativeId = id;
+        _startingNative.add(id);
+        _nativeRevision++;
+      }
+      // A rejected local commit must never leave runnable or native work behind.
+      await _persistJobs(adding: job);
+      _enqueuing--;
+      reserved = false;
+      if (_disposed ||
+          job.state == AiJobState.cancelled ||
+          !_jobs.contains(job)) {
+        job.state = AiJobState.cancelled;
+        await _tryPersistJobs();
+        throw StateError(_disposed ? '任务列表已关闭' : '任务已取消');
+      }
+      if (native.supported) {
+        try {
+          final accepted = await native.start(prepared, jobId: id);
+          if (accepted != id) throw const FormatException('后台任务编号不一致');
+          _nativeRevision++;
+        } catch (failure) {
+          job.state = AiJobState.failed;
+          job.message = _message(failure);
+          await _tryPersistJobs();
+          rethrow;
         }
-        _enqueuing--;
-        reserved = false;
-        await _persistJobs();
         await syncNative();
       } else {
-        final id = const Uuid().v4();
         _prepared[id] = prepared;
-        _jobs.insert(
-          0,
-          AiJob(
-            id: id,
-            targetId: target.id,
-            targetTitle: target.title,
-            sourcePath: source,
-            createdAt: DateTime.now().millisecondsSinceEpoch,
-          ),
-        );
-        _enqueuing--;
-        reserved = false;
-        await _persistJobs();
         unawaited(_process());
       }
     } catch (_) {
@@ -140,6 +183,8 @@ class AiJobRepository extends ChangeNotifier {
       rethrow;
     } finally {
       if (reserved) _enqueuing--;
+      if (retryOf != null) _retryReservations.remove(retryOf);
+      if (startingNativeId != null) _startingNative.remove(startingNativeId);
       _notify();
     }
     _notify();
@@ -151,14 +196,18 @@ class AiJobRepository extends ChangeNotifier {
     try {
       while (!_disposed) {
         final pending = _jobs
-            .where((job) => job.state == AiJobState.queued)
+            .where(
+              (job) =>
+                  job.state == AiJobState.queued &&
+                  _prepared.containsKey(job.id),
+            )
             .toList();
         if (pending.isEmpty) break;
         final job = pending.last;
-        job.state = AiJobState.generating;
-        await _persistJobs();
-        _notify();
         try {
+          job.state = AiJobState.generating;
+          await _persistJobs();
+          _notify();
           final prepared = _prepared.remove(job.id);
           if (prepared == null) throw StateError('任务已中断，请确认后重试');
           if (_disposed || job.state == AiJobState.cancelled) continue;
@@ -175,16 +224,14 @@ class AiJobRepository extends ChangeNotifier {
           job.completedAt = DateTime.now().millisecondsSinceEpoch;
           job.state = AiJobState.completed;
         } catch (failure) {
+          _prepared.remove(job.id);
           if (_disposed) continue;
           if (job.state != AiJobState.cancelled) {
             job.state = AiJobState.failed;
-            job.message = failure.toString().replaceFirst(
-              RegExp(r'^(Bad state: |FormatException: )'),
-              '',
-            );
+            job.message = _message(failure);
           }
         }
-        await _persistJobs();
+        await _tryPersistJobs();
         _notify();
       }
     } finally {
@@ -192,17 +239,45 @@ class AiJobRepository extends ChangeNotifier {
     }
   }
 
-  Future<void> _persistJobs() =>
+  String _message(Object failure) => failure.toString().replaceFirst(
+    RegExp(r'^(Bad state: |FormatException: )'),
+    '',
+  );
+
+  Future<void> _tryPersistJobs() async {
+    try {
+      await _persistJobs();
+    } catch (_) {
+      // Keep the result or terminal failure visible; saving again never resubmits AI.
+    }
+  }
+
+  Future<void> _persistJobs({AiJob? adding}) =>
       _persistTail = _persistTail.catchError((Object _) {}).then((_) async {
-        final retained = retainRecentJobs(_jobs);
-        for (final job in _jobs.where((job) => !retained.contains(job))) {
-          await storage.deleteOwnedFile(job.sourcePath);
-          if (job.resultPath != null) {
-            await storage.deleteOwnedFile(job.resultPath!);
+        final candidates = [?adding, ..._jobs];
+        final retained = retainRecentJobs(candidates);
+        final removed = candidates
+            .where((job) => !retained.contains(job))
+            .toList();
+        try {
+          await storage.write('jobs', encodeJobs(retained));
+        } catch (_) {
+          persistenceError = '任务记录未能保存。请重试保存，避免关闭应用后丢失本次记录。';
+          rethrow;
+        }
+        if (adding != null) _jobs.insert(0, adding);
+        _jobs.removeWhere(removed.contains);
+        persistenceError = null;
+        for (final job in removed) {
+          try {
+            await storage.deleteOwnedFile(job.sourcePath);
+            if (job.resultPath != null) {
+              await storage.deleteOwnedFile(job.resultPath!);
+            }
+          } catch (_) {
+            // A cleanup failure must not turn an already committed submission into an error.
           }
         }
-        _jobs = retained;
-        await storage.write('jobs', encodeJobs(_jobs));
       });
 
   Future<void> cancel(String id) async {
@@ -213,8 +288,11 @@ class AiJobRepository extends ChangeNotifier {
     _prepared.remove(id);
     service.cancel(id);
     if (native.supported) await native.cancel(id);
-    await _persistJobs();
-    _notify();
+    try {
+      await _persistJobs();
+    } finally {
+      _notify();
+    }
   }
 
   Future<void> clear(String id) async {
@@ -224,10 +302,17 @@ class AiJobRepository extends ChangeNotifier {
     final job = matches.first;
     if (job.active) await cancel(id);
     if (native.supported) await native.clear(id);
+    final index = _jobs.indexOf(job);
     _jobs.removeWhere((item) => item.id == id);
+    try {
+      await _persistJobs();
+    } catch (_) {
+      _jobs.insert(index.clamp(0, _jobs.length), job);
+      _notify();
+      rethrow;
+    }
     await storage.deleteOwnedFile(job.sourcePath);
     if (job.resultPath != null) await storage.deleteOwnedFile(job.resultPath!);
-    await _persistJobs();
     _notify();
   }
 
@@ -292,6 +377,17 @@ class AiJobRepository extends ChangeNotifier {
         job.message = message;
         job.completedAt = completedAt;
         job.resultPath = resultPath;
+      }
+      if (_disposed || revision != _nativeRevision) return;
+      final nativeIds = records.map((record) => record['id']).toSet();
+      for (final job in _jobs.where(
+        (job) =>
+            job.active &&
+            !nativeIds.contains(job.id) &&
+            !_startingNative.contains(job.id),
+      )) {
+        job.state = AiJobState.failed;
+        job.message = '上次任务未能继续，确认后可以重试。';
       }
       _jobs.sort((a, b) => b.createdAt.compareTo(a.createdAt));
       await _persistJobs();

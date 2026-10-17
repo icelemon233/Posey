@@ -85,7 +85,7 @@ class SettingsScreen extends StatelessWidget {
           '移除任务只清理应用中的副本，已保存到系统相册的照片由你管理。',
         ),
         const SizedBox(height: 20),
-        const Text('Posey · Flutter 0.2.0', textAlign: TextAlign.center),
+        const Text('Posey · Flutter 0.2.1', textAlign: TextAlign.center),
       ],
     ),
   );
