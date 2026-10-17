@@ -1,4 +1,4 @@
-<p align="center"><img src="./docs/brand/exports/posey-app-icon/128.png" alt="Posey" width="96"></p>
+<p align="center"><img src="./docs/brand/cinna-app-icon.png" alt="Posey Cinna icon" width="128"></p>
 
 <h1 align="center">Posey</h1>
 
