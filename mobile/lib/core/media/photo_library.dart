@@ -10,9 +10,20 @@ abstract interface class PhotoLibrary {
   Future<void> saveToGallery(String path);
 }
 
-class DevicePhotoLibrary implements PhotoLibrary {
+abstract interface class RecoverablePhotoLibrary {
+  Future<String?> recoverLostPhoto();
+}
+
+class DevicePhotoLibrary implements PhotoLibrary, RecoverablePhotoLibrary {
   DevicePhotoLibrary({ImagePicker? picker}) : _picker = picker ?? ImagePicker();
   final ImagePicker _picker;
+  @override
+  Future<String?> recoverLostPhoto() async {
+    if (!Platform.isAndroid) return null;
+    final result = await _picker.retrieveLostData();
+    if (result.exception != null) throw StateError('上次选择照片未完成，请重新选择。');
+    return result.files?.firstOrNull?.path;
+  }
 
   @override
   Future<String?> pickPhoto() async => (await _picker.pickImage(

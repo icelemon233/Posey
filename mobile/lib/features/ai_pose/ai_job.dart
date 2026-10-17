@@ -1,8 +1,18 @@
 import 'dart:convert';
 
 import 'package:posey/core/json.dart';
+import 'package:posey/features/poses/pose_template.dart';
 
-enum AiJobState { queued, generating, completed, failed, cancelled }
+enum AiJobState {
+  queued,
+  generating,
+  awaitingResult,
+  completed,
+  failed,
+  cancelled,
+}
+
+enum PendingAiResult { download, save }
 
 class AiJob {
   AiJob({
@@ -16,32 +26,74 @@ class AiJob {
     this.message,
     this.completedAt,
     this.retryOf,
+    this.sourceWorkId,
+    this.targetSnapshot,
+    this.requestMetadata,
+    this.archivedWorkId,
+    this.archiveError,
+    this.pendingResult,
   });
-  final String id, targetId, targetTitle, sourcePath;
+  final String id, targetId, targetTitle;
+  String sourcePath;
   final String? retryOf;
+  final String? sourceWorkId;
+  final Json? targetSnapshot, requestMetadata;
+  String? archivedWorkId, archiveError;
+  PendingAiResult? pendingResult;
   final int createdAt;
   AiJobState state;
   String? resultPath, message;
   int? completedAt;
   bool get active =>
       state == AiJobState.queued || state == AiJobState.generating;
-  factory AiJob.fromJson(Json json) => AiJob(
-    id: json['id'] as String,
-    targetId: json['targetId'] as String? ?? '',
-    targetTitle: json['targetTitle'] as String? ?? '目标姿势',
-    sourcePath: json['sourcePath'] as String? ?? '',
-    createdAt: integerOf(json['createdAt']),
-    state: AiJobState.values.firstWhere(
-      (state) => state.name == json['state'],
-      orElse: () => AiJobState.failed,
-    ),
-    resultPath: json['resultPath'] as String?,
-    message: json['message'] as String?,
-    completedAt: json['completedAt'] is num
-        ? integerOf(json['completedAt'])
-        : null,
-    retryOf: json['retryOf'] as String?,
-  );
+  factory AiJob.fromJson(Json json) {
+    if (json['id'] is! String ||
+        !RegExp(r'^[a-zA-Z0-9_-]{1,160}$').hasMatch(json['id']) ||
+        json['createdAt'] is! num ||
+        !(json['createdAt'] as num).isFinite ||
+        (json['createdAt'] as num) < 0 ||
+        !AiJobState.values.any((state) => state.name == json['state'])) {
+      throw const FormatException('AI 任务编号、时间或状态无效');
+    }
+    if (json['targetSnapshot'] is Map) {
+      PoseTemplate.fromJson(objectOf(json['targetSnapshot']));
+    }
+    if (json['pendingResult'] != null &&
+        !PendingAiResult.values.any(
+          (value) => value.name == json['pendingResult'],
+        )) {
+      throw const FormatException('AI 成片状态无效');
+    }
+    return AiJob(
+      id: json['id'] as String,
+      targetId: json['targetId'] as String? ?? '',
+      targetTitle: json['targetTitle'] as String? ?? '目标姿势',
+      sourcePath: json['sourcePath'] as String? ?? '',
+      createdAt: integerOf(json['createdAt']),
+      state: AiJobState.values.firstWhere(
+        (state) => state.name == json['state'],
+        orElse: () => AiJobState.failed,
+      ),
+      resultPath: json['resultPath'] as String?,
+      message: json['message'] as String?,
+      completedAt: json['completedAt'] is num
+          ? integerOf(json['completedAt'])
+          : null,
+      retryOf: json['retryOf'] as String?,
+      sourceWorkId: json['sourceWorkId'] as String?,
+      targetSnapshot: json['targetSnapshot'] is Map
+          ? objectOf(json['targetSnapshot'])
+          : null,
+      requestMetadata: json['requestMetadata'] is Map
+          ? objectOf(json['requestMetadata'])
+          : null,
+      archivedWorkId: json['archivedWorkId'] as String?,
+      archiveError: json['archiveError'] as String?,
+      pendingResult: PendingAiResult.values
+          .where((value) => value.name == json['pendingResult'])
+          .firstOrNull,
+    );
+  }
   Json toJson() => {
     'id': id,
     'targetId': targetId,
@@ -53,13 +105,24 @@ class AiJob {
     'message': message,
     'completedAt': completedAt,
     if (retryOf != null) 'retryOf': retryOf,
+    if (sourceWorkId != null) 'sourceWorkId': sourceWorkId,
+    if (targetSnapshot != null) 'targetSnapshot': targetSnapshot,
+    if (requestMetadata != null) 'requestMetadata': requestMetadata,
+    if (archivedWorkId != null) 'archivedWorkId': archivedWorkId,
+    if (archiveError != null) 'archiveError': archiveError,
+    if (pendingResult != null) 'pendingResult': pendingResult!.name,
   };
 }
 
 const maxActiveJobs = 3, maxCompletedJobs = 20;
 List<AiJob> retainRecentJobs(List<AiJob> jobs) {
   final completed =
-      jobs.where((job) => job.state == AiJobState.completed).toList()
+      jobs
+          .where(
+            (job) =>
+                job.state == AiJobState.completed && job.archiveError == null,
+          )
+          .toList()
         ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
   final retained = completed
       .take(maxCompletedJobs)
@@ -67,7 +130,10 @@ List<AiJob> retainRecentJobs(List<AiJob> jobs) {
       .toSet();
   return jobs
       .where(
-        (job) => job.state != AiJobState.completed || retained.contains(job.id),
+        (job) =>
+            job.state != AiJobState.completed ||
+            job.archiveError != null ||
+            retained.contains(job.id),
       )
       .toList();
 }

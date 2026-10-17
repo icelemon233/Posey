@@ -127,6 +127,8 @@ class ExclusiveSession implements CameraSession {
   @override
   Future<void> setZoom(double value) async {}
   @override
+  Future<bool> focusAt(Offset point) async => true;
+  @override
   Future<void> toggleFlash() async {}
   @override
   Future<String> capture() async => 'synthetic.jpg';
@@ -348,17 +350,17 @@ void main() {
       repository.dispose();
     });
     await repository.load();
-    final first = model.retry(original);
-    await model.retry(original);
+    final first = model.retry(original, consent: true);
+    await model.retry(original, consent: true);
     expect(photos.reads, 1);
     photos.readGate!.complete();
     await flush();
-    await model.retry(original);
+    await model.retry(original, consent: true);
     expect(service.prepares, 1);
     service.prepareGate!.complete();
     await first;
     await waitFor(() => service.pending.isNotEmpty);
-    await model.retry(original);
+    await model.retry(original, consent: true);
     expect(repository.jobs, hasLength(2));
     expect(repository.jobs.first.retryOf, original.id);
     expect(model.isRetrying(original.id), isTrue);
@@ -366,7 +368,7 @@ void main() {
       StateError('simulated provider failure'),
     );
     await waitFor(() => !model.isRetrying(original.id));
-    await model.retry(original);
+    await model.retry(original, consent: true);
     expect(repository.jobs, hasLength(3));
   });
 

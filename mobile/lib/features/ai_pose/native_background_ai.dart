@@ -9,7 +9,7 @@ class NativeBackgroundAi {
     this.channel = const MethodChannel('com.posey.camera/background-ai'),
   });
   final MethodChannel channel;
-  bool get supported => Platform.isIOS;
+  bool get supported => Platform.isIOS || Platform.isAndroid;
   Future<String> start(
     PreparedAiRequest request, {
     required String jobId,
@@ -45,4 +45,9 @@ class NativeBackgroundAi {
   Future<void> cancel(String id) =>
       channel.invokeMethod('cancel', {'jobId': id});
   Future<void> clear(String id) => channel.invokeMethod('clear', {'jobId': id});
+  Future<Uint8List?> image(String id, {bool source = false}) => channel
+      .invokeMethod<Uint8List>('getImage', {'jobId': id, 'source': source});
+  Future<void> repairHistory() => channel.invokeMethod('repairHistory');
+  Future<void> retryResult(String id) =>
+      channel.invokeMethod('retryResult', {'jobId': id});
 }

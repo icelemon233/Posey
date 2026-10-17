@@ -7,6 +7,7 @@
     "build:pose-families": "node scripts/build-pose-families.mjs",
     "plan:research-queue": "node scripts/plan-research-queue.mjs",
     "verify:research": "node scripts/verify-research.mjs",
+    "verify:research-evidence": "node scripts/verify-research.mjs --with-evidence",
     "gate:research-completion": "node scripts/research-completion-gate.mjs"
   },
   "author": "Cinna"

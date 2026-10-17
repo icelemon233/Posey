@@ -102,6 +102,8 @@ class FakeSession implements CameraSession {
   @override
   Future<void> setZoom(double value) async {}
   @override
+  Future<bool> focusAt(Offset point) async => true;
+  @override
   Future<void> toggleFlash() async {
     flashAuto = !flashAuto;
   }
@@ -257,22 +259,36 @@ void main() {
     },
   );
 
-  test('invalid persisted data is a recoverable startup error, not an empty library', () async {
-    storage.data['favorites'] = '{}';
-    final dependencies = PoseyDependencies(
-      storage: storage,
-      aiService: DelayedService(),
-      photos: FakePhotos(),
-    );
-    addTearDown(dependencies.dispose);
-    await dependencies.initialize();
-    expect(dependencies.state, AppLoadState.failed);
-    expect(dependencies.error, contains('收藏记录格式无效'));
-    storage.data['favorites'] = '[]';
-    await dependencies.initialize();
-    expect(dependencies.state, AppLoadState.ready);
-    expect(dependencies.library.templates, hasLength(50));
-  });
+  test(
+    'corrupt favorites are isolated and preserved until explicit recovery',
+    () async {
+      storage.data['favorites'] = '{}';
+      final dependencies = PoseyDependencies(
+        storage: storage,
+        aiService: DelayedService(),
+        photos: FakePhotos(),
+      );
+      addTearDown(dependencies.dispose);
+      await dependencies.initialize();
+      expect(dependencies.state, AppLoadState.ready);
+      expect(dependencies.library.loadErrors['favorites'], isNotNull);
+      expect(storage.data['favorites'], '{}');
+      await expectLater(
+        dependencies.library.toggleFavorite(
+          dependencies.library.templates.first.id,
+        ),
+        throwsStateError,
+      );
+      await dependencies.library.resetRecord('favorites');
+      expect(dependencies.library.loadErrors['favorites'], isNull);
+      expect(
+        storage.data.keys.any((key) => key.startsWith('favorites-recovery-')),
+        isTrue,
+      );
+      expect(dependencies.state, AppLoadState.ready);
+      expect(dependencies.library.templates, hasLength(50));
+    },
+  );
 
   test('catalog boundary rejects duplicate pose identifiers', () async {
     final pose = (await library()).templates.first.raw;

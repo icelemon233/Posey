@@ -1,5 +1,5 @@
 import 'package:camera/camera.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/painting.dart';
 
 abstract interface class CameraGateway {
   Future<List<CameraDescription>> devices();
@@ -12,6 +12,7 @@ abstract interface class CameraSession {
   Future<void> initialize();
   Future<List<double>> zoomLimits();
   Future<void> setZoom(double value);
+  Future<bool> focusAt(Offset point);
   Future<void> toggleFlash();
   Future<String> capture();
   Future<void> close();
@@ -41,7 +42,6 @@ class _DeviceCameraSession implements CameraSession {
   @override
   Future<void> initialize() async {
     await _controller.initialize();
-    await _controller.lockCaptureOrientation(DeviceOrientation.portraitUp);
   }
 
   @override
@@ -51,6 +51,16 @@ class _DeviceCameraSession implements CameraSession {
   ]);
   @override
   Future<void> setZoom(double value) => _controller.setZoomLevel(value);
+  @override
+  Future<bool> focusAt(Offset point) async {
+    if (!_controller.value.focusPointSupported) return false;
+    await _controller.setFocusPoint(point);
+    if (_controller.value.exposurePointSupported) {
+      await _controller.setExposurePoint(point);
+    }
+    return true;
+  }
+
   @override
   Future<void> toggleFlash() =>
       _controller.setFlashMode(flashAuto ? FlashMode.off : FlashMode.auto);

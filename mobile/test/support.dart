@@ -12,9 +12,35 @@ class TestStorage implements PoseyStorage {
   final Directory directory;
   final data = <String, String>{};
   String? key;
+  final secrets = <String, String>{};
+  @override
+  Future<String?> readSecret(String name) async => secrets[name];
+  @override
+  Future<void> writeSecret(String name, String? value) async {
+    if (value == null) {
+      secrets.remove(name);
+    } else {
+      secrets[name] = value;
+    }
+  }
+
   final deleted = <String>[];
   @override
+  Future<Uint8List> readOwnedFile(String path) => File(path).readAsBytes();
+  @override
+  Future<List<StoredMediaFile>> mediaFiles() async => [
+    for (final file in directory.listSync().whereType<File>())
+      StoredMediaFile(file.path.replaceAll('\\', '/'), await file.length()),
+  ];
+  @override
   Future<String?> read(String name) async => data[name];
+  @override
+  Future<Set<String>> recordKeys() async => data.keys.toSet();
+  @override
+  Future<void> remove(String name) async {
+    data.remove(name);
+  }
+
   @override
   Future<void> write(String name, String value) async {
     data[name] = value;
@@ -31,7 +57,7 @@ class TestStorage implements PoseyStorage {
   Future<String> saveBytes(String name, Uint8List bytes) async {
     final file = File('${directory.path}/$name');
     await file.writeAsBytes(bytes);
-    return file.path;
+    return file.path.replaceAll('\\', '/');
   }
 
   @override
