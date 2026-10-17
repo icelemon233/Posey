@@ -49,6 +49,7 @@ final class PoseyPlatformBridge: NSObject, UIDocumentPickerDelegate {
         } else { DispatchQueue.main.async { result(settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional) } }
       }
     case "pendingJob": result(Self.pendingJob); Self.pendingJob = nil
+    case "ackJob": if args["jobId"] as? String == Self.pendingJob { Self.pendingJob = nil }; result(nil)
     case "appInfo": result(["name": "Posey", "version": Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "",
       "build": Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "", "developer": "Cinna"])
     case "shareFiles":

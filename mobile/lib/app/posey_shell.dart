@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:posey/app/posey_dependencies.dart';
 import 'package:posey/core/ui/feedback.dart';
 import 'package:posey/features/ai_pose/ai_job.dart';
@@ -33,7 +32,9 @@ class PoseyShell extends StatefulWidget {
 class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
   int page = 0;
   bool picking = false, addingReference = false;
-  String? openingNotification;
+  bool openingNotification = false;
+  final pendingNotifications = <String>{};
+  Timer? notificationTimer;
   StreamSubscription<String>? notifications;
   PoseyDependencies get dependencies => widget.dependencies;
   @override
@@ -49,6 +50,7 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    notificationTimer?.cancel();
     unawaited(notifications?.cancel());
     super.dispose();
   }
@@ -70,21 +72,48 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
   }
 
   Future<void> openNotification(String id) async {
-    if (openingNotification == id) return;
-    openingNotification = id;
+    pendingNotifications.add(id);
+    if (openingNotification) return;
+    if (dependencies.backup.busy ||
+        picking ||
+        addingReference ||
+        ModalRoute.of(context)?.isCurrent == false) {
+      notificationTimer ??= Timer(const Duration(milliseconds: 350), () {
+        notificationTimer = null;
+        if (mounted && pendingNotifications.isNotEmpty) {
+          unawaited(openNotification(pendingNotifications.first));
+        }
+      });
+      return;
+    }
+    openingNotification = true;
     try {
       if (dependencies.state != AppLoadState.ready) {
         await dependencies.initialize();
       }
       await dependencies.jobs.syncNative();
       if (!mounted) return;
+      if (dependencies.backup.busy ||
+          ModalRoute.of(context)?.isCurrent == false) {
+        return;
+      }
       setState(() => page = 3);
+      pendingNotifications.remove(id);
+      if (dependencies.platform.supported) {
+        await dependencies.platform.acknowledgeJob(id);
+      }
       final job = dependencies.jobs.jobs
           .where((job) => job.id == id)
           .firstOrNull;
       if (job?.state == AiJobState.completed) await openResult(job!);
+    } catch (error) {
+      pendingNotifications.remove(id);
+      if (mounted) showFailure(context, error);
     } finally {
-      openingNotification = null;
+      openingNotification = false;
+      if (mounted && pendingNotifications.isNotEmpty) {
+        unawaited(openNotification(pendingNotifications.first));
+      }
     }
   }
 
@@ -289,7 +318,12 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
       importSelected: (path, target) async {
         if (importId != null) {
           await dependencies.importRecovery.selected(importId!, path);
-          await dependencies.works.retain(path, target, importId: importId);
+          try {
+            await dependencies.works.retain(path, target, importId: importId);
+          } catch (_) {
+            dependencies.noteImportFailure();
+            rethrow;
+          }
         }
       },
     );
@@ -321,6 +355,7 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
       await dependencies.importRecovery.selected(id, path);
       if (mounted) await reviewPhoto(path, pose, importId: id);
     } catch (error) {
+      dependencies.noteImportFailure();
       if (mounted) showFailure(context, error);
     } finally {
       picking = false;
@@ -349,6 +384,7 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
       await saveReferenceFrom(path);
       await dependencies.importRecovery.complete(id);
     } catch (error) {
+      dependencies.noteImportFailure();
       if (mounted) showFailure(context, error);
     } finally {
       addingReference = false;
@@ -472,6 +508,28 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
       builder: (_) => BackupScreen(manager: dependencies.backup),
     ),
   );
+  Future<void> resetImport() async {
+    final agreed = await showDialog<bool>(
+      context: context,
+      builder: (dialog) => AlertDialog(
+        title: const Text('清除导入恢复记录？'),
+        scrollable: true,
+        content: const Text('先在本机保留原始记录的恢复副本，再清除这次未完成的导入。已留存的作品会保留。'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialog, false),
+            child: const Text('取消'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(dialog, true),
+            child: const Text('备份并清除'),
+          ),
+        ],
+      ),
+    );
+    if (agreed == true) await dependencies.resetImportRecovery();
+  }
+
   Future<void> notificationsPermission() async {
     if (!await dependencies.platform.requestNotifications(force: true)) {
       throw StateError('通知尚未允许，请在系统设置中开启。');
@@ -519,8 +577,8 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
               ? Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SvgPicture.asset(
-                      'assets/brand/posey-mark.svg',
+                    Image.asset(
+                      'assets/brand/posey-icon.png',
                       width: 30,
                       height: 30,
                     ),
@@ -605,6 +663,7 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
               deviceInfo: dependencies.deviceInfo(),
               importError: dependencies.importError,
               onRecoverImport: dependencies.retryImportRecovery,
+              onResetImport: resetImport,
               onClearTasks: clearTaskCopies,
             ),
           },

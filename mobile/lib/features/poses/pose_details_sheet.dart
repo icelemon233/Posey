@@ -59,7 +59,7 @@ class PoseDetailsSheet extends StatelessWidget {
                 spacing: 12,
                 children: [
                   if (onRename != null)
-                    TextButton(onPressed: onRename, child: const Text('修改名称')),
+                    TextButton(onPressed: onRename, child: const Text('编辑参考')),
                   if (onDelete != null)
                     TextButton(onPressed: onDelete, child: const Text('删除参考')),
                 ],

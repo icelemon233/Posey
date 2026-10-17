@@ -76,6 +76,7 @@ internal class PoseyAiTransport(private val store: PoseyAiStore) {
         }
         connections[id] = connection
         try {
+            if (store.record(id)?.optString("state") == "cancelled" || store.record(id) == null) throw PublicFailure("任务已取消。")
             if (connection.responseCode != 200) throw PublicFailure("成片暂时无法下载。地址可能已失效，请先查看服务记录。")
             return read(connection, 24 * 1024 * 1024)
         } finally { connections.remove(id); connection.disconnect() }

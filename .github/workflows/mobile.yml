@@ -20,6 +20,11 @@ jobs:
         working-directory: mobile
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: node scripts/verify-research.mjs
+        working-directory: .
       - uses: actions/setup-java@v5
         with:
           distribution: temurin

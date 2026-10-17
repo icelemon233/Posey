@@ -40,6 +40,8 @@ class DevicePlatform {
   Future<Json> storageUsage() async =>
       objectOf(await channel.invokeMethod('storageUsage'));
   Future<String?> pendingJob() => channel.invokeMethod<String>('pendingJob');
+  Future<void> acknowledgeJob(String id) =>
+      channel.invokeMethod('ackJob', {'jobId': id});
   Future<void> dispose() async {
     channel.setMethodCallHandler(null);
     await _openedJobs.close();

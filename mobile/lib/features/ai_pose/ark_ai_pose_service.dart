@@ -11,6 +11,7 @@ import 'package:posey/features/poses/pose_template.dart';
 import 'package:posey/features/ai_pose/ai_configuration.dart';
 
 Uint8List resizeForAi(Uint8List bytes) {
+  validateImage(bytes);
   final decoded = image.decodeImage(bytes);
   if (decoded == null) throw const FormatException('无法读取这张图片');
   final oriented = image.bakeOrientation(decoded),
@@ -23,6 +24,20 @@ Uint8List resizeForAi(Uint8List bytes) {
         )
       : oriented;
   return Uint8List.fromList(image.encodeJpg(resized, quality: 90));
+}
+
+bool validateImage(Uint8List bytes) {
+  final info = image.findDecoderForData(bytes)?.startDecode(bytes);
+  if (bytes.length > 24 * 1024 * 1024 ||
+      info == null ||
+      info.width <= 0 ||
+      info.height <= 0 ||
+      info.width * info.height > 16 * 1024 * 1024) {
+    throw const FormatException(
+      '图片过大或格式无效，请使用不超过 1600 万像素、24 MB 的 JPEG、PNG 或 WebP 图片。',
+    );
+  }
+  return true;
 }
 
 Uint8List prepareGuide(({Uint8List bytes, bool mirrored}) input) {
@@ -52,7 +67,7 @@ class PreparedAiRequest {
   Json nativePayload() => {
     'apiKey': configuration.normalizedKey,
     'endpoint': configuration.uri.toString(),
-    'model': configuration.model,
+    'model': configuration.model.trim(),
     'sourceImage': (body['image'] as List)[0],
     'guideImage': (body['image'] as List)[1],
     'prompt': body['prompt'],
@@ -121,7 +136,7 @@ class ArkAiPoseService
           mirrored: target.mirrored,
         ));
     return PreparedAiRequest(configuration, {
-      'model': configuration.model,
+      'model': configuration.model.trim(),
       'prompt': buildPosePrompt(target.title, preferences),
       'image': [
         'data:image/jpeg;base64,${base64Encode(sourceBytes)}',
@@ -221,7 +236,7 @@ class ArkAiPoseService
       } else {
         throw StateError('AI 没有返回可用图片');
       }
-      if (image.decodeImage(bytes) == null) throw StateError('AI 返回的图片格式无效');
+      await compute(validateImage, bytes);
       return bytes;
     } finally {
       _clients.remove(jobId);
@@ -244,9 +259,7 @@ class ArkAiPoseService
         limit: 24 * 1024 * 1024,
       );
       if (response.statusCode != 200) throw StateError('成片暂时无法下载，请稍后重试下载。');
-      if (image.decodeImage(response.bodyBytes) == null) {
-        throw StateError('成片图片格式无效');
-      }
+      await compute(validateImage, response.bodyBytes);
       return response.bodyBytes;
     } finally {
       _clients.remove(jobId);
@@ -306,6 +319,7 @@ class ArkAiPoseService
               .whereType<String>()
               .where((value) => value.length <= 200)
               .take(1000)
+              .toSet()
               .toList()
             ..sort();
       final visible = models.contains(configuration.model.trim());

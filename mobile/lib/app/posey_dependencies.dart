@@ -85,6 +85,16 @@ class PoseyDependencies extends ChangeNotifier {
   late final ImportRecovery importRecovery;
   late final BackupManager backup;
   String? importError;
+  void noteImportFailure() {
+    importError = '上次导入尚未留存，可以重试恢复或备份后清除恢复记录。';
+    _notify();
+  }
+
+  Future<void> resetImportRecovery() async {
+    await importRecovery.backupAndClear();
+    await retryImportRecovery();
+  }
+
   final PoseLibraryViewModel library;
   final SettingsViewModel settings;
   late final AiJobRepository _jobsRepository;

@@ -45,14 +45,18 @@ BackupEncoding prepareBackup(
   Set<String> ownedPaths,
 ) {
   final files = <String, String>{}, aliases = <String, String>{};
+  final normalized = {
+    for (final path in ownedPaths) path.replaceAll('\\', '/'): path,
+  };
   String media(String path) {
-    if (!ownedPaths.contains(path)) {
+    final key = path.replaceAll('\\', '/');
+    if (!normalized.containsKey(key)) {
       throw const FormatException('备份中有无法读取的本机照片，请先恢复或移除该记录。');
     }
-    return aliases.putIfAbsent(path, () {
+    return aliases.putIfAbsent(key, () {
       final name =
           'media/${aliases.length.toString().padLeft(5, '0')}.${path.split('.').last}';
-      files[name] = path;
+      files[name] = normalized[key]!;
       return name;
     });
   }

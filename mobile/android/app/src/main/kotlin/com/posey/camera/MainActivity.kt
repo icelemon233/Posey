@@ -40,6 +40,7 @@ class MainActivity : FlutterActivity() {
                     }
                     "requestNotifications" -> requestNotifications(args["force"] == true, result)
                     "pendingJob" -> { result.success(pendingJob); pendingJob = null }
+                    "ackJob" -> { if (args["jobId"] == pendingJob) pendingJob = null; result.success(null) }
                     "appInfo" -> attempt(result) {
                         val info = packageManager.getPackageInfo(packageName, 0)
                         @Suppress("DEPRECATION") val build = if (Build.VERSION.SDK_INT >= 28) info.longVersionCode else info.versionCode.toLong()

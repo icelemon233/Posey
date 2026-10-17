@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:posey/core/json.dart';
 import 'package:posey/core/storage/posey_storage.dart';
+import 'package:posey/core/storage/stored_media_paths.dart';
 import 'package:posey/features/poses/pose_template.dart';
 import 'package:posey/features/ai_pose/ai_configuration.dart';
 import 'package:posey/features/ai_pose/ai_job.dart';
@@ -66,8 +67,9 @@ class AiJobRepository extends ChangeNotifier {
     try {
       final raw = jsonDecode(await storage.read('jobs') ?? '[]');
       if (raw is! List) throw const FormatException('AI 任务记录格式无效');
+      final paths = StoredMediaPaths(await storage.mediaFiles());
       final restored = raw
-          .map((value) => AiJob.fromJson(objectOf(value)))
+          .map((value) => AiJob.fromJson(paths.job(objectOf(value))))
           .toList();
       if (restored.map((job) => job.id).toSet().length != restored.length) {
         throw const FormatException('AI 任务记录包含重复编号');
@@ -382,6 +384,10 @@ class AiJobRepository extends ChangeNotifier {
       if (bytes == null && native.supported) {
         await native.retryResult(id);
         bytes = await native.image(id);
+        if (bytes == null) {
+          await refreshNative();
+          return;
+        }
       }
       if (bytes == null && job.pendingResult == PendingAiResult.download) {
         final downloader = service, uri = _resultUrls[id];
@@ -437,6 +443,9 @@ class AiJobRepository extends ChangeNotifier {
           (job) =>
               !job.active &&
               job.state != AiJobState.awaitingResult &&
+              (job.state != AiJobState.completed ||
+                  preserveResult == null ||
+                  job.archivedWorkId != null) &&
               (includeCompleted || job.state != AiJobState.completed),
         )
         .map((job) => job.id)
@@ -523,11 +532,17 @@ class AiJobRepository extends ChangeNotifier {
       _notify();
       rethrow;
     }
-    await storage.deleteOwnedFile(job.sourcePath);
-    if (job.resultPath != null) await storage.deleteOwnedFile(job.resultPath!);
     _resultBytes.remove(id);
     _resultUrls.remove(id);
-    await storage.writeSecret('result-url-$id', null);
+    try {
+      await storage.deleteOwnedFile(job.sourcePath);
+      if (job.resultPath != null) {
+        await storage.deleteOwnedFile(job.resultPath!);
+      }
+      await storage.writeSecret('result-url-$id', null);
+    } catch (_) {
+      syncError = '任务已移除，部分临时文件未能清理。可以在备份与存储中重试清理。';
+    }
     if (!native.supported) unawaited(_process());
     _notify();
   }
@@ -630,7 +645,7 @@ class AiJobRepository extends ChangeNotifier {
         if (nextState == AiJobState.completed && resultPath == null) {
           throw const FormatException('后台任务未返回可用图片');
         }
-        job.state = resultPath != null && nextState == AiJobState.awaitingResult
+        job.state = resultPath != null && nextState != AiJobState.cancelled
             ? AiJobState.completed
             : nextState;
         job.pendingResult = job.state == AiJobState.awaitingResult
@@ -638,8 +653,8 @@ class AiJobRepository extends ChangeNotifier {
                   .where((value) => value.name == record['pendingResult'])
                   .firstOrNull
             : null;
-        job.message = message;
-        job.completedAt = completedAt;
+        job.message = job.state == AiJobState.completed ? null : message;
+        job.completedAt = completedAt ?? job.completedAt;
         job.resultPath = resultPath;
         if (job.state == AiJobState.completed) await _archiveResult(job);
       }

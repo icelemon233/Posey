@@ -6,6 +6,7 @@ import 'package:posey/core/json.dart';
 import 'package:posey/core/media/photo_library.dart';
 import 'package:posey/core/media/image_format.dart';
 import 'package:posey/core/storage/posey_storage.dart';
+import 'package:posey/core/storage/stored_media_paths.dart';
 import 'package:posey/features/poses/pose_template.dart';
 import 'package:posey/features/works/photo_work.dart';
 
@@ -38,8 +39,9 @@ class WorksRepository extends ChangeNotifier {
     try {
       final raw = jsonDecode(await storage.read('works-v1') ?? '[]');
       if (raw is! List) throw const FormatException('作品记录格式无效');
+      final paths = StoredMediaPaths(await storage.mediaFiles());
       final next = raw
-          .map((value) => PhotoWork.fromJson(objectOf(value)))
+          .map((value) => PhotoWork.fromJson(paths.work(objectOf(value))))
           .toList();
       if (next.map((work) => work.id).toSet().length != next.length) {
         throw const FormatException('作品编号重复');

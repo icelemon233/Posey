@@ -14,6 +14,7 @@ class SettingsScreen extends StatelessWidget {
     this.onOpenSettings,
     this.onNotifications,
     this.onRecoverImport,
+    this.onResetImport,
     this.importError,
     this.deviceInfo,
     this.onClearTasks,
@@ -24,6 +25,7 @@ class SettingsScreen extends StatelessWidget {
       onOpenSettings,
       onNotifications,
       onRecoverImport,
+      onResetImport,
       onClearTasks;
   final String? importError;
   final Future<Map<String, dynamic>>? deviceInfo;
@@ -74,7 +76,7 @@ class SettingsScreen extends StatelessWidget {
             title: const Text('允许任务通知'),
             onTap: () => runUiAction(context, onNotifications!),
           ),
-        if (importError != null)
+        if (importError != null) ...[
           ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text(importError!),
@@ -83,6 +85,12 @@ class SettingsScreen extends StatelessWidget {
               child: const Text('重试恢复'),
             ),
           ),
+          if (onResetImport != null)
+            TextButton(
+              onPressed: () => runUiAction(context, onResetImport!),
+              child: const Text('备份并清除导入恢复记录'),
+            ),
+        ],
         if (onClearTasks != null)
           ListTile(
             contentPadding: EdgeInsets.zero,

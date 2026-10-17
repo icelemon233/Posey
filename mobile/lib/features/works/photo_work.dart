@@ -44,6 +44,13 @@ class PhotoWork {
         json['pose'] is! Map) {
       throw const FormatException('作品记录不完整');
     }
+    if (!(json['createdAt'] as num).isFinite ||
+        (json['createdAt'] as num) < 0 ||
+        json['kind'] != null &&
+            !WorkKind.values.any((kind) => kind.name == json['kind']) ||
+        json['savedToGallery'] != null && json['savedToGallery'] is! bool) {
+      throw const FormatException('作品时间、类型或相册标记无效');
+    }
     return PhotoWork(
       id: json['id'],
       path: json['path'],

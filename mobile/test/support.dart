@@ -30,7 +30,7 @@ class TestStorage implements PoseyStorage {
   @override
   Future<List<StoredMediaFile>> mediaFiles() async => [
     for (final file in directory.listSync().whereType<File>())
-      StoredMediaFile(file.path, await file.length()),
+      StoredMediaFile(file.path.replaceAll('\\', '/'), await file.length()),
   ];
   @override
   Future<String?> read(String name) async => data[name];
@@ -57,7 +57,7 @@ class TestStorage implements PoseyStorage {
   Future<String> saveBytes(String name, Uint8List bytes) async {
     final file = File('${directory.path}/$name');
     await file.writeAsBytes(bytes);
-    return file.path;
+    return file.path.replaceAll('\\', '/');
   }
 
   @override

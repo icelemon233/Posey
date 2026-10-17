@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:posey/core/json.dart';
 import 'package:posey/core/storage/posey_storage.dart';
+import 'package:posey/core/storage/stored_media_paths.dart';
 import 'package:posey/features/poses/pose_template.dart';
 import 'package:posey/core/storage/storage_transaction.dart';
 import 'package:posey/core/media/photo_library.dart';
@@ -46,8 +47,9 @@ class PoseRepository {
   Future<List<PoseTemplate>> loadCustom() async {
     final raw = jsonDecode(await storage.read('custom-poses-v1') ?? '[]');
     if (raw is! List) throw const FormatException('自有参考记录格式无效');
+    final paths = StoredMediaPaths(await storage.mediaFiles());
     final poses = raw
-        .map((value) => PoseTemplate.fromJson(objectOf(value)))
+        .map((value) => PoseTemplate.fromJson(paths.pose(objectOf(value))))
         .toList();
     if (poses.any((pose) => !pose.isUserReference) ||
         poses.map((pose) => pose.id).toSet().length != poses.length) {

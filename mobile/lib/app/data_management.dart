@@ -6,6 +6,7 @@ import 'package:posey/core/media/device_platform.dart';
 import 'package:posey/core/storage/posey_storage.dart';
 import 'package:posey/core/storage/storage_transaction.dart';
 import 'package:posey/features/ai_pose/ai_jobs_view_model.dart';
+import 'package:posey/features/ai_pose/ai_job.dart';
 import 'package:posey/features/backup/backup_archive.dart';
 import 'package:posey/features/backup/backup_manager.dart';
 import 'package:posey/features/poses/pose_library_view_model.dart';
@@ -54,6 +55,7 @@ BackupManager createBackupManager({
         .toSet(),
     canImport: () =>
         jobs.activeJobs == 0 &&
+        jobs.jobs.every((job) => job.state != AiJobState.awaitingResult) &&
         !jobs.hasPendingIO &&
         !works.hasPendingWrites &&
         library.loadErrors.isEmpty &&
@@ -184,14 +186,14 @@ BackupManager createBackupManager({
           ? await platform.storageUsage()
           : <String, dynamic>{};
       return {
-        'bytes':
-            files.fold<int>(0, (sum, file) => sum + file.bytes) +
-            integerOf(native['bytes']),
+        'bytes': native['bytes'] is num
+            ? integerOf(native['bytes'])
+            : files.fold<int>(0, (sum, file) => sum + file.bytes),
         'works': works.works.length,
         'references': library.custom.length,
         'recovery':
             keys.where((key) => key.contains('-recovery-')).length +
-            integerOf(native['recovery']),
+            integerOf(native['recoveryCopies']),
       };
     },
     cleanup: () async {

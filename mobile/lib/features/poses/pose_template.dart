@@ -12,6 +12,39 @@ class PoseTemplate {
         (json['title'] as String).length > 80) {
       throw const FormatException('姿势模板不完整');
     }
+    for (final key in ['steps', 'scenes', 'props', 'tags']) {
+      if (json[key] != null &&
+          (json[key] is! List ||
+              (json[key] as List).length > 100 ||
+              (json[key] as List).any((value) => value is! String))) {
+        throw const FormatException('参考说明格式无效');
+      }
+    }
+    if (json['category'] != null &&
+            ![
+              'standing',
+              'half',
+              'seated',
+              'crouching',
+            ].contains(json['category']) ||
+        json['gender'] != null &&
+            !['male', 'female', 'all'].contains(json['gender'])) {
+      throw const FormatException('参考分类格式无效');
+    }
+    for (final key in ['subtitle', 'cameraHint', 'accent']) {
+      if (json[key] != null && json[key] is! String) {
+        throw const FormatException('参考文字格式无效');
+      }
+    }
+    if (json['source'] != null && json['source'] is! Map) {
+      throw const FormatException('参考来源格式无效');
+    }
+    for (final key in ['label', 'evidenceStatus', 'usageStatus']) {
+      if (objectOf(json['source'])[key] != null &&
+          objectOf(json['source'])[key] is! String) {
+        throw const FormatException('参考来源格式无效');
+      }
+    }
     return PoseTemplate(json);
   }
   String get id => raw['id'] as String;

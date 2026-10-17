@@ -19,6 +19,8 @@ class PoseyAiService : Service() {
     private val executor = Executors.newSingleThreadExecutor()
     private val working = AtomicBoolean(false)
     private lateinit var store: PoseyAiStore
+    private var destroyed = false
+    private var latestStart = 0
     companion object {
         private const val channelId = "posey-ai-tasks"
         private const val ongoingId = 17204
@@ -37,6 +39,7 @@ class PoseyAiService : Service() {
         foreground("正在处理 AI 任务")
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        latestStart = startId
         val activation=intent?.getStringExtra("activateJobId")
         if(activation!=null&&PoseyAiStore.validId(activation)){
             try{store.activate(activation)}catch(_:Exception){store.safeUpdate(activation,"failed","任务记录未能保存，没有发送生成请求。")}
@@ -51,11 +54,19 @@ class PoseyAiService : Service() {
                     finally { if (wake.isHeld) wake.release() }
                     completed(id)
                 }
+            } catch (_: Exception) {
+                // Keep unreadable history intact. The task screen provides explicit repair.
             } finally {
-                working.set(false)
-                if (store.pending()) foreground("成片尚未留存，打开任务页处理")
-                else if (store.next() != null) onStartCommand(null, 0, 0)
-                else { if (Build.VERSION.SDK_INT >= 24) stopForeground(STOP_FOREGROUND_REMOVE); stopSelf() }
+                android.os.Handler(android.os.Looper.getMainLooper()).post {
+                    working.set(false)
+                    if (!destroyed) {
+                        try {
+                            if (store.pending()) foreground("成片尚未留存，打开任务页处理")
+                            else if (store.next() != null) onStartCommand(null, 0, latestStart)
+                            else { if (Build.VERSION.SDK_INT >= 24) stopForeground(STOP_FOREGROUND_REMOVE); stopSelfResult(latestStart) }
+                        } catch (_: Exception) { stopSelf() }
+                    }
+                }
             }
         }
         return START_NOT_STICKY
@@ -87,7 +98,7 @@ class PoseyAiService : Service() {
         store.records().filter { it.optString("state") == "generating" }.forEach { store.safeUpdate(it.getString("id"), "failed", "后台处理已中断，请核对服务记录后再决定重试。") }
         stopSelf()
     }
-    override fun onDestroy() { running = false; executor.shutdown(); super.onDestroy() }
+    override fun onDestroy() { destroyed = true; running = false; executor.shutdown(); super.onDestroy() }
 }
 class PoseyAiCancelReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

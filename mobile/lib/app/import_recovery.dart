@@ -19,6 +19,7 @@ class ImportRecovery {
   final PoseyStorage storage;
   final PhotoLibrary photos;
   String? _recoveredPath;
+  bool _staging = false;
   Future<PendingPhotoImport?> pending() async {
     final raw = await storage.read('pending-import-v1');
     if (raw == null) return null;
@@ -36,12 +37,30 @@ class ImportRecovery {
   }
 
   Future<String> stage(PoseTemplate pose) async {
-    final id = const Uuid().v4();
-    await storage.write(
-      'pending-import-v1',
-      jsonEncode(PendingPhotoImport(id, pose, null).toJson()),
-    );
-    return id;
+    if (_staging) throw StateError('正在准备照片导入，请稍候。');
+    _staging = true;
+    try {
+      if (await storage.read('pending-import-v1') != null) {
+        throw StateError('上次导入尚未恢复，请在设置中先恢复导入记录。');
+      }
+      final id = const Uuid().v4();
+      await storage.write(
+        'pending-import-v1',
+        jsonEncode(PendingPhotoImport(id, pose, null).toJson()),
+      );
+      return id;
+    } finally {
+      _staging = false;
+    }
+  }
+
+  Future<void> backupAndClear() async {
+    final raw = await storage.read('pending-import-v1');
+    if (raw != null) {
+      await storage.write('pending-import-recovery-${const Uuid().v4()}', raw);
+      await storage.remove('pending-import-v1');
+    }
+    _recoveredPath = null;
   }
 
   Future<void> selected(String id, String path) async {

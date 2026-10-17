@@ -16,6 +16,37 @@ class AiJobsScreen extends StatelessWidget {
   final AiJobsViewModel viewModel;
   final ValueChanged<AiJob> onOpenResult;
 
+  Future<void> remove(BuildContext context, AiJob job) async {
+    if (job.state == AiJobState.awaitingResult ||
+        job.archiveError != null ||
+        job.active) {
+      final agreed = await showDialog<bool>(
+        context: context,
+        builder: (dialog) => AlertDialog(
+          title: const Text('移除任务？'),
+          scrollable: true,
+          content: Text(
+            job.active
+                ? '任务会停止等待和下载，服务可能已经处理并计费。'
+                : '这张成片尚未留存到作品，移除任务会删除它的临时副本。',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialog, false),
+              child: const Text('保留'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(dialog, true),
+              child: const Text('移除'),
+            ),
+          ],
+        ),
+      );
+      if (agreed != true || !context.mounted) return;
+    }
+    await runUiAction(context, () => viewModel.clear(job.id));
+  }
+
   Future<void> retry(BuildContext context, AiJob job) async {
     if (viewModel.isRetrying(job.id)) return;
     final options = viewModel.retryOptions(job);
@@ -181,10 +212,7 @@ class AiJobsScreen extends StatelessWidget {
                         ),
                         IconButton(
                           tooltip: '移除任务记录',
-                          onPressed: () => runUiAction(
-                            context,
-                            () => viewModel.clear(job.id),
-                          ),
+                          onPressed: () => remove(context, job),
                           icon: const Icon(Icons.close),
                         ),
                       ],

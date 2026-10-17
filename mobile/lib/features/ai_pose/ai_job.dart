@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:posey/core/json.dart';
+import 'package:posey/features/poses/pose_template.dart';
 
 enum AiJobState {
   queued,
@@ -45,35 +46,54 @@ class AiJob {
   int? completedAt;
   bool get active =>
       state == AiJobState.queued || state == AiJobState.generating;
-  factory AiJob.fromJson(Json json) => AiJob(
-    id: json['id'] as String,
-    targetId: json['targetId'] as String? ?? '',
-    targetTitle: json['targetTitle'] as String? ?? '目标姿势',
-    sourcePath: json['sourcePath'] as String? ?? '',
-    createdAt: integerOf(json['createdAt']),
-    state: AiJobState.values.firstWhere(
-      (state) => state.name == json['state'],
-      orElse: () => AiJobState.failed,
-    ),
-    resultPath: json['resultPath'] as String?,
-    message: json['message'] as String?,
-    completedAt: json['completedAt'] is num
-        ? integerOf(json['completedAt'])
-        : null,
-    retryOf: json['retryOf'] as String?,
-    sourceWorkId: json['sourceWorkId'] as String?,
-    targetSnapshot: json['targetSnapshot'] is Map
-        ? objectOf(json['targetSnapshot'])
-        : null,
-    requestMetadata: json['requestMetadata'] is Map
-        ? objectOf(json['requestMetadata'])
-        : null,
-    archivedWorkId: json['archivedWorkId'] as String?,
-    archiveError: json['archiveError'] as String?,
-    pendingResult: PendingAiResult.values
-        .where((value) => value.name == json['pendingResult'])
-        .firstOrNull,
-  );
+  factory AiJob.fromJson(Json json) {
+    if (json['id'] is! String ||
+        !RegExp(r'^[a-zA-Z0-9_-]{1,160}$').hasMatch(json['id']) ||
+        json['createdAt'] is! num ||
+        !(json['createdAt'] as num).isFinite ||
+        (json['createdAt'] as num) < 0 ||
+        !AiJobState.values.any((state) => state.name == json['state'])) {
+      throw const FormatException('AI 任务编号、时间或状态无效');
+    }
+    if (json['targetSnapshot'] is Map) {
+      PoseTemplate.fromJson(objectOf(json['targetSnapshot']));
+    }
+    if (json['pendingResult'] != null &&
+        !PendingAiResult.values.any(
+          (value) => value.name == json['pendingResult'],
+        )) {
+      throw const FormatException('AI 成片状态无效');
+    }
+    return AiJob(
+      id: json['id'] as String,
+      targetId: json['targetId'] as String? ?? '',
+      targetTitle: json['targetTitle'] as String? ?? '目标姿势',
+      sourcePath: json['sourcePath'] as String? ?? '',
+      createdAt: integerOf(json['createdAt']),
+      state: AiJobState.values.firstWhere(
+        (state) => state.name == json['state'],
+        orElse: () => AiJobState.failed,
+      ),
+      resultPath: json['resultPath'] as String?,
+      message: json['message'] as String?,
+      completedAt: json['completedAt'] is num
+          ? integerOf(json['completedAt'])
+          : null,
+      retryOf: json['retryOf'] as String?,
+      sourceWorkId: json['sourceWorkId'] as String?,
+      targetSnapshot: json['targetSnapshot'] is Map
+          ? objectOf(json['targetSnapshot'])
+          : null,
+      requestMetadata: json['requestMetadata'] is Map
+          ? objectOf(json['requestMetadata'])
+          : null,
+      archivedWorkId: json['archivedWorkId'] as String?,
+      archiveError: json['archiveError'] as String?,
+      pendingResult: PendingAiResult.values
+          .where((value) => value.name == json['pendingResult'])
+          .firstOrNull,
+    );
+  }
   Json toJson() => {
     'id': id,
     'targetId': targetId,
@@ -97,7 +117,12 @@ class AiJob {
 const maxActiveJobs = 3, maxCompletedJobs = 20;
 List<AiJob> retainRecentJobs(List<AiJob> jobs) {
   final completed =
-      jobs.where((job) => job.state == AiJobState.completed).toList()
+      jobs
+          .where(
+            (job) =>
+                job.state == AiJobState.completed && job.archiveError == null,
+          )
+          .toList()
         ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
   final retained = completed
       .take(maxCompletedJobs)
@@ -105,7 +130,10 @@ List<AiJob> retainRecentJobs(List<AiJob> jobs) {
       .toSet();
   return jobs
       .where(
-        (job) => job.state != AiJobState.completed || retained.contains(job.id),
+        (job) =>
+            job.state != AiJobState.completed ||
+            job.archiveError != null ||
+            retained.contains(job.id),
       )
       .toList();
 }

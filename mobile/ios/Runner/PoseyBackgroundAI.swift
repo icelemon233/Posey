@@ -179,7 +179,19 @@ final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, URLSessi
         memoryResults.removeValue(forKey: id); accepted = true
       }
     } catch { update(id, "awaitingResult", "成片已生成，图片未能写入。释放空间后可重试保存。", pending: "save"); notify(id, completed: false); return }
-    if accepted { update(id, "completed"); secret(id, value: nil); notify(id, completed: true) }
+    if accepted { update(id, "completed"); secret(id, value: nil); prune(); notify(id, completed: true) }
+  }
+  private func prune() {
+    try? state.sync {
+      var records = try read()
+      let removed = records.filter { $0.state == "completed" }.sorted { $0.createdAt > $1.createdAt }.dropFirst(20)
+      guard !removed.isEmpty else { return }
+      let ids = Set(removed.map(\.id)); records.removeAll { ids.contains($0.id) }; try save(records)
+      for id in ids {
+        for suffix in ["request.json", "source.jpg", "result.jpg"] { try? FileManager.default.removeItem(at: file(id, suffix)) }
+        memoryResults.removeValue(forKey:id); secret(id, value:nil)
+      }
+    }
   }
   func retryResult(id: String) throws {
     let bytes = try state.sync { () throws -> Data? in
@@ -194,6 +206,7 @@ final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, URLSessi
     }
   }
   private func download(_ id: String, url: URL) {
+    guard eligible(id) else { return }
     var request = URLRequest(url: url); request.timeoutInterval = 90
     let task = session.downloadTask(with: request); task.taskDescription = "\(id)|download"; task.resume()
   }
@@ -218,6 +231,7 @@ final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, URLSessi
     guard let id = jobID(task) else { return }
     responseLock.lock(); let data = responseData.removeValue(forKey: task.taskIdentifier) ?? Data(); responseLock.unlock()
     defer { if !isDownload(task) { try? FileManager.default.removeItem(at: file(id, "request.json")) }; scheduleNext() }
+    guard eligible(id) else { secret(id,value:nil); return }
     if error != nil {
       if isDownload(task) { update(id, "awaitingResult", "成片下载未完成，可重试下载。", pending: "download") }
       else { update(id, "failed", "网络或后台任务已中断。服务可能已处理，请核对后再决定是否重试。") }; return
@@ -236,6 +250,9 @@ final class PoseyBackgroundAIManager: NSObject, URLSessionDataDelegate, URLSessi
     } else { update(id, "failed", "服务没有返回可用的图片。") }
   }
   func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) { DispatchQueue.main.async { self.sessionCompletionHandler?(); self.sessionCompletionHandler = nil } }
+  private func eligible(_ id: String) -> Bool {
+    (try? state.sync { try read().contains { $0.id == id && $0.state != "cancelled" } }) ?? false
+  }
   private func scheduleNext() {
     session.getAllTasks { tasks in
       try? self.state.sync {

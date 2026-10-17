@@ -2,6 +2,9 @@ import { readFile, access, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
+const verifyEvidence = process.argv.includes('--with-evidence');
+const evidenceRoot = process.env.POSEY_RESEARCH_EVIDENCE_DIR
+  ? resolve(process.env.POSEY_RESEARCH_EVIDENCE_DIR) : root;
 const readJson = async (path) => JSON.parse(await readFile(resolve(root, path), 'utf8'));
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -82,7 +85,11 @@ for (const template of evidence.templates) {
     assert(record.canonicalUrl === source.canonicalUrl, `${source.noteId} canonical URL does not match deep-read`);
     assert(['screenshot', 'body-and-screenshot'].includes(source.evidenceKind), `${source.noteId} has an unsupported evidence kind`);
     assert(source.screenshotPath === record.screenshotPath, `${source.noteId} screenshot path does not match deep-read`);
-    await access(resolve(root, source.screenshotPath));
+    if (verifyEvidence) {
+      const path = resolve(evidenceRoot, source.screenshotPath);
+      assert(path.startsWith(evidenceRoot + (process.platform === 'win32' ? '\\' : '/')), 'screenshot path escapes the evidence directory');
+      await access(path);
+    }
     if (source.evidenceKind === 'body-and-screenshot') {
       assert(typeof source.excerpt === 'string' && source.excerpt.length > 0, `${source.noteId} is missing its body excerpt`);
       const excerptParts = source.excerpt.split(/[；;]/).map((part) => part.trim()).filter(Boolean);
@@ -145,4 +152,5 @@ for (const file of parameterizationFiles) {
   assert(family.parameterization?.realDeviceAcceptance === 'pending', `${file} overstates real-device acceptance`);
 }
 
-console.log(`Research verified: ${candidates.items.length} unique candidates, ${deepRead.records.length} deep reads, ${poseFamilies.families.length} observed pose families, ${poseFamilies.counts.readyForParameterization} source-ready families, ${parameterizationFiles.length} parameterization drafts, ${supported} legacy supported templates, ${needsEvidence} legacy needs-evidence templates, ${experimental} experimental template.`);
+console.log(`Research structure verified: ${candidates.items.length} unique candidates, ${deepRead.records.length} deep reads, ${poseFamilies.families.length} observed pose families, ${poseFamilies.counts.readyForParameterization} source-ready families, ${parameterizationFiles.length} parameterization drafts, ${supported} legacy supported templates, ${needsEvidence} legacy needs-evidence templates, ${experimental} experimental template.`);
+console.log(verifyEvidence ? 'Referenced screenshot files are present; this does not validate their contents or usage rights.' : 'Screenshot files were not checked. Use --with-evidence and POSEY_RESEARCH_EVIDENCE_DIR to check the private evidence archive.');

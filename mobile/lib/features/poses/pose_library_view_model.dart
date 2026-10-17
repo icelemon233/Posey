@@ -14,7 +14,8 @@ class PoseFilters {
       query.isNotEmpty ||
       gender != 'all' ||
       category != 'all' ||
-      scene != 'all';
+      scene != 'all' ||
+      sort != 'catalog';
   void reset() {
     query = '';
     gender = 'all';
@@ -51,6 +52,11 @@ class PoseLibraryViewModel extends ChangeNotifier {
   PoseFilters filters({bool favoritesOnly = false}) =>
       favoritesOnly ? _favoriteFilters : _mainFilters;
   void _notify() {
+    for (final filter in [_mainFilters, _favoriteFilters]) {
+      if (filter.scene != 'all' && !scenes.contains(filter.scene)) {
+        filter.scene = 'all';
+      }
+    }
     if (!_disposed) notifyListeners();
   }
 
@@ -159,6 +165,7 @@ class PoseLibraryViewModel extends ChangeNotifier {
 
   Future<void> _serialize(Future<void> Function() action) =>
       _writes = _writes.catchError((Object _) {}).then((_) async {
+        await _loading;
         if (!_disposed) {
           await action();
           _notify();
@@ -187,6 +194,7 @@ class PoseLibraryViewModel extends ChangeNotifier {
     String gender,
   ) => _serialize(() async {
     if (loadErrors.containsKey('custom-poses-v1')) throw StateError('请先恢复自有参考');
+    if (_custom.length >= 500) throw StateError('最多保存 500 个自有参考，请先备份或整理。');
     if (title.trim().isEmpty || title.trim().length > 80) {
       throw const FormatException('请输入 1 到 80 个字的参考名称');
     }

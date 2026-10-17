@@ -145,6 +145,11 @@ internal class PoseyAiStore private constructor(context: Context) {
         try {
             val records = read()
             for (record in records) {
+                if (record.getString("state") == "staged") {
+                    val id = record.getString("id")
+                    record.put("state", "failed").put("message", "任务未能启动，没有发送生成请求。")
+                    requestFile(id).delete(); secretFile(id).delete()
+                }
                 if (record.getString("state") == "generating") {
                     val id = record.getString("id")
                     if (resultFile(id).isFile) record.put("state", "completed").put("completedAt", resultFile(id).lastModified())

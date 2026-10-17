@@ -130,6 +130,7 @@ class BackupManager extends ChangeNotifier {
   }
 
   Future<int> clearTemporary() => _run(() async {
+    if (candidate != null) throw StateError('请先导入或取消已选择的备份。');
     final bytes = await cleanup();
     message = '已清理 ${(bytes / (1024 * 1024)).toStringAsFixed(1)} MB 临时文件';
     return bytes;

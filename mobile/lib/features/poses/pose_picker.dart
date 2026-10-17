@@ -104,7 +104,8 @@ class ReferenceForm extends StatefulWidget {
 
 class _ReferenceFormState extends State<ReferenceForm> {
   late final title = TextEditingController(text: widget.initial?.title ?? '');
-  String category = 'standing', gender = 'all';
+  late String category = widget.initial?.category ?? 'standing';
+  late String gender = widget.initial?.gender ?? 'all';
   String? error;
   @override
   void dispose() {
@@ -114,7 +115,7 @@ class _ReferenceFormState extends State<ReferenceForm> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-    title: Text(widget.initial == null ? '添加自有参考' : '修改参考名称'),
+    title: Text(widget.initial == null ? '添加自有参考' : '编辑参考'),
     scrollable: true,
     content: Column(
       mainAxisSize: MainAxisSize.min,
@@ -125,7 +126,7 @@ class _ReferenceFormState extends State<ReferenceForm> {
           autofocus: true,
           decoration: InputDecoration(labelText: '参考名称', errorText: error),
         ),
-        if (widget.initial == null) ...[
+        ...[
           DropdownButtonFormField<String>(
             initialValue: category,
             decoration: const InputDecoration(labelText: '姿势分类'),
