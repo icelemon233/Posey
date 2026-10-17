@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>posey</string>
+	<string>Posey</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -72,5 +72,7 @@
 	<string>拍摄照片并显示姿势参考。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>选择你想调整姿势的照片。</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Cinna</string>
 </dict>
 </plist>

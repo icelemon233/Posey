@@ -1,4 +1,4 @@
-<p align="center"><img src="./docs/brand/cinna-app-icon.png" alt="Posey Cinna icon" width="128"></p>
+<p align="center"><img src="./docs/brand/cinna-app-icon.png" alt="Posey icon" width="128"></p>
 
 <h1 align="center">Posey</h1>
 
@@ -29,3 +29,5 @@ Use a physical phone for camera and gallery features. Grant access when the app 
 AI generation is optional. Configure a supported image service, HTTPS address, model, and your own API key in Settings. Confirming a generation sends the selected photo and reference to that service; provider charges may apply.
 
 Usage terms are in [LICENSE](./LICENSE).
+
+Developer: Cinna.

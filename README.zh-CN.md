@@ -1,4 +1,4 @@
-<p align="center"><img src="./docs/brand/cinna-app-icon.png" alt="Posey Cinna icon" width="128"></p>
+<p align="center"><img src="./docs/brand/cinna-app-icon.png" alt="Posey icon" width="128"></p>
 
 <h1 align="center">Posey</h1>
 
@@ -29,3 +29,5 @@ flutter run
 AI 生成为可选功能。在设置中填写受支持图像服务的 HTTPS 地址、模型和自己的 API Key。确认生成后，所选照片和参考图会发送到该服务，服务商可能按用量收费。
 
 使用条款见 [LICENSE](./LICENSE)。
+
+开发者：Cinna。

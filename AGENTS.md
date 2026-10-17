@@ -10,3 +10,5 @@ Posey is a Flutter application for Android and iOS. Keep the existing Flutter ve
 - Dispose listeners, native sessions and timers. Ignore stale asynchronous work and prevent duplicate submissions.
 
 Run the checks in `mobile/ARCHITECTURE.md` for application changes. Keep behavioral and boundary tests focused on the changed flow. Use CI for Android/iOS builds when local toolchains are unavailable, and distinguish mocked tests from physical-device validation.
+
+本项目属于 Cinna 系列。产品显示名为 Posey，开发者为 Cinna。界面使用产品名，系列标记保留在工程资料中。

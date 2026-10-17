@@ -8,5 +8,6 @@
     "plan:research-queue": "node scripts/plan-research-queue.mjs",
     "verify:research": "node scripts/verify-research.mjs",
     "gate:research-completion": "node scripts/research-completion-gate.mjs"
-  }
+  },
+  "author": "Cinna"
 }
