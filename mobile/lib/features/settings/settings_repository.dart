@@ -69,8 +69,9 @@ class SettingsRepository {
         prefs = object(values[5]),
         camera = object(values[6]);
     final mode = values[1] ?? 'system';
-    if (!['system', 'light', 'dark'].contains(mode))
+    if (!['system', 'light', 'dark'].contains(mode)) {
       throw const FormatException('主题模式无效');
+    }
     return SavedSettings(
       theme: values[0] ?? 'sunny-cream',
       themeMode: mode,
@@ -89,8 +90,9 @@ class SettingsRepository {
 
   Future<void> saveTheme(String value) => storage.write('theme', value);
   Future<void> saveThemeMode(String value) {
-    if (!['system', 'light', 'dark'].contains(value))
+    if (!['system', 'light', 'dark'].contains(value)) {
       throw const FormatException('主题模式无效');
+    }
     return storage.write('theme-mode', value);
   }
 

@@ -7,7 +7,12 @@ import 'package:posey/features/works/photo_work.dart';
 enum PhotoReviewPhase { idle, saving, submitting }
 
 class PhotoGenerationRequest {
-  const PhotoGenerationRequest({required this.path,required this.target,required this.options,this.workId});
+  const PhotoGenerationRequest({
+    required this.path,
+    required this.target,
+    required this.options,
+    this.workId,
+  });
   final String path;
   final PoseTemplate target;
   final AiRequestOptions options;
@@ -47,11 +52,19 @@ class PhotoReviewViewModel extends ChangeNotifier {
   final AiRequestOptions Function()? requestOptions;
   final Future<void> Function(AiRequestOptions, {required bool consent})?
   submitWithOptions;
-  final Future<void> Function(PhotoGenerationRequest,{required bool consent})? submitRequest;
+  final Future<void> Function(PhotoGenerationRequest, {required bool consent})?
+  submitRequest;
   PhotoGenerationRequest? createRequest() {
-    final options=requestOptions?.call();if(options==null)return null;
-    return PhotoGenerationRequest(path:generated?originalPath??path:path,target:target.withMirror(target.mirrored),options:options,workId:workId);
+    final options = requestOptions?.call();
+    if (options == null) return null;
+    return PhotoGenerationRequest(
+      path: generated ? originalPath ?? path : path,
+      target: target.withMirror(target.mirrored),
+      options: options,
+      workId: workId,
+    );
   }
+
   final bool Function() hasConfiguration;
   final String Function() serviceHost;
   final Future<void> Function({required bool consent}) submit;
@@ -89,16 +102,17 @@ class PhotoReviewViewModel extends ChangeNotifier {
   }) async {
     if (!consent) throw StateError('请先确认将这张照片和姿势参考发送给 AI 服务');
     if (busy || _disposed) return false;
-    if (!(request?.target??target).available) throw StateError('请先选择一个姿势参考');
-    if (request==null && !retained && retainAction != null) {
+    if (!(request?.target ?? target).available) throw StateError('请先选择一个姿势参考');
+    if (request == null && !retained && retainAction != null) {
       await retain();
       if (_disposed || !retained) return false;
     }
     _phase = PhotoReviewPhase.submitting;
     _notify();
     try {
-      if(submitRequest!=null&&request!=null){await submitRequest!(request,consent:true);}
-      else if (submitWithOptions != null && options != null) {
+      if (submitRequest != null && request != null) {
+        await submitRequest!(request, consent: true);
+      } else if (submitWithOptions != null && options != null) {
         await submitWithOptions!(options, consent: true);
       } else {
         await submit(consent: true);

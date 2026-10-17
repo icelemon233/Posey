@@ -53,14 +53,18 @@ class _PhotoReviewScreenState extends State<PhotoReviewScreen> {
         await widget.onConfigureAi();
         if (!mounted || !model.hasConfiguration()) return;
       }
-      if(!model.retained&&model.retainAction!=null){await model.retain();if(!mounted)return;}
-      final request=model.createRequest();
-      final options = request?.options??model.requestOptions?.call();
+      if (!model.retained && model.retainAction != null) {
+        await model.retain();
+        if (!mounted) return;
+      }
+      final request = model.createRequest();
+      final options = request?.options ?? model.requestOptions?.call();
       final agreed = options != null
           ? await confirmAiGeneration(
               context,
               options: options,
-              poseTitle: '${request?.target.title??model.target.title}${(request?.target.mirrored??model.target.mirrored)?'（镜像）':''}',
+              poseTitle:
+                  '${request?.target.title ?? model.target.title}${(request?.target.mirrored ?? model.target.mirrored) ? '（镜像）' : ''}',
               retry: model.generated,
             )
           : await showDialog<bool>(
@@ -84,7 +88,11 @@ class _PhotoReviewScreenState extends State<PhotoReviewScreen> {
                 ) ??
                 false;
       if (!mounted || !agreed) return;
-      final accepted = await model.generate(consent: true, options: options,request:request);
+      final accepted = await model.generate(
+        consent: true,
+        options: options,
+        request: request,
+      );
       if (mounted && accepted) {
         if (widget.onSubmitted != null) {
           widget.onSubmitted!();

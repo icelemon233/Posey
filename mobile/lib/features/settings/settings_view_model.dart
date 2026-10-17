@@ -10,6 +10,8 @@ class SettingsViewModel extends ChangeNotifier {
   Future<void> _writes = Future.value();
   Future<void> settle() => _writes.catchError((Object _) {});
   bool _disposed = false;
+  Future<void>? _loading;
+  int revision = 0;
   String? loadError;
   String get theme => _settings.theme;
   String get themeMode => _settings.themeMode;
@@ -22,12 +24,15 @@ class SettingsViewModel extends ChangeNotifier {
     if (!_disposed) notifyListeners();
   }
 
-  Future<void> load() async {
+  Future<void> load() =>
+      _loading ??= _load().whenComplete(() => _loading = null);
+  Future<void> _load() async {
     try {
       final next = await repository.load();
       if (_disposed) return;
       _settings = next;
       loadError = null;
+      revision++;
     } catch (_) {
       loadError = '设置无法读取。请重试，或备份后重置设置。';
       rethrow;

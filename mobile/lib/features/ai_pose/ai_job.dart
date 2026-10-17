@@ -2,8 +2,16 @@ import 'dart:convert';
 
 import 'package:posey/core/json.dart';
 
-enum AiJobState { queued, generating, awaitingResult, completed, failed, cancelled }
-enum PendingAiResult { download,save }
+enum AiJobState {
+  queued,
+  generating,
+  awaitingResult,
+  completed,
+  failed,
+  cancelled,
+}
+
+enum PendingAiResult { download, save }
 
 class AiJob {
   AiJob({
@@ -24,7 +32,8 @@ class AiJob {
     this.archiveError,
     this.pendingResult,
   });
-  final String id, targetId, targetTitle, sourcePath;
+  final String id, targetId, targetTitle;
+  String sourcePath;
   final String? retryOf;
   final String? sourceWorkId;
   final Json? targetSnapshot, requestMetadata;
@@ -61,7 +70,9 @@ class AiJob {
         : null,
     archivedWorkId: json['archivedWorkId'] as String?,
     archiveError: json['archiveError'] as String?,
-    pendingResult:PendingAiResult.values.where((value)=>value.name==json['pendingResult']).firstOrNull,
+    pendingResult: PendingAiResult.values
+        .where((value) => value.name == json['pendingResult'])
+        .firstOrNull,
   );
   Json toJson() => {
     'id': id,
@@ -79,7 +90,7 @@ class AiJob {
     if (requestMetadata != null) 'requestMetadata': requestMetadata,
     if (archivedWorkId != null) 'archivedWorkId': archivedWorkId,
     if (archiveError != null) 'archiveError': archiveError,
-    if(pendingResult!=null)'pendingResult':pendingResult!.name,
+    if (pendingResult != null) 'pendingResult': pendingResult!.name,
   };
 }
 

@@ -84,8 +84,9 @@ class _BackupScreenState extends State<BackupScreen> {
               future: stats,
               builder: (context, snapshot) {
                 final data = snapshot.data;
-                if (data == null)
+                if (data == null) {
                   return Text(snapshot.hasError ? '存储统计暂时无法读取' : '正在统计存储…');
+                }
                 return ListTile(
                   contentPadding: EdgeInsets.zero,
                   title: Text(
@@ -140,8 +141,9 @@ class _BackupScreenState extends State<BackupScreen> {
                   ? null
                   : () => runUiAction(context, () async {
                       await widget.manager.clearTemporary();
-                      if (mounted)
+                      if (mounted) {
                         setState(() => stats = widget.manager.statistics());
+                      }
                     }),
               child: const Text('清理分享与导出临时文件'),
             ),

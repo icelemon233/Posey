@@ -19,8 +19,11 @@ class DevicePlatform {
   final _openedJobs = StreamController<String>.broadcast();
   Stream<String> get openedJobs => _openedJobs.stream;
   Future<void> openSettings() => channel.invokeMethod('openSettings');
-  Future<bool> requestNotifications() async =>
-      await channel.invokeMethod<bool>('requestNotifications') ?? false;
+  Future<bool> requestNotifications({bool force = false}) async =>
+      await channel.invokeMethod<bool>('requestNotifications', {
+        'force': force,
+      }) ??
+      false;
   Future<void> shareFiles(List<String> paths) =>
       channel.invokeMethod('shareFiles', {'paths': paths});
   Future<bool> exportFile(String name, String path) async =>

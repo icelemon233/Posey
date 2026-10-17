@@ -63,8 +63,9 @@ BackupManager createBackupManager({
       await settle();
       if (library.loadErrors.isNotEmpty ||
           settings.loadError != null ||
-          works.loadError != null)
+          works.loadError != null) {
         throw StateError('部分资料尚未恢复，请恢复后再导出完整备份。');
+      }
       return BackupSnapshot(
         poses: library.custom,
         works: limit == null ? works.works : works.works.take(limit).toList(),
@@ -118,8 +119,9 @@ BackupManager createBackupManager({
       for (final value in incoming['works'] as List) {
         final raw = objectOf(value);
         if (workIds.contains(raw['id']) ||
-            raw['aiJobId'] != null && aiIds.contains(raw['aiJobId']))
+            raw['aiJobId'] != null && aiIds.contains(raw['aiJobId'])) {
           continue;
+        }
         final next = PhotoWork.fromJson({
           ...raw,
           'path': media(raw['path']),
@@ -161,8 +163,9 @@ BackupManager createBackupManager({
         await writeStorageBatch(storage, changes);
         await reload();
       } catch (_) {
-        if (await storage.read('pending-transaction-v1') != null)
+        if (await storage.read('pending-transaction-v1') != null) {
           fatal('导入未完成，恢复记录已保留。请重新加载资料后再继续。');
+        }
         rethrow;
       }
       return {
@@ -202,8 +205,9 @@ BackupManager createBackupManager({
           works.loadError != null ||
           jobs.loadError != null ||
           keys.any((key) => key.contains('-recovery-')) ||
-          await storage.read('pending-transaction-v1') != null)
+          await storage.read('pending-transaction-v1') != null) {
         return bytes;
+      }
       final retained = references();
       final pending = await storage.read('pending-import-v1');
       if (pending != null) return bytes;
@@ -229,12 +233,14 @@ Future<void> cleanRemovedMedia(
       works.loadError != null ||
       jobs.loadError != null ||
       jobs.hasPendingIO ||
-      jobs.activeJobs > 0)
+      jobs.activeJobs > 0) {
     return;
+  }
   if ((await storage.recordKeys()).any((key) => key.contains('-recovery-')) ||
       await storage.read('pending-transaction-v1') != null ||
-      await storage.read('pending-import-v1') != null)
+      await storage.read('pending-import-v1') != null) {
     return;
+  }
   final retained = {
     ...works.referencedPaths,
     ...library.custom.map((pose) => pose.illustration),

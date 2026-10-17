@@ -204,6 +204,18 @@ class PoseyDependencies extends ChangeNotifier {
     return (service as AiConnectionTester).checkConnection(configuration);
   }
 
+  void cancelAiConnectionCheck() {
+    final service = aiService;
+    if (service is AiConnectionTester) {
+      (service as AiConnectionTester).cancelConnectionCheck();
+    }
+  }
+
+  Future<Map<String, dynamic>>? _deviceInfo;
+  Future<Map<String, dynamic>> deviceInfo() => _deviceInfo ??= platform
+      .appInfo()
+      .catchError((Object _) => <String, dynamic>{'error': '版本信息暂时不可用'});
+
   @override
   void dispose() {
     _disposed = true;

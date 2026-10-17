@@ -12,11 +12,18 @@ class TestStorage implements PoseyStorage {
   final Directory directory;
   final data = <String, String>{};
   String? key;
-  final secrets=<String,String>{};
+  final secrets = <String, String>{};
   @override
-  Future<String?> readSecret(String name)async=>secrets[name];
+  Future<String?> readSecret(String name) async => secrets[name];
   @override
-  Future<void> writeSecret(String name,String? value)async{if(value==null){secrets.remove(name);}else{secrets[name]=value;}}
+  Future<void> writeSecret(String name, String? value) async {
+    if (value == null) {
+      secrets.remove(name);
+    } else {
+      secrets[name] = value;
+    }
+  }
+
   final deleted = <String>[];
   @override
   Future<Uint8List> readOwnedFile(String path) => File(path).readAsBytes();

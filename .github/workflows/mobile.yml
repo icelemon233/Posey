@@ -33,19 +33,20 @@ jobs:
       - run: dart format --output=none --set-exit-if-changed lib test
       - run: flutter analyze --no-pub
       - run: flutter test --no-pub --reporter expanded
-      - run: flutter build apk --debug --no-pub
-      - run: flutter build apk --release --no-pub
+      - run: flutter build apk --debug --flavor preview --no-pub
+      - run: flutter build apk --release --flavor production --no-pub
+      - run: flutter build apk --release --flavor preview --no-pub
       - name: Hash debug package
-        run: sha256sum build/app/outputs/flutter-apk/app-debug.apk
+        run: sha256sum build/app/outputs/flutter-apk/*.apk
       - uses: actions/upload-artifact@v6
         with:
           name: posey-android-debug
-          path: mobile/build/app/outputs/flutter-apk/app-debug.apk
+          path: mobile/build/app/outputs/flutter-apk/app-preview-debug.apk
           retention-days: 7
       - uses: actions/upload-artifact@v6
         with:
-          name: posey-android-release-preview
-          path: mobile/build/app/outputs/flutter-apk/app-release.apk
+          name: posey-android-release-unsigned
+          path: mobile/build/app/outputs/flutter-apk/*-release.apk
           retention-days: 7
   ios:
     runs-on: macos-26

@@ -52,6 +52,9 @@ class AiJobsViewModel extends ChangeNotifier {
   int get activeJobs => repository.activeJobs;
   bool get backgroundSupported => repository.backgroundSupported;
   bool get hasPendingIO => repository.hasPendingIO;
+  bool isRetryingResult(String id) => repository.isRetryingResult(id);
+  Future<void> retryResult(String id) => repository.retryResult(id);
+  Future<void> repairNativeHistory() => repository.repairNativeHistory();
   String? get syncError => repository.syncError;
   String? get loadError => repository.loadError;
   String? get persistenceError => repository.persistenceError;
@@ -149,7 +152,7 @@ class AiJobsViewModel extends ChangeNotifier {
 
   Future<void> cancel(String id) => repository.cancel(id);
   Future<void> clear(String id) => repository.clear(id);
-  Future<void> syncNative() => repository.syncNative();
+  Future<void> syncNative() => repository.refreshNative();
   Future<bool> saveResult(AiJob job) async {
     if (job.resultPath == null || !_saving.add(job.id)) return false;
     _changed();

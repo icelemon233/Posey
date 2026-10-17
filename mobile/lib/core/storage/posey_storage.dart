@@ -20,7 +20,7 @@ abstract interface class PoseyStorage {
   Future<String?> readApiKey();
   Future<void> writeApiKey(String value);
   Future<String?> readSecret(String name);
-  Future<void> writeSecret(String name,String? value);
+  Future<void> writeSecret(String name, String? value);
   Future<String> saveBytes(String fileName, Uint8List bytes);
   Future<void> deleteOwnedFile(String path);
   Future<Uint8List> readOwnedFile(String path);
@@ -54,8 +54,16 @@ class DevicePoseyStorage implements PoseyStorage {
       .toSet();
   @override
   Future<void> remove(String key) async {
-    try{if(await preferences.remove('posey.flutter.$key'))return;}catch(_){/* Reload the persisted cache below. */}
-    try{await preferences.reload();}catch(_){/* Keep the failure visible. */}
+    try {
+      if (await preferences.remove('posey.flutter.$key')) return;
+    } catch (_) {
+      /* Reload the persisted cache below. */
+    }
+    try {
+      await preferences.reload();
+    } catch (_) {
+      /* Keep the failure visible. */
+    }
     throw StateError('设备资料未能移除，请重试。');
   }
 
@@ -77,12 +85,20 @@ class DevicePoseyStorage implements PoseyStorage {
   @override
   Future<String?> readApiKey() => secure.read(key: 'posey.ark-api-key');
   @override
-  Future<String?> readSecret(String name)=>secure.read(key:'posey.secret.$name');
+  Future<String?> readSecret(String name) =>
+      secure.read(key: 'posey.secret.$name');
   @override
-  Future<void> writeSecret(String name,String? value) async {
-    if(!RegExp(r'^[a-zA-Z0-9_.-]{1,120}$').hasMatch(name))throw const FormatException('私密记录编号无效');
-    if(value==null){await secure.delete(key:'posey.secret.$name');}else{await secure.write(key:'posey.secret.$name',value:value);}
+  Future<void> writeSecret(String name, String? value) async {
+    if (!RegExp(r'^[a-zA-Z0-9_.-]{1,120}$').hasMatch(name)) {
+      throw const FormatException('私密记录编号无效');
+    }
+    if (value == null) {
+      await secure.delete(key: 'posey.secret.$name');
+    } else {
+      await secure.write(key: 'posey.secret.$name', value: value);
+    }
   }
+
   @override
   Future<void> writeApiKey(String value) async {
     if (value.isEmpty) {

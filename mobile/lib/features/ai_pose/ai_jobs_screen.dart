@@ -22,7 +22,8 @@ class AiJobsScreen extends StatelessWidget {
     if (await confirmAiGeneration(
           context,
           options: options,
-          poseTitle: '${job.targetTitle}${job.targetSnapshot?['mirrorReference']==true?'（镜像）':''}',
+          poseTitle:
+              '${job.targetTitle}${job.targetSnapshot?['mirrorReference'] == true ? '（镜像）' : ''}',
           retry: true,
         ) &&
         context.mounted) {
@@ -212,12 +213,29 @@ class AiJobsScreen extends StatelessWidget {
                     Text(switch (job.state) {
                       AiJobState.queued => '等待生成',
                       AiJobState.generating => '正在调整姿势…',
+                      AiJobState.awaitingResult =>
+                        job.message ?? '成片尚未留存，请重试保存。',
                       AiJobState.completed =>
                         '生成完成 · ${DateTime.fromMillisecondsSinceEpoch(job.completedAt ?? job.createdAt).toLocal().toString().substring(0, 16)}',
                       AiJobState.failed => job.message ?? '生成失败，请重试',
                       AiJobState.cancelled => '已取消',
                     }),
                     const SizedBox(height: 8),
+                    if (job.state == AiJobState.awaitingResult)
+                      TextButton.icon(
+                        onPressed: viewModel.isRetryingResult(job.id)
+                            ? null
+                            : () => runUiAction(
+                                context,
+                                () => viewModel.retryResult(job.id),
+                              ),
+                        icon: const Icon(Icons.download_outlined),
+                        label: Text(
+                          job.pendingResult == PendingAiResult.download
+                              ? '重试下载'
+                              : '重试保存图片',
+                        ),
+                      ),
                     if (job.active)
                       TextButton(
                         onPressed: () => runUiAction(
@@ -226,7 +244,9 @@ class AiJobsScreen extends StatelessWidget {
                         ),
                         child: const Text('取消生成'),
                       ),
-                    if (!job.active && job.sourcePath.isNotEmpty)
+                    if (!job.active &&
+                        job.state != AiJobState.awaitingResult &&
+                        job.sourcePath.isNotEmpty)
                       TextButton(
                         onPressed:
                             viewModel.activeJobs >= 3 ||

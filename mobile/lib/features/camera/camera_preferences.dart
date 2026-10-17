@@ -20,8 +20,9 @@ class CameraPreferences {
     double number(String key, double fallback, double min, double max) {
       final value = json[key];
       if (value == null) return fallback;
-      if (value is! num || !value.isFinite)
+      if (value is! num || !value.isFinite) {
         throw const FormatException('相机设置格式无效');
+      }
       return value.toDouble().clamp(min, max);
     }
 

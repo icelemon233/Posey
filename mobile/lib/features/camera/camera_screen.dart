@@ -59,10 +59,11 @@ class _PoseyCameraScreenState extends State<PoseyCameraScreen>
     model.setActive(false);
     try {
       await model.waitForRelease();
-      if (mounted)
+      if (mounted) {
         await (imported
             ? widget.onImportedPhoto ?? widget.onPhoto
             : widget.onPhoto)(path, pose);
+      }
     } finally {
       reviewing = false;
       if (mounted) {
@@ -78,8 +79,9 @@ class _PoseyCameraScreenState extends State<PoseyCameraScreen>
   });
   Future<void> importPhoto() => runUiAction(context, () async {
     final photo = await model.importPhoto();
-    if (photo != null && mounted)
+    if (photo != null && mounted) {
       await reviewPhoto(photo.path, photo.target, imported: true);
+    }
   });
   Future<void> choosePose() async {
     final pose = await pickPose(context, widget.poses);

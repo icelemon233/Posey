@@ -55,8 +55,9 @@ class _DeviceCameraSession implements CameraSession {
   Future<bool> focusAt(Offset point) async {
     if (!_controller.value.focusPointSupported) return false;
     await _controller.setFocusPoint(point);
-    if (_controller.value.exposurePointSupported)
+    if (_controller.value.exposurePointSupported) {
       await _controller.setExposurePoint(point);
+    }
     return true;
   }
 

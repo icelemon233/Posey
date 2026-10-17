@@ -9,6 +9,7 @@ import 'package:posey/features/ai_pose/ai_jobs_screen.dart';
 import 'package:posey/features/camera/camera_screen.dart';
 import 'package:posey/features/camera/camera_view_model.dart';
 import 'package:posey/features/photo_review/photo_editor.dart';
+import 'package:posey/features/photo_review/photo_editor_view_model.dart';
 import 'package:posey/features/photo_review/photo_review_screen.dart';
 import 'package:posey/features/photo_review/photo_review_view_model.dart';
 import 'package:posey/features/poses/pose_details_sheet.dart';
@@ -19,6 +20,8 @@ import 'package:posey/features/settings/ai_settings_screen.dart';
 import 'package:posey/features/settings/settings_screen.dart';
 import 'package:posey/features/works/photo_work.dart';
 import 'package:posey/features/works/works_screen.dart';
+import 'package:posey/features/backup/backup_screen.dart';
+import 'package:posey/features/settings/onboarding_card.dart';
 
 class PoseyShell extends StatefulWidget {
   const PoseyShell({super.key, required this.dependencies});
@@ -88,7 +91,11 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
   Future<void> configureAi() => Navigator.push(
     context,
     MaterialPageRoute<void>(
-      builder: (_) => AiSettingsScreen(viewModel: dependencies.settings),
+      builder: (_) => AiSettingsScreen(
+        viewModel: dependencies.settings,
+        checkConnection: dependencies.checkAiConnection,
+        cancelCheck: dependencies.cancelAiConnectionCheck,
+      ),
     ),
   );
   Future<void> reviewPhoto(
@@ -131,12 +138,21 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
       path: work?.path ?? fallbackPath,
       generated: work?.kind == WorkKind.ai || job != null,
       workId: work?.id,
-      originalPath: work?.original ?? job?.sourcePath,
+      originalPath:
+          work?.original ??
+          (job?.sourcePath.isNotEmpty == true ? job!.sourcePath : null),
       hasConfiguration: () =>
           dependencies.settings.configuration.normalizedKey.isNotEmpty,
       serviceHost: () => dependencies.settings.configuration.baseUri.host,
       requestOptions: dependencies.jobs.currentOptions,
-      submitRequest:(request,{required consent})=>dependencies.jobs.submitPhoto(request.target,request.path,consent:consent,options:request.options,sourceWorkId:request.workId),
+      submitRequest: (request, {required consent}) =>
+          dependencies.jobs.submitPhoto(
+            request.target,
+            request.path,
+            consent: consent,
+            options: request.options,
+            sourceWorkId: request.workId,
+          ),
       submit: ({required consent}) => dependencies.jobs.submitPhoto(
         model.target,
         model.path,
@@ -193,17 +209,19 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
             context,
             MaterialPageRoute<void>(
               builder: (_) => PhotoEditorScreen(
-                path: model.path,
-                photos: dependencies.photos,
-                onSave: (bytes) async {
-                  final edited = await dependencies.works.retainBytes(
-                    bytes,
-                    model.target,
-                    sourceWorkId: model.workId,
-                    originalPath: model.originalPath ?? model.path,
-                  );
-                  model.replacePhoto(edited);
-                },
+                viewModel: PhotoEditorViewModel(
+                  path: model.path,
+                  photos: dependencies.photos,
+                  onSave: (bytes) async {
+                    final edited = await dependencies.works.retainBytes(
+                      bytes,
+                      model.target,
+                      sourceWorkId: model.workId,
+                      originalPath: model.originalPath ?? model.path,
+                    );
+                    model.replacePhoto(edited);
+                  },
+                ),
               ),
             ),
           ),
@@ -264,8 +282,9 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
         importId = await dependencies.importRecovery.stage(target);
       },
       importCancelled: () async {
-        if (importId != null)
+        if (importId != null) {
           await dependencies.importRecovery.complete(importId!);
+        }
       },
       importSelected: (path, target) async {
         if (importId != null) {
@@ -371,7 +390,12 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
     if (values != null && mounted) {
       await runUiAction(
         context,
-        () => dependencies.library.renameReference(pose, values.title),
+        () => dependencies.library.renameReference(
+          pose,
+          values.title,
+          category: values.category,
+          gender: values.gender,
+        ),
       );
     }
   }
@@ -440,6 +464,45 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
       return;
     }
     openPose(pose);
+  }
+
+  Future<void> openBackup() => Navigator.push(
+    context,
+    MaterialPageRoute<void>(
+      builder: (_) => BackupScreen(manager: dependencies.backup),
+    ),
+  );
+  Future<void> notificationsPermission() async {
+    if (!await dependencies.platform.requestNotifications(force: true)) {
+      throw StateError('通知尚未允许，请在系统设置中开启。');
+    }
+  }
+
+  Future<void> clearTaskCopies() async {
+    final agreed = await showDialog<bool>(
+      context: context,
+      builder: (dialog) => AlertDialog(
+        title: const Text('清理已结束任务的副本？'),
+        scrollable: true,
+        content: const Text('作品、系统相册、进行中的任务和未留存成片会保留。'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialog, false),
+            child: const Text('取消'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(dialog, true),
+            child: const Text('清理'),
+          ),
+        ],
+      ),
+    );
+    if (agreed == true && mounted) {
+      await runUiAction(
+        context,
+        () => dependencies.jobs.clearFinished(includeCompleted: true),
+      );
+    }
   }
 
   @override
@@ -511,11 +574,18 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
             ),
           ),
           AppLoadState.ready => switch (page) {
-            0 || 1 => PoseLibraryScreen(
-              viewModel: dependencies.library,
-              favoritesOnly: page == 1,
-              onOpenPose: openPose,
-              onAddReference: addReference,
+            0 || 1 => Column(
+              children: [
+                if (page == 0) OnboardingCard(model: dependencies.settings),
+                Expanded(
+                  child: PoseLibraryScreen(
+                    viewModel: dependencies.library,
+                    favoritesOnly: page == 1,
+                    onOpenPose: openPose,
+                    onAddReference: addReference,
+                  ),
+                ),
+              ],
             ),
             2 => WorksScreen(
               repository: dependencies.works,
@@ -526,7 +596,17 @@ class _PoseyShellState extends State<PoseyShell> with WidgetsBindingObserver {
               viewModel: dependencies.jobs,
               onOpenResult: (job) => unawaited(openResult(job)),
             ),
-            _ => SettingsScreen(viewModel: dependencies.settings),
+            _ => SettingsScreen(
+              viewModel: dependencies.settings,
+              onConfigureAi: configureAi,
+              onBackup: openBackup,
+              onOpenSettings: dependencies.platform.openSettings,
+              onNotifications: notificationsPermission,
+              deviceInfo: dependencies.deviceInfo(),
+              importError: dependencies.importError,
+              onRecoverImport: dependencies.retryImportRecovery,
+              onClearTasks: clearTaskCopies,
+            ),
           },
         },
         bottomNavigationBar: AnimatedBuilder(

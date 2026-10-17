@@ -36,6 +36,7 @@ class PoseLibraryViewModel extends ChangeNotifier {
   final Map<String, String> loadErrors = {};
   bool _disposed = false;
   Future<void> _writes = Future.value();
+  Future<void>? _loading;
   Future<void> settle() => _writes.catchError((Object _) {});
   List<PoseTemplate> get templates =>
       List.unmodifiable([..._builtIn, ..._custom]);
@@ -53,7 +54,10 @@ class PoseLibraryViewModel extends ChangeNotifier {
     if (!_disposed) notifyListeners();
   }
 
-  Future<void> load() async {
+  Future<void> load() =>
+      _loading ??= _load().whenComplete(() => _loading = null);
+  Future<void> _load() async {
+    await settle();
     final catalog = await repository.loadTemplates();
     if (_disposed) return;
     _builtIn = catalog;
@@ -196,25 +200,35 @@ class PoseLibraryViewModel extends ChangeNotifier {
       rethrow;
     }
   });
-  Future<void> renameReference(PoseTemplate pose, String title) =>
-      _serialize(() async {
-        if (loadErrors.containsKey('custom-poses-v1'))
-          throw StateError('请先恢复自有参考');
-        if (!pose.isUserReference ||
-            title.trim().isEmpty ||
-            title.trim().length > 80) {
-          throw const FormatException('参考名称无效');
-        }
-        final next = _custom
-            .map(
-              (item) => item.id == pose.id
-                  ? PoseTemplate.fromJson({...item.raw, 'title': title.trim()})
-                  : item,
-            )
-            .toList();
-        await repository.saveCustom(next);
-        _custom = next;
-      });
+  Future<void> renameReference(
+    PoseTemplate pose,
+    String title, {
+    String? category,
+    String? gender,
+  }) => _serialize(() async {
+    if (loadErrors.containsKey('custom-poses-v1')) {
+      throw StateError('请先恢复自有参考');
+    }
+    if (!pose.isUserReference ||
+        title.trim().isEmpty ||
+        title.trim().length > 80) {
+      throw const FormatException('参考名称无效');
+    }
+    final next = _custom
+        .map(
+          (item) => item.id == pose.id
+              ? PoseTemplate.fromJson({
+                  ...item.raw,
+                  'title': title.trim(),
+                  'category': ?category,
+                  'gender': ?gender,
+                })
+              : item,
+        )
+        .toList();
+    await repository.saveCustom(next);
+    _custom = next;
+  });
   Future<void> deleteReference(PoseTemplate pose) => _serialize(() async {
     if (!pose.isUserReference) throw StateError('内置参考不能删除');
     if (loadErrors.isNotEmpty) throw StateError('请先恢复无法读取的记录');
@@ -225,7 +239,8 @@ class PoseLibraryViewModel extends ChangeNotifier {
     _favorites = saved;
   });
   Future<void> resetRecord(String key) async {
-    await repository.resetRecord(key);
+    if (!loadErrors.containsKey(key)) return;
+    await _serialize(() => repository.resetRecord(key));
     await load();
   }
 
