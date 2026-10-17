@@ -1,1 +1,5519 @@
-[{"id":"hand-near-hair-or-forehead","title":"手靠近头发","subtitle":"轻松半身照","category":"half","shotType":"half-body","tags":["半身","手部"],"accent":"#ffad8a","illustration":"assets/poses/hand-near-hair-or-forehead.webp","source":{"usageStatus":"owned","label":"Posey 原创抽象模板；研究来源已达到准入门槛","evidenceStatus":"supported"},"landmarks":{"nose":{"x":0.5,"y":0.14,"visibility":1},"leftShoulder":{"x":0.43,"y":0.26,"visibility":1},"rightShoulder":{"x":0.57,"y":0.26,"visibility":1},"leftElbow":{"x":0.37,"y":0.38,"visibility":1},"rightElbow":{"x":0.63,"y":0.31,"visibility":1},"leftWrist":{"x":0.33,"y":0.5,"visibility":1},"rightWrist":{"x":0.54,"y":0.17,"visibility":1},"leftHip":{"x":0.46,"y":0.51,"visibility":1},"rightHip":{"x":0.54,"y":0.51,"visibility":1},"leftKnee":{"x":0.44,"y":0.78,"visibility":0.2},"rightKnee":{"x":0.56,"y":0.78,"visibility":0.2},"leftAnkle":{"x":0.44,"y":1.05,"visibility":0.2},"rightAnkle":{"x":0.56,"y":1.05,"visibility":0.2}},"relations":[{"type":"near","from":"rightWrist","to":"nose","target":0.07,"tolerance":0.13,"simpleHint":"右手再靠近头发","critical":true}],"gender":"male"},{"id":"crossed-arms-standing","title":"抱臂站好","subtitle":"自然有精神","category":"standing","shotType":"full-body","tags":["全身","站姿"],"accent":"#e7c7ff","illustration":"assets/poses/crossed-arms-standing.webp","source":{"usageStatus":"owned","label":"Posey 原创抽象模板；研究来源已达到准入门槛","evidenceStatus":"supported"},"landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.39,"y":0.25,"visibility":1},"rightShoulder":{"x":0.61,"y":0.25,"visibility":1},"leftElbow":{"x":0.41,"y":0.39,"visibility":1},"rightElbow":{"x":0.59,"y":0.39,"visibility":1},"leftWrist":{"x":0.57,"y":0.34,"visibility":1},"rightWrist":{"x":0.43,"y":0.34,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.46,"y":0.73,"visibility":1},"rightKnee":{"x":0.54,"y":0.73,"visibility":1},"leftAnkle":{"x":0.46,"y":0.92,"visibility":1},"rightAnkle":{"x":0.54,"y":0.92,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"rightElbow","target":0.054,"tolerance":0.13,"simpleHint":"左手再贴近右臂","critical":true},{"type":"near","from":"rightWrist","to":"leftElbow","target":0.054,"tolerance":0.13,"simpleHint":"右手再贴近左臂","critical":true}],"gender":"male"},{"id":"back-facing-arms-open","title":"背身打开双臂","subtitle":"适合旅行风景","category":"standing","shotType":"full-body","tags":["全身","背影"],"accent":"#8ae6c1","illustration":"assets/poses/back-facing-arms-open-v2.webp","source":{"usageStatus":"owned","label":"Posey 原创抽象模板；研究来源已达到准入门槛","evidenceStatus":"supported"},"landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":0.2},"leftShoulder":{"x":0.41,"y":0.25,"visibility":1},"rightShoulder":{"x":0.59,"y":0.25,"visibility":1},"leftElbow":{"x":0.25,"y":0.28,"visibility":1},"rightElbow":{"x":0.75,"y":0.28,"visibility":1},"leftWrist":{"x":0.08,"y":0.3,"visibility":1},"rightWrist":{"x":0.92,"y":0.3,"visibility":1},"leftHip":{"x":0.455,"y":0.53,"visibility":1},"rightHip":{"x":0.545,"y":0.53,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.445,"y":0.92,"visibility":1},"rightAnkle":{"x":0.555,"y":0.92,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","target":0.84,"tolerance":0.18,"simpleHint":"双臂再打开一点","critical":true},{"type":"distance","from":"leftWrist","to":"leftShoulder","target":0.33,"tolerance":0.14,"simpleHint":"左手再往外一点","critical":true},{"type":"distance","from":"rightWrist","to":"rightShoulder","target":0.33,"tolerance":0.14,"simpleHint":"右手再往外一点","critical":true}],"gender":"male"},{"id":"side-lean-arms-open","title":"侧倾打开双臂","subtitle":"身体向旁边倾","category":"standing","shotType":"full-body","tags":["全身","旅行"],"accent":"#ffd76f","illustration":"assets/poses/side-lean-arms-open.webp","source":{"usageStatus":"owned","label":"Posey 原创抽象模板；研究来源已达到准入门槛","evidenceStatus":"supported"},"landmarks":{"nose":{"x":0.58,"y":0.12,"visibility":1},"leftShoulder":{"x":0.44,"y":0.28,"visibility":1},"rightShoulder":{"x":0.65,"y":0.23,"visibility":1},"leftElbow":{"x":0.28,"y":0.34,"visibility":1},"rightElbow":{"x":0.78,"y":0.28,"visibility":1},"leftWrist":{"x":0.12,"y":0.39,"visibility":1},"rightWrist":{"x":0.92,"y":0.33,"visibility":1},"leftHip":{"x":0.45,"y":0.53,"visibility":1},"rightHip":{"x":0.55,"y":0.53,"visibility":1},"leftKnee":{"x":0.43,"y":0.74,"visibility":1},"rightKnee":{"x":0.56,"y":0.73,"visibility":1},"leftAnkle":{"x":0.4,"y":0.92,"visibility":1},"rightAnkle":{"x":0.58,"y":0.92,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","target":0.8,"tolerance":0.18,"simpleHint":"双臂再打开一点","critical":true},{"type":"vertical-offset","from":"leftShoulder","to":"rightShoulder","target":0.05,"tolerance":0.06,"simpleHint":"身体再侧一点","critical":true}],"gender":"male"},{"id":"wall-lean-body-side-one-hand-pocket","title":"侧靠单手插兜","subtitle":"靠墙更松弛","category":"standing","shotType":"full-body","tags":["全身","靠墙"],"accent":"#88c9ff","illustration":"assets/poses/wall-lean-body-side-one-hand-pocket.webp","source":{"usageStatus":"owned","label":"Posey 原创抽象模板；研究来源已达到准入门槛","evidenceStatus":"supported"},"landmarks":{"nose":{"x":0.54,"y":0.12,"visibility":1},"leftShoulder":{"x":0.43,"y":0.28,"visibility":1},"rightShoulder":{"x":0.61,"y":0.25,"visibility":1},"leftElbow":{"x":0.38,"y":0.45,"visibility":1},"rightElbow":{"x":0.64,"y":0.4,"visibility":1},"leftWrist":{"x":0.37,"y":0.61,"visibility":1},"rightWrist":{"x":0.56,"y":0.54,"visibility":1},"leftHip":{"x":0.46,"y":0.55,"visibility":1},"rightHip":{"x":0.55,"y":0.54,"visibility":1},"leftKnee":{"x":0.43,"y":0.75,"visibility":1},"rightKnee":{"x":0.66,"y":0.7,"visibility":1},"leftAnkle":{"x":0.4,"y":0.93,"visibility":1},"rightAnkle":{"x":0.71,"y":0.82,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"rightHip","target":0.015,"tolerance":0.07,"simpleHint":"右手再靠近裤兜","critical":true},{"type":"minimum-distance","from":"leftWrist","to":"leftHip","target":0.105,"tolerance":0.07,"simpleHint":"左手放在兜外面","critical":true},{"type":"vertical-offset","from":"leftShoulder","to":"rightShoulder","target":0.03,"tolerance":0.055,"simpleHint":"身体再侧靠一点","critical":true}],"gender":"male"},{"id":"standing-look-back-one-hand-pocket","title":"回头单手插兜","subtitle":"侧身回头看镜头","category":"standing","shotType":"full-body","tags":["全身","回眸"],"accent":"#ff9db5","illustration":"assets/poses/standing-look-back-one-hand-pocket.webp","source":{"usageStatus":"owned","label":"Posey 原创抽象模板；研究来源已达到准入门槛","evidenceStatus":"supported"},"landmarks":{"nose":{"x":0.57,"y":0.14,"visibility":1},"leftShoulder":{"x":0.43,"y":0.27,"visibility":1},"rightShoulder":{"x":0.61,"y":0.24,"visibility":1},"leftElbow":{"x":0.38,"y":0.43,"visibility":1},"rightElbow":{"x":0.64,"y":0.39,"visibility":1},"leftWrist":{"x":0.36,"y":0.58,"visibility":1},"rightWrist":{"x":0.56,"y":0.53,"visibility":1},"leftHip":{"x":0.46,"y":0.54,"visibility":1},"rightHip":{"x":0.55,"y":0.53,"visibility":1},"leftKnee":{"x":0.44,"y":0.74,"visibility":1},"rightKnee":{"x":0.57,"y":0.72,"visibility":1},"leftAnkle":{"x":0.42,"y":0.93,"visibility":1},"rightAnkle":{"x":0.6,"y":0.91,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"rightHip","target":0.02,"tolerance":0.075,"simpleHint":"右手再靠近裤兜","critical":true},{"type":"minimum-distance","from":"leftWrist","to":"leftHip","target":0.13,"tolerance":0.07,"simpleHint":"左手放在兜外面","critical":true},{"type":"horizontal-offset","from":"nose","to":"rightHip","target":0.02,"tolerance":0.07,"simpleHint":"再回头看向手机","critical":true},{"type":"vertical-offset","from":"leftShoulder","to":"rightShoulder","target":0.03,"tolerance":0.06,"simpleHint":"身体再侧一点","critical":true}],"gender":"male"},{"id":"one-hand-in-pocket","title":"单手插兜","subtitle":"另一只手自然放松","category":"standing","shotType":"full-body","tags":["站姿","已验证"],"accent":"#ff9f7f","illustration":"assets/poses/one-hand-in-pocket.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.61,"y":0.43,"visibility":1},"leftWrist":{"x":0.33,"y":0.59,"visibility":1},"rightWrist":{"x":0.55,"y":0.52,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"rightHip","tolerance":0.075,"simpleHint":"右手再靠近裤兜","critical":true},{"type":"minimum-distance","from":"leftWrist","to":"leftHip","tolerance":0.07,"simpleHint":"左手放在兜外面","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；研究来源已达到准入门槛","evidenceStatus":"supported"},"gender":"female"},{"id":"standing-one-arm-up","title":"单手举高","subtitle":"身体站直，一只手向上","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#89d9c2","illustration":"assets/poses/standing-one-arm-up.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.38,"y":0.14,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.42,"y":0.02,"visibility":1},"rightWrist":{"x":0.66,"y":0.58,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"vertical-offset","from":"leftWrist","to":"leftShoulder","tolerance":0.08,"simpleHint":"左手再高一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"both-arms-raised","title":"双手举高","subtitle":"双臂一起向上伸展","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ffd36e","illustration":"assets/poses/both-arms-raised.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.4,"y":0.13,"visibility":1},"rightElbow":{"x":0.6,"y":0.13,"visibility":1},"leftWrist":{"x":0.44,"y":0.01,"visibility":1},"rightWrist":{"x":0.56,"y":0.01,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.08,"simpleHint":"双手再分开一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"hand-in-hair-standing","title":"单手撩发","subtitle":"一只手轻碰头发","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#9dc7ff","illustration":"assets/poses/hand-in-hair-standing.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.67,"y":0.32,"visibility":1},"leftWrist":{"x":0.34,"y":0.58,"visibility":1},"rightWrist":{"x":0.58,"y":0.14,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.11,"simpleHint":"右手再靠近头发","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"both-hands-near-face","title":"双手靠近脸","subtitle":"两只手放在脸旁","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#dda9ff","illustration":"assets/poses/both-hands-near-face.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.34,"y":0.34,"visibility":1},"rightElbow":{"x":0.66,"y":0.34,"visibility":1},"leftWrist":{"x":0.43,"y":0.19,"visibility":1},"rightWrist":{"x":0.57,"y":0.19,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近脸","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"natural-stand-hands-front","title":"双手自然放前","subtitle":"简单放松的站姿","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ff9fbd","illustration":"assets/poses/natural-stand-hands-front.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.47,"y":0.59,"visibility":1},"rightWrist":{"x":0.53,"y":0.59,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"one-hand-near-ear-other-low","title":"一手靠耳边","subtitle":"另一只手自然垂下","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#ff9f7f","illustration":"assets/poses/one-hand-near-ear-other-low.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.33,"y":0.34,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.43,"y":0.17,"visibility":1},"rightWrist":{"x":0.65,"y":0.61,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"nose","tolerance":0.12,"simpleHint":"左手再靠近耳边","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"one-hand-on-shoulder-other-low","title":"一手搭肩","subtitle":"另一只手自然放低","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#89d9c2","illustration":"assets/poses/one-hand-on-shoulder-other-low.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.48,"y":0.39,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.59,"y":0.27,"visibility":1},"rightWrist":{"x":0.65,"y":0.61,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"rightShoulder","tolerance":0.08,"simpleHint":"左手再靠近肩膀","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"one-leg-back-lift","title":"单脚向后抬","subtitle":"轻轻抬起一只脚","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ffd36e","illustration":"assets/poses/one-leg-back-lift.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.34,"y":0.58,"visibility":1},"rightWrist":{"x":0.66,"y":0.58,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.61,"y":0.75,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.68,"y":0.66,"visibility":1}},"relations":[{"type":"distance","from":"rightAnkle","to":"leftAnkle","tolerance":0.12,"simpleHint":"右脚再抬高一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"one-leg-forward-toe-up","title":"一脚向前点","subtitle":"脚尖轻轻抬起","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#9dc7ff","illustration":"assets/poses/one-leg-forward-toe-up.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.34,"y":0.58,"visibility":1},"rightWrist":{"x":0.66,"y":0.58,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.4,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.28,"y":0.88,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"minimum-distance","from":"leftAnkle","to":"rightAnkle","tolerance":0.1,"simpleHint":"左脚再往前一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"standing-salute","title":"抬手敬礼","subtitle":"一只手放到额前","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#dda9ff","illustration":"assets/poses/standing-salute.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.67,"y":0.29,"visibility":1},"leftWrist":{"x":0.34,"y":0.58,"visibility":1},"rightWrist":{"x":0.57,"y":0.13,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.1,"simpleHint":"右手再靠近额头","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"walking-side-profile","title":"侧身走路","subtitle":"迈步时看向前方","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ff9fbd","illustration":"assets/poses/walking-side-profile.webp","landmarks":{"nose":{"x":0.57,"y":0.13,"visibility":1},"leftShoulder":{"x":0.45,"y":0.26,"visibility":1},"rightShoulder":{"x":0.57,"y":0.24,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.34,"y":0.58,"visibility":1},"rightWrist":{"x":0.66,"y":0.58,"visibility":1},"leftHip":{"x":0.47,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.51,"visibility":1},"leftKnee":{"x":0.36,"y":0.73,"visibility":1},"rightKnee":{"x":0.62,"y":0.69,"visibility":1},"leftAnkle":{"x":0.28,"y":0.91,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"minimum-distance","from":"leftAnkle","to":"rightAnkle","tolerance":0.12,"simpleHint":"步子再打开一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"standing-both-hands-near-head","title":"双手靠近头部","subtitle":"双手放在头两侧","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#ff9f7f","illustration":"assets/poses/standing-both-hands-near-head.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.32,"y":0.32,"visibility":1},"rightElbow":{"x":0.68,"y":0.32,"visibility":1},"leftWrist":{"x":0.42,"y":0.12,"visibility":1},"rightWrist":{"x":0.58,"y":0.12,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近头部","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"standing-both-hands-waist-look-side","title":"双手叉腰侧看","subtitle":"双手放腰，看向一边","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#89d9c2","illustration":"assets/poses/standing-both-hands-waist-look-side.webp","landmarks":{"nose":{"x":0.58,"y":0.13,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.3,"y":0.45,"visibility":1},"rightElbow":{"x":0.7,"y":0.45,"visibility":1},"leftWrist":{"x":0.45,"y":0.52,"visibility":1},"rightWrist":{"x":0.55,"y":0.52,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"leftHip","tolerance":0.08,"simpleHint":"左手再靠近腰","critical":true},{"type":"near","from":"rightWrist","to":"rightHip","tolerance":0.08,"simpleHint":"右手再靠近腰","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"side-look-back-hand-behind-head","title":"侧身回头扶发","subtitle":"回头时一手放脑后","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#ffd36e","illustration":"assets/poses/side-look-back-hand-behind-head.webp","landmarks":{"nose":{"x":0.59,"y":0.14,"visibility":1},"leftShoulder":{"x":0.44,"y":0.27,"visibility":1},"rightShoulder":{"x":0.6,"y":0.24,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.68,"y":0.3,"visibility":1},"leftWrist":{"x":0.34,"y":0.58,"visibility":1},"rightWrist":{"x":0.57,"y":0.12,"visibility":1},"leftHip":{"x":0.47,"y":0.53,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.11,"simpleHint":"右手再靠近头发","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"side-stand-arms-down","title":"侧身站立","subtitle":"双臂自然放下","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#9dc7ff","illustration":"assets/poses/side-stand-arms-down.webp","landmarks":{"nose":{"x":0.57,"y":0.13,"visibility":1},"leftShoulder":{"x":0.44,"y":0.26,"visibility":1},"rightShoulder":{"x":0.58,"y":0.24,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.45,"y":0.6,"visibility":1},"rightWrist":{"x":0.6,"y":0.59,"visibility":1},"leftHip":{"x":0.47,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"horizontal-offset","from":"nose","to":"leftHip","tolerance":0.08,"simpleHint":"身体再侧一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"two-hands-front-asymmetric","title":"双手前后错开","subtitle":"两只手放在不同高度","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#dda9ff","illustration":"assets/poses/two-hands-front-asymmetric.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.45,"y":0.48,"visibility":1},"rightWrist":{"x":0.55,"y":0.61,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"vertical-offset","from":"leftWrist","to":"rightWrist","tolerance":0.08,"simpleHint":"左手再高一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"forward-lean-hands-low","title":"前倾双手放低","subtitle":"身体前倾，双手靠近膝盖","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ff9fbd","illustration":"assets/poses/forward-lean-hands-low.webp","landmarks":{"nose":{"x":0.5,"y":0.2,"visibility":1},"leftShoulder":{"x":0.4,"y":0.31,"visibility":1},"rightShoulder":{"x":0.6,"y":0.31,"visibility":1},"leftElbow":{"x":0.38,"y":0.47,"visibility":1},"rightElbow":{"x":0.62,"y":0.47,"visibility":1},"leftWrist":{"x":0.42,"y":0.66,"visibility":1},"rightWrist":{"x":0.58,"y":0.66,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"vertical-offset","from":"nose","to":"leftShoulder","tolerance":0.08,"simpleHint":"身体再往前一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"arms-crossed-one-leg-lifted","title":"抱臂抬脚","subtitle":"抱住双臂，一脚向后抬","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ff9f7f","illustration":"assets/poses/arms-crossed-one-leg-lifted.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.42,"y":0.38,"visibility":1},"rightElbow":{"x":0.58,"y":0.38,"visibility":1},"leftWrist":{"x":0.57,"y":0.34,"visibility":1},"rightWrist":{"x":0.43,"y":0.34,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.61,"y":0.75,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.68,"y":0.66,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"rightElbow","tolerance":0.12,"simpleHint":"左手再靠近右臂","critical":true},{"type":"distance","from":"rightAnkle","to":"leftAnkle","tolerance":0.12,"simpleHint":"右脚再抬高一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"arms-open-look-side","title":"打开双臂侧看","subtitle":"双臂张开，看向一边","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#89d9c2","illustration":"assets/poses/arms-open-look-side.webp","landmarks":{"nose":{"x":0.6,"y":0.13,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.25,"y":0.29,"visibility":1},"rightElbow":{"x":0.75,"y":0.29,"visibility":1},"leftWrist":{"x":0.08,"y":0.31,"visibility":1},"rightWrist":{"x":0.92,"y":0.31,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.18,"simpleHint":"双臂再打开一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"back-facing-both-hands-in-hair","title":"背身双手扶发","subtitle":"背对镜头，双手放头边","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#ffd36e","illustration":"assets/poses/back-facing-both-hands-in-hair.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":0.2},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.32,"y":0.32,"visibility":1},"rightElbow":{"x":0.68,"y":0.32,"visibility":1},"leftWrist":{"x":0.43,"y":0.12,"visibility":1},"rightWrist":{"x":0.57,"y":0.12,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近头发","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"crouch-knees-together-both-hands-cup-face","title":"蹲姿双手托脸","subtitle":"双膝靠近，双手放脸旁","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#9dc7ff","illustration":"assets/poses/crouch-knees-together-both-hands-cup-face.webp","landmarks":{"nose":{"x":0.5,"y":0.22,"visibility":1},"leftShoulder":{"x":0.4,"y":0.34,"visibility":1},"rightShoulder":{"x":0.6,"y":0.34,"visibility":1},"leftElbow":{"x":0.36,"y":0.39,"visibility":1},"rightElbow":{"x":0.64,"y":0.39,"visibility":1},"leftWrist":{"x":0.44,"y":0.24,"visibility":1},"rightWrist":{"x":0.56,"y":0.24,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.46,"y":0.68,"visibility":1},"rightKnee":{"x":0.54,"y":0.68,"visibility":1},"leftAnkle":{"x":0.33,"y":0.86,"visibility":1},"rightAnkle":{"x":0.67,"y":0.86,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近脸","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"crouch-knees-together-hands-low","title":"蹲姿双手放低","subtitle":"双膝靠近，双手自然放下","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#dda9ff","illustration":"assets/poses/crouch-knees-together-hands-low.webp","landmarks":{"nose":{"x":0.5,"y":0.22,"visibility":1},"leftShoulder":{"x":0.4,"y":0.34,"visibility":1},"rightShoulder":{"x":0.6,"y":0.34,"visibility":1},"leftElbow":{"x":0.35,"y":0.48,"visibility":1},"rightElbow":{"x":0.65,"y":0.48,"visibility":1},"leftWrist":{"x":0.46,"y":0.66,"visibility":1},"rightWrist":{"x":0.54,"y":0.66,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.46,"y":0.68,"visibility":1},"rightKnee":{"x":0.54,"y":0.68,"visibility":1},"leftAnkle":{"x":0.33,"y":0.86,"visibility":1},"rightAnkle":{"x":0.67,"y":0.86,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"crouch-knees-together-one-hand-cheek","title":"蹲姿单手托脸","subtitle":"双膝靠近，一手碰脸","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#ff9fbd","illustration":"assets/poses/crouch-knees-together-one-hand-cheek.webp","landmarks":{"nose":{"x":0.5,"y":0.22,"visibility":1},"leftShoulder":{"x":0.4,"y":0.34,"visibility":1},"rightShoulder":{"x":0.6,"y":0.34,"visibility":1},"leftElbow":{"x":0.35,"y":0.48,"visibility":1},"rightElbow":{"x":0.63,"y":0.39,"visibility":1},"leftWrist":{"x":0.43,"y":0.63,"visibility":1},"rightWrist":{"x":0.56,"y":0.24,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.46,"y":0.68,"visibility":1},"rightKnee":{"x":0.54,"y":0.68,"visibility":1},"leftAnkle":{"x":0.33,"y":0.86,"visibility":1},"rightAnkle":{"x":0.67,"y":0.86,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.11,"simpleHint":"右手再靠近脸","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"crouch-one-hand-in-hair","title":"蹲姿撩发","subtitle":"蹲下时一手碰头发","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#ff9f7f","illustration":"assets/poses/crouch-one-hand-in-hair.webp","landmarks":{"nose":{"x":0.5,"y":0.22,"visibility":1},"leftShoulder":{"x":0.4,"y":0.34,"visibility":1},"rightShoulder":{"x":0.6,"y":0.34,"visibility":1},"leftElbow":{"x":0.34,"y":0.39,"visibility":1},"rightElbow":{"x":0.65,"y":0.48,"visibility":1},"leftWrist":{"x":0.44,"y":0.22,"visibility":1},"rightWrist":{"x":0.61,"y":0.61,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.68,"visibility":1},"rightKnee":{"x":0.65,"y":0.68,"visibility":1},"leftAnkle":{"x":0.33,"y":0.86,"visibility":1},"rightAnkle":{"x":0.67,"y":0.86,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"nose","tolerance":0.11,"simpleHint":"左手再靠近头发","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"crouch-one-knee-up-hand-near-face","title":"单膝抬高蹲姿","subtitle":"一手靠脸，一边膝盖抬高","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#89d9c2","illustration":"assets/poses/crouch-one-knee-up-hand-near-face.webp","landmarks":{"nose":{"x":0.5,"y":0.22,"visibility":1},"leftShoulder":{"x":0.4,"y":0.34,"visibility":1},"rightShoulder":{"x":0.6,"y":0.34,"visibility":1},"leftElbow":{"x":0.35,"y":0.48,"visibility":1},"rightElbow":{"x":0.64,"y":0.39,"visibility":1},"leftWrist":{"x":0.34,"y":0.59,"visibility":1},"rightWrist":{"x":0.56,"y":0.24,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.63,"visibility":1},"rightKnee":{"x":0.62,"y":0.55,"visibility":1},"leftAnkle":{"x":0.33,"y":0.86,"visibility":1},"rightAnkle":{"x":0.68,"y":0.82,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.11,"simpleHint":"右手再靠近脸","critical":true},{"type":"vertical-offset","from":"rightKnee","to":"leftKnee","tolerance":0.1,"simpleHint":"右膝再高一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"low-crouch","title":"低位蹲姿","subtitle":"身体放低，双手自然","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#ffd36e","illustration":"assets/poses/low-crouch.webp","landmarks":{"nose":{"x":0.5,"y":0.3,"visibility":1},"leftShoulder":{"x":0.4,"y":0.4,"visibility":1},"rightShoulder":{"x":0.6,"y":0.4,"visibility":1},"leftElbow":{"x":0.35,"y":0.48,"visibility":1},"rightElbow":{"x":0.65,"y":0.48,"visibility":1},"leftWrist":{"x":0.34,"y":0.59,"visibility":1},"rightWrist":{"x":0.66,"y":0.59,"visibility":1},"leftHip":{"x":0.44,"y":0.59,"visibility":1},"rightHip":{"x":0.56,"y":0.59,"visibility":1},"leftKnee":{"x":0.34,"y":0.69,"visibility":1},"rightKnee":{"x":0.66,"y":0.69,"visibility":1},"leftAnkle":{"x":0.33,"y":0.86,"visibility":1},"rightAnkle":{"x":0.67,"y":0.86,"visibility":1}},"relations":[{"type":"vertical-offset","from":"nose","to":"leftHip","tolerance":0.1,"simpleHint":"身体再蹲低一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"one-knee-kneel","title":"单膝跪姿","subtitle":"一边膝盖落低","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#9dc7ff","illustration":"assets/poses/one-knee-kneel.webp","landmarks":{"nose":{"x":0.5,"y":0.15,"visibility":1},"leftShoulder":{"x":0.4,"y":0.28,"visibility":1},"rightShoulder":{"x":0.6,"y":0.28,"visibility":1},"leftElbow":{"x":0.35,"y":0.43,"visibility":1},"rightElbow":{"x":0.65,"y":0.43,"visibility":1},"leftWrist":{"x":0.34,"y":0.58,"visibility":1},"rightWrist":{"x":0.66,"y":0.58,"visibility":1},"leftHip":{"x":0.44,"y":0.53,"visibility":1},"rightHip":{"x":0.56,"y":0.53,"visibility":1},"leftKnee":{"x":0.4,"y":0.72,"visibility":1},"rightKnee":{"x":0.62,"y":0.64,"visibility":1},"leftAnkle":{"x":0.33,"y":0.88,"visibility":1},"rightAnkle":{"x":0.68,"y":0.88,"visibility":1}},"relations":[{"type":"vertical-offset","from":"leftKnee","to":"rightKnee","tolerance":0.1,"simpleHint":"左膝再低一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"low-kneel-arms-extended-look-side","title":"低跪打开双臂","subtitle":"跪低后双臂向两边伸","category":"crouching","shotType":"full-body","tags":["蹲跪","试用"],"accent":"#dda9ff","illustration":"assets/poses/low-kneel-arms-extended-look-side.webp","landmarks":{"nose":{"x":0.59,"y":0.18,"visibility":1},"leftShoulder":{"x":0.4,"y":0.28,"visibility":1},"rightShoulder":{"x":0.6,"y":0.28,"visibility":1},"leftElbow":{"x":0.25,"y":0.37,"visibility":1},"rightElbow":{"x":0.75,"y":0.37,"visibility":1},"leftWrist":{"x":0.08,"y":0.4,"visibility":1},"rightWrist":{"x":0.92,"y":0.4,"visibility":1},"leftHip":{"x":0.44,"y":0.53,"visibility":1},"rightHip":{"x":0.56,"y":0.53,"visibility":1},"leftKnee":{"x":0.4,"y":0.7,"visibility":1},"rightKnee":{"x":0.6,"y":0.7,"visibility":1},"leftAnkle":{"x":0.34,"y":0.89,"visibility":1},"rightAnkle":{"x":0.67,"y":0.89,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.18,"simpleHint":"双臂再打开一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"seated-both-hands-cup-face","title":"坐姿双手托脸","subtitle":"坐好后双手放脸旁","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#ff9fbd","illustration":"assets/poses/seated-both-hands-cup-face.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.36,"y":0.39,"visibility":1},"rightElbow":{"x":0.64,"y":0.39,"visibility":1},"leftWrist":{"x":0.44,"y":0.2,"visibility":1},"rightWrist":{"x":0.56,"y":0.2,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.72,"visibility":1},"rightKnee":{"x":0.65,"y":0.72,"visibility":1},"leftAnkle":{"x":0.3,"y":0.88,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"distance","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近脸","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"seated-hand-near-forehead","title":"坐姿手靠额头","subtitle":"坐着把一手放额前","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#ff9f7f","illustration":"assets/poses/seated-hand-near-forehead.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.35,"y":0.43,"visibility":1},"rightElbow":{"x":0.66,"y":0.36,"visibility":1},"leftWrist":{"x":0.34,"y":0.57,"visibility":1},"rightWrist":{"x":0.56,"y":0.17,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.72,"visibility":1},"rightKnee":{"x":0.65,"y":0.72,"visibility":1},"leftAnkle":{"x":0.3,"y":0.88,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.1,"simpleHint":"右手再靠近额头","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"seated-knees-open-hands-low","title":"坐姿双膝打开","subtitle":"双手自然放低","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#89d9c2","illustration":"assets/poses/seated-knees-open-hands-low.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.35,"y":0.43,"visibility":1},"rightElbow":{"x":0.65,"y":0.43,"visibility":1},"leftWrist":{"x":0.44,"y":0.64,"visibility":1},"rightWrist":{"x":0.56,"y":0.64,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.28,"y":0.7,"visibility":1},"rightKnee":{"x":0.72,"y":0.7,"visibility":1},"leftAnkle":{"x":0.24,"y":0.89,"visibility":1},"rightAnkle":{"x":0.76,"y":0.89,"visibility":1}},"relations":[{"type":"minimum-distance","from":"leftKnee","to":"rightKnee","tolerance":0.12,"simpleHint":"双膝再打开一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"seated-one-hand-in-hair","title":"坐姿撩发","subtitle":"坐着一手碰头发","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#ffd36e","illustration":"assets/poses/seated-one-hand-in-hair.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.34,"y":0.38,"visibility":1},"rightElbow":{"x":0.65,"y":0.43,"visibility":1},"leftWrist":{"x":0.44,"y":0.19,"visibility":1},"rightWrist":{"x":0.66,"y":0.57,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.72,"visibility":1},"rightKnee":{"x":0.65,"y":0.72,"visibility":1},"leftAnkle":{"x":0.3,"y":0.88,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"nose","tolerance":0.11,"simpleHint":"左手再靠近头发","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"seated-one-hand-support-cheek","title":"坐姿单手托腮","subtitle":"一只手轻轻托住脸","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#9dc7ff","illustration":"assets/poses/seated-one-hand-support-cheek.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.35,"y":0.43,"visibility":1},"rightElbow":{"x":0.62,"y":0.44,"visibility":1},"leftWrist":{"x":0.34,"y":0.57,"visibility":1},"rightWrist":{"x":0.56,"y":0.22,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.72,"visibility":1},"rightKnee":{"x":0.65,"y":0.72,"visibility":1},"leftAnkle":{"x":0.3,"y":0.88,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.11,"simpleHint":"右手再靠近脸","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"seated-one-hand-support-chin","title":"坐姿托下巴","subtitle":"一只手放在下巴下","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#dda9ff","illustration":"assets/poses/seated-one-hand-support-chin.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.39,"y":0.44,"visibility":1},"rightElbow":{"x":0.65,"y":0.43,"visibility":1},"leftWrist":{"x":0.49,"y":0.24,"visibility":1},"rightWrist":{"x":0.66,"y":0.57,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.72,"visibility":1},"rightKnee":{"x":0.65,"y":0.72,"visibility":1},"leftAnkle":{"x":0.3,"y":0.88,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"nose","tolerance":0.1,"simpleHint":"左手再靠近下巴","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"floor-seated-cross-legged-hold-prop","title":"盘腿双手拿书","subtitle":"盘腿坐下，双手放身前","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#ff9fbd","illustration":"assets/poses/floor-seated-cross-legged-hold-prop.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.35,"y":0.43,"visibility":1},"rightElbow":{"x":0.65,"y":0.43,"visibility":1},"leftWrist":{"x":0.45,"y":0.53,"visibility":1},"rightWrist":{"x":0.55,"y":0.53,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.3,"y":0.7,"visibility":1},"rightKnee":{"x":0.7,"y":0.7,"visibility":1},"leftAnkle":{"x":0.58,"y":0.77,"visibility":1},"rightAnkle":{"x":0.42,"y":0.77,"visibility":1}},"relations":[{"type":"near","from":"leftWrist","to":"rightWrist","tolerance":0.1,"simpleHint":"双手再靠近一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"floor-seated-knees-raised-one-hand-near-face","title":"抱膝坐姿手靠脸","subtitle":"双膝抬起，一手靠脸","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#ff9f7f","illustration":"assets/poses/floor-seated-knees-raised-one-hand-near-face.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.35,"y":0.43,"visibility":1},"rightElbow":{"x":0.63,"y":0.4,"visibility":1},"leftWrist":{"x":0.34,"y":0.57,"visibility":1},"rightWrist":{"x":0.56,"y":0.22,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.39,"y":0.58,"visibility":1},"rightKnee":{"x":0.61,"y":0.58,"visibility":1},"leftAnkle":{"x":0.35,"y":0.82,"visibility":1},"rightAnkle":{"x":0.65,"y":0.82,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.11,"simpleHint":"右手再靠近脸","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"low-seated-one-leg-extended-selfie","title":"低坐伸腿自拍","subtitle":"一腿伸直，一手向前","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#89d9c2","illustration":"assets/poses/low-seated-one-leg-extended-selfie.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.28,"y":0.4,"visibility":1},"rightElbow":{"x":0.65,"y":0.43,"visibility":1},"leftWrist":{"x":0.08,"y":0.35,"visibility":1},"rightWrist":{"x":0.66,"y":0.57,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.69,"visibility":1},"rightKnee":{"x":0.62,"y":0.62,"visibility":1},"leftAnkle":{"x":0.16,"y":0.87,"visibility":1},"rightAnkle":{"x":0.68,"y":0.82,"visibility":1}},"relations":[{"type":"minimum-distance","from":"leftWrist","to":"leftShoulder","tolerance":0.12,"simpleHint":"左手再伸远一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"steps-seated-crossed-legs-both-hands-behind-head","title":"台阶坐姿双手脑后","subtitle":"双腿交叉，双手放脑后","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#ffd36e","illustration":"assets/poses/steps-seated-crossed-legs-both-hands-behind-head.webp","landmarks":{"nose":{"x":0.5,"y":0.16,"visibility":1},"leftShoulder":{"x":0.4,"y":0.29,"visibility":1},"rightShoulder":{"x":0.6,"y":0.29,"visibility":1},"leftElbow":{"x":0.28,"y":0.3,"visibility":1},"rightElbow":{"x":0.72,"y":0.3,"visibility":1},"leftWrist":{"x":0.45,"y":0.16,"visibility":1},"rightWrist":{"x":0.55,"y":0.16,"visibility":1},"leftHip":{"x":0.44,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.35,"y":0.72,"visibility":1},"rightKnee":{"x":0.65,"y":0.72,"visibility":1},"leftAnkle":{"x":0.6,"y":0.86,"visibility":1},"rightAnkle":{"x":0.42,"y":0.82,"visibility":1}},"relations":[{"type":"distance","from":"leftElbow","to":"rightElbow","tolerance":0.12,"simpleHint":"双肘再打开一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"steps-seated-side-one-hand-near-ear","title":"台阶侧坐手靠耳","subtitle":"侧身坐下，一手靠耳边","category":"seated","shotType":"seated","tags":["坐姿","试用"],"accent":"#9dc7ff","illustration":"assets/poses/steps-seated-side-one-hand-near-ear.webp","landmarks":{"nose":{"x":0.58,"y":0.17,"visibility":1},"leftShoulder":{"x":0.44,"y":0.3,"visibility":1},"rightShoulder":{"x":0.59,"y":0.28,"visibility":1},"leftElbow":{"x":0.35,"y":0.43,"visibility":1},"rightElbow":{"x":0.64,"y":0.38,"visibility":1},"leftWrist":{"x":0.34,"y":0.57,"visibility":1},"rightWrist":{"x":0.57,"y":0.2,"visibility":1},"leftHip":{"x":0.47,"y":0.54,"visibility":1},"rightHip":{"x":0.56,"y":0.54,"visibility":1},"leftKnee":{"x":0.38,"y":0.7,"visibility":1},"rightKnee":{"x":0.61,"y":0.66,"visibility":1},"leftAnkle":{"x":0.3,"y":0.88,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.11,"simpleHint":"右手再靠近耳边","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"female"},{"id":"railing-standing-one-hand-shade-eyes","title":"栏杆边抬手遮光","subtitle":"一手放到额前看远处","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#dda9ff","illustration":"assets/poses/railing-standing-one-hand-shade-eyes.webp","landmarks":{"nose":{"x":0.59,"y":0.13,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.67,"y":0.3,"visibility":1},"leftWrist":{"x":0.36,"y":0.56,"visibility":1},"rightWrist":{"x":0.56,"y":0.13,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"nose","tolerance":0.1,"simpleHint":"右手再靠近额头","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"wall-touch-one-hand-one-foot-forward","title":"扶墙一脚向前","subtitle":"一手扶墙，一只脚迈出","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ff9fbd","illustration":"assets/poses/wall-touch-one-hand-one-foot-forward.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.28,"y":0.34,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.12,"y":0.32,"visibility":1},"rightWrist":{"x":0.66,"y":0.58,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.4,"y":0.73,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.28,"y":0.9,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"minimum-distance","from":"leftWrist","to":"leftShoulder","tolerance":0.12,"simpleHint":"左手再伸远一点","critical":true},{"type":"minimum-distance","from":"leftAnkle","to":"rightAnkle","tolerance":0.1,"simpleHint":"左脚再往前一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"wall-lean-body-side-hands-low","title":"侧靠双手放低","subtitle":"身体侧靠，双手自然下垂","category":"standing","shotType":"full-body","tags":["站姿","试用"],"accent":"#ff9f7f","illustration":"assets/poses/wall-lean-body-side-hands-low.webp","landmarks":{"nose":{"x":0.57,"y":0.14,"visibility":1},"leftShoulder":{"x":0.43,"y":0.29,"visibility":1},"rightShoulder":{"x":0.62,"y":0.24,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.64,"y":0.42,"visibility":1},"leftWrist":{"x":0.42,"y":0.62,"visibility":1},"rightWrist":{"x":0.62,"y":0.59,"visibility":1},"leftHip":{"x":0.46,"y":0.55,"visibility":1},"rightHip":{"x":0.57,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.64,"y":0.71,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.7,"y":0.88,"visibility":1}},"relations":[{"type":"vertical-offset","from":"leftShoulder","to":"rightShoulder","tolerance":0.08,"simpleHint":"身体再侧靠一点","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"},{"id":"mirror-standing-one-hand-phone","title":"单手镜面自拍","subtitle":"一手举手机，另一手放松","category":"half","shotType":"half-body","tags":["半身","试用"],"accent":"#89d9c2","illustration":"assets/poses/mirror-standing-one-hand-phone.webp","landmarks":{"nose":{"x":0.5,"y":0.12,"visibility":1},"leftShoulder":{"x":0.4,"y":0.25,"visibility":1},"rightShoulder":{"x":0.6,"y":0.25,"visibility":1},"leftElbow":{"x":0.36,"y":0.42,"visibility":1},"rightElbow":{"x":0.62,"y":0.36,"visibility":1},"leftWrist":{"x":0.35,"y":0.59,"visibility":1},"rightWrist":{"x":0.55,"y":0.26,"visibility":1},"leftHip":{"x":0.45,"y":0.52,"visibility":1},"rightHip":{"x":0.55,"y":0.52,"visibility":1},"leftKnee":{"x":0.45,"y":0.74,"visibility":1},"rightKnee":{"x":0.55,"y":0.74,"visibility":1},"leftAnkle":{"x":0.44,"y":0.93,"visibility":1},"rightAnkle":{"x":0.56,"y":0.93,"visibility":1}},"relations":[{"type":"near","from":"rightWrist","to":"rightShoulder","tolerance":0.1,"simpleHint":"右手再靠近胸前","critical":true}],"source":{"usageStatus":"owned","label":"Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中","evidenceStatus":"experimental"},"gender":"male"}]
+[
+  {
+    "id": "hand-near-hair-or-forehead",
+    "title": "手靠近头发",
+    "subtitle": "轻松半身照",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "手部"
+    ],
+    "accent": "#ffad8a",
+    "illustration": "assets/poses/hand-near-hair-or-forehead.webp",
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；研究来源已达到准入门槛",
+      "evidenceStatus": "supported"
+    },
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.14,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.43,
+        "y": 0.26,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.57,
+        "y": 0.26,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.37,
+        "y": 0.38,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.63,
+        "y": 0.31,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.33,
+        "y": 0.5,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.54,
+        "y": 0.17,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.46,
+        "y": 0.51,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.54,
+        "y": 0.51,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.44,
+        "y": 0.78,
+        "visibility": 0.2
+      },
+      "rightKnee": {
+        "x": 0.56,
+        "y": 0.78,
+        "visibility": 0.2
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 1.05,
+        "visibility": 0.2
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 1.05,
+        "visibility": 0.2
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "target": 0.07,
+        "tolerance": 0.13,
+        "simpleHint": "右手再靠近头发",
+        "critical": true
+      }
+    ],
+    "gender": "male",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "身体稍微侧开",
+      "一只手轻碰头发，手肘离开身体",
+      "另一只手自然放下，肩膀放松"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "crossed-arms-standing",
+    "title": "抱臂站好",
+    "subtitle": "自然有精神",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "全身",
+      "站姿"
+    ],
+    "accent": "#e7c7ff",
+    "illustration": "assets/poses/crossed-arms-standing.webp",
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；研究来源已达到准入门槛",
+      "evidenceStatus": "supported"
+    },
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.39,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.61,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.41,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.59,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.57,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.43,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.46,
+        "y": 0.73,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.54,
+        "y": 0.73,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.46,
+        "y": 0.92,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.54,
+        "y": 0.92,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "rightElbow",
+        "target": 0.054,
+        "tolerance": 0.13,
+        "simpleHint": "左手再贴近右臂",
+        "critical": true
+      },
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "leftElbow",
+        "target": 0.054,
+        "tolerance": 0.13,
+        "simpleHint": "右手再贴近左臂",
+        "critical": true
+      }
+    ],
+    "gender": "male",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "两脚一前一后站稳",
+      "双臂轻轻交叠，不要用力夹紧",
+      "肩膀下沉，头稍微转向镜头"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "back-facing-arms-open",
+    "title": "背身打开双臂",
+    "subtitle": "适合旅行风景",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "全身",
+      "背影"
+    ],
+    "accent": "#8ae6c1",
+    "illustration": "assets/poses/back-facing-arms-open-v2.webp",
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；研究来源已达到准入门槛",
+      "evidenceStatus": "supported"
+    },
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.2
+      },
+      "leftShoulder": {
+        "x": 0.41,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.59,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.25,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.75,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.08,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.92,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.455,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.545,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.445,
+        "y": 0.92,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.555,
+        "y": 0.92,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "target": 0.84,
+        "tolerance": 0.18,
+        "simpleHint": "双臂再打开一点",
+        "critical": true
+      },
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "leftShoulder",
+        "target": 0.33,
+        "tolerance": 0.14,
+        "simpleHint": "左手再往外一点",
+        "critical": true
+      },
+      {
+        "type": "distance",
+        "from": "rightWrist",
+        "to": "rightShoulder",
+        "target": 0.33,
+        "tolerance": 0.14,
+        "simpleHint": "右手再往外一点",
+        "critical": true
+      }
+    ],
+    "gender": "male",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "背对镜头站稳",
+      "双臂向两边展开，手心自然打开",
+      "给双手和头顶留出画面空间"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "side-lean-arms-open",
+    "title": "侧倾打开双臂",
+    "subtitle": "身体向旁边倾",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "全身",
+      "旅行"
+    ],
+    "accent": "#ffd76f",
+    "illustration": "assets/poses/side-lean-arms-open.webp",
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；研究来源已达到准入门槛",
+      "evidenceStatus": "supported"
+    },
+    "landmarks": {
+      "nose": {
+        "x": 0.58,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.44,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.65,
+        "y": 0.23,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.28,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.78,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.12,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.92,
+        "y": 0.33,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.43,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.56,
+        "y": 0.73,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.4,
+        "y": 0.92,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.58,
+        "y": 0.92,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "target": 0.8,
+        "tolerance": 0.18,
+        "simpleHint": "双臂再打开一点",
+        "critical": true
+      },
+      {
+        "type": "vertical-offset",
+        "from": "leftShoulder",
+        "to": "rightShoulder",
+        "target": 0.05,
+        "tolerance": 0.06,
+        "simpleHint": "身体再侧一点",
+        "critical": true
+      }
+    ],
+    "gender": "male",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "两脚站稳，身体轻轻向一侧倾",
+      "双臂顺着身体两侧打开",
+      "看向前方或侧方，不必用力伸直手肘"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "wall-lean-body-side-one-hand-pocket",
+    "title": "侧靠单手插兜",
+    "subtitle": "靠墙更松弛",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "全身",
+      "靠墙"
+    ],
+    "accent": "#88c9ff",
+    "illustration": "assets/poses/wall-lean-body-side-one-hand-pocket.webp",
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；研究来源已达到准入门槛",
+      "evidenceStatus": "supported"
+    },
+    "landmarks": {
+      "nose": {
+        "x": 0.54,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.43,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.61,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.38,
+        "y": 0.45,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.4,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.37,
+        "y": 0.61,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.46,
+        "y": 0.55,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.43,
+        "y": 0.75,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.66,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.4,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.71,
+        "y": 0.82,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "rightHip",
+        "target": 0.015,
+        "tolerance": 0.07,
+        "simpleHint": "右手再靠近裤兜",
+        "critical": true
+      },
+      {
+        "type": "minimum-distance",
+        "from": "leftWrist",
+        "to": "leftHip",
+        "target": 0.105,
+        "tolerance": 0.07,
+        "simpleHint": "左手放在兜外面",
+        "critical": true
+      },
+      {
+        "type": "vertical-offset",
+        "from": "leftShoulder",
+        "to": "rightShoulder",
+        "target": 0.03,
+        "tolerance": 0.055,
+        "simpleHint": "身体再侧靠一点",
+        "critical": true
+      }
+    ],
+    "gender": "male",
+    "scenes": [
+      "街拍",
+      "建筑"
+    ],
+    "props": [
+      "墙面"
+    ],
+    "steps": [
+      "身体一侧轻靠墙面",
+      "一只手放进口袋，另一只手放松",
+      "一只脚稍向前，避免双腿并得太紧"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "standing-look-back-one-hand-pocket",
+    "title": "回头单手插兜",
+    "subtitle": "侧身回头看镜头",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "全身",
+      "回眸"
+    ],
+    "accent": "#ff9db5",
+    "illustration": "assets/poses/standing-look-back-one-hand-pocket.webp",
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；研究来源已达到准入门槛",
+      "evidenceStatus": "supported"
+    },
+    "landmarks": {
+      "nose": {
+        "x": 0.57,
+        "y": 0.14,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.43,
+        "y": 0.27,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.61,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.38,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.36,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.46,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.44,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.42,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.6,
+        "y": 0.91,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "rightHip",
+        "target": 0.02,
+        "tolerance": 0.075,
+        "simpleHint": "右手再靠近裤兜",
+        "critical": true
+      },
+      {
+        "type": "minimum-distance",
+        "from": "leftWrist",
+        "to": "leftHip",
+        "target": 0.13,
+        "tolerance": 0.07,
+        "simpleHint": "左手放在兜外面",
+        "critical": true
+      },
+      {
+        "type": "horizontal-offset",
+        "from": "nose",
+        "to": "rightHip",
+        "target": 0.02,
+        "tolerance": 0.07,
+        "simpleHint": "再回头看向手机",
+        "critical": true
+      },
+      {
+        "type": "vertical-offset",
+        "from": "leftShoulder",
+        "to": "rightShoulder",
+        "target": 0.03,
+        "tolerance": 0.06,
+        "simpleHint": "身体再侧一点",
+        "critical": true
+      }
+    ],
+    "gender": "male",
+    "scenes": [
+      "街拍",
+      "旅行"
+    ],
+    "props": [
+      "带口袋的衣服"
+    ],
+    "steps": [
+      "身体先侧向镜头",
+      "一只手插兜，再轻轻回头",
+      "保持肩膀放松，回头幅度以舒服为准"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "one-hand-in-pocket",
+    "title": "单手插兜",
+    "subtitle": "另一只手自然放松",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "已验证"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/one-hand-in-pocket.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.61,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.33,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "rightHip",
+        "tolerance": 0.075,
+        "simpleHint": "右手再靠近裤兜",
+        "critical": true
+      },
+      {
+        "type": "minimum-distance",
+        "from": "leftWrist",
+        "to": "leftHip",
+        "tolerance": 0.07,
+        "simpleHint": "左手放在兜外面",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；研究来源已达到准入门槛",
+      "evidenceStatus": "supported"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [
+      "带口袋的衣服"
+    ],
+    "steps": [
+      "一只手放进口袋，手肘稍微离开腰",
+      "另一只手自然垂下",
+      "两脚错开，把重心放在一条腿上"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "standing-one-arm-up",
+    "title": "单手举高",
+    "subtitle": "身体站直，一只手向上",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/standing-one-arm-up.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.38,
+        "y": 0.14,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.42,
+        "y": 0.02,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "vertical-offset",
+        "from": "leftWrist",
+        "to": "leftShoulder",
+        "tolerance": 0.08,
+        "simpleHint": "左手再高一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "一只手向上抬起",
+      "另一只手放在身侧，肩膀不耸起",
+      "站稳后看向抬起的手或远处"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "both-arms-raised",
+    "title": "双手举高",
+    "subtitle": "双臂一起向上伸展",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ffd36e",
+    "illustration": "assets/poses/both-arms-raised.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.4,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.6,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.44,
+        "y": 0.01,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.01,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.08,
+        "simpleHint": "双手再分开一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "两脚站稳，双手慢慢举过头顶",
+      "手肘保留一点弯曲",
+      "下巴自然放松，不必抬得太高"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "hand-in-hair-standing",
+    "title": "单手撩发",
+    "subtitle": "一只手轻碰头发",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#9dc7ff",
+    "illustration": "assets/poses/hand-in-hair-standing.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.67,
+        "y": 0.32,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.58,
+        "y": 0.14,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "右手再靠近头发",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "身体略侧，双肩放松",
+      "一只手轻轻拨动头发",
+      "手肘与身体留出空隙，另一只手放松"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "both-hands-near-face",
+    "title": "双手靠近脸",
+    "subtitle": "两只手放在脸旁",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#dda9ff",
+    "illustration": "assets/poses/both-hands-near-face.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.34,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.66,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.43,
+        "y": 0.19,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.57,
+        "y": 0.19,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近脸",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "日常",
+      "室内"
+    ],
+    "props": [],
+    "steps": [
+      "把两只手放到脸旁",
+      "手指放松，不压住脸颊",
+      "双肘略向外，眼睛看镜头或侧方"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "natural-stand-hands-front",
+    "title": "双手自然放前",
+    "subtitle": "简单放松的站姿",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ff9fbd",
+    "illustration": "assets/poses/natural-stand-hands-front.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.47,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.53,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "两脚前后错开站稳",
+      "双手轻轻放在身前，不用握紧",
+      "肩膀下沉，身体略侧开"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "one-hand-near-ear-other-low",
+    "title": "一手靠耳边",
+    "subtitle": "另一只手自然垂下",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/one-hand-near-ear-other-low.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.33,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.43,
+        "y": 0.17,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.65,
+        "y": 0.61,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "nose",
+        "tolerance": 0.12,
+        "simpleHint": "左手再靠近耳边",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "一只手轻碰耳旁或头发",
+      "另一只手自然垂下",
+      "身体稍向有空隙的一侧转开"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "one-hand-on-shoulder-other-low",
+    "title": "一手搭肩",
+    "subtitle": "另一只手自然放低",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/one-hand-on-shoulder-other-low.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.48,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.59,
+        "y": 0.27,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.65,
+        "y": 0.61,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "rightShoulder",
+        "tolerance": 0.08,
+        "simpleHint": "左手再靠近肩膀",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "室内"
+    ],
+    "props": [],
+    "steps": [
+      "一只手轻搭另一侧肩膀",
+      "另一只手放低，不夹住身体",
+      "头稍侧，肩膀保持放松"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "one-leg-back-lift",
+    "title": "单脚向后抬",
+    "subtitle": "轻轻抬起一只脚",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ffd36e",
+    "illustration": "assets/poses/one-leg-back-lift.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.61,
+        "y": 0.75,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.68,
+        "y": 0.66,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "rightAnkle",
+        "to": "leftAnkle",
+        "tolerance": 0.12,
+        "simpleHint": "右脚再抬高一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "把重心放在站立的腿上",
+      "另一只脚轻轻向后抬",
+      "双手自然展开，先保持平衡再拍"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "one-leg-forward-toe-up",
+    "title": "一脚向前点",
+    "subtitle": "脚尖轻轻抬起",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#9dc7ff",
+    "illustration": "assets/poses/one-leg-forward-toe-up.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.4,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.28,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "minimum-distance",
+        "from": "leftAnkle",
+        "to": "rightAnkle",
+        "tolerance": 0.1,
+        "simpleHint": "左脚再往前一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "街拍",
+      "旅行"
+    ],
+    "props": [],
+    "steps": [
+      "一只脚向前轻点",
+      "脚尖稍抬，重心留在后腿",
+      "手部自然放松，给前脚留出画面空间"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "standing-salute",
+    "title": "抬手敬礼",
+    "subtitle": "一只手放到额前",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#dda9ff",
+    "illustration": "assets/poses/standing-salute.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.67,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.57,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.1,
+        "simpleHint": "右手再靠近额头",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "一只手抬到额前",
+      "手心放松，手肘稍向外",
+      "身体略侧，眼睛看向镜头或远处"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "walking-side-profile",
+    "title": "侧身走路",
+    "subtitle": "迈步时看向前方",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ff9fbd",
+    "illustration": "assets/poses/walking-side-profile.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.57,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.45,
+        "y": 0.26,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.57,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.47,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.51,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.36,
+        "y": 0.73,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.62,
+        "y": 0.69,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.28,
+        "y": 0.91,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "minimum-distance",
+        "from": "leftAnkle",
+        "to": "rightAnkle",
+        "tolerance": 0.12,
+        "simpleHint": "步子再打开一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "街拍",
+      "旅行"
+    ],
+    "props": [],
+    "steps": [
+      "身体侧向镜头",
+      "缓慢迈出一只脚，双手自然摆动",
+      "选迈步停稳的瞬间按快门"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "standing-both-hands-near-head",
+    "title": "双手靠近头部",
+    "subtitle": "双手放在头两侧",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/standing-both-hands-near-head.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.32,
+        "y": 0.32,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.68,
+        "y": 0.32,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.42,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.58,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近头部",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "室内"
+    ],
+    "props": [],
+    "steps": [
+      "双手轻放在头两侧",
+      "两只手肘向外打开一点",
+      "肩膀下沉，头部自然转向镜头"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "standing-both-hands-waist-look-side",
+    "title": "双手叉腰侧看",
+    "subtitle": "双手放腰，看向一边",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/standing-both-hands-waist-look-side.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.58,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.3,
+        "y": 0.45,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.7,
+        "y": 0.45,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "leftHip",
+        "tolerance": 0.08,
+        "simpleHint": "左手再靠近腰",
+        "critical": true
+      },
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "rightHip",
+        "tolerance": 0.08,
+        "simpleHint": "右手再靠近腰",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "街拍",
+      "日常"
+    ],
+    "props": [],
+    "steps": [
+      "双手轻放腰侧",
+      "手肘离开身体，不用力撑紧",
+      "身体与头看向侧方"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "side-look-back-hand-behind-head",
+    "title": "侧身回头扶发",
+    "subtitle": "回头时一手放脑后",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#ffd36e",
+    "illustration": "assets/poses/side-look-back-hand-behind-head.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.59,
+        "y": 0.14,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.44,
+        "y": 0.27,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.68,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.57,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.47,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "右手再靠近头发",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "街拍",
+      "旅行"
+    ],
+    "props": [],
+    "steps": [
+      "身体侧开，再轻轻回头",
+      "一只手扶在脑后或头发上",
+      "另一只手放松，手肘不要挡住脸"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "side-stand-arms-down",
+    "title": "侧身站立",
+    "subtitle": "双臂自然放下",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#9dc7ff",
+    "illustration": "assets/poses/side-stand-arms-down.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.57,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.44,
+        "y": 0.26,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.58,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.45,
+        "y": 0.6,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.6,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.47,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "horizontal-offset",
+        "from": "nose",
+        "to": "leftHip",
+        "tolerance": 0.08,
+        "simpleHint": "身体再侧一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "身体侧向镜头，双脚错开",
+      "双臂自然垂下，与身体留一点空隙",
+      "头轻轻转回镜头方向"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "two-hands-front-asymmetric",
+    "title": "双手前后错开",
+    "subtitle": "两只手放在不同高度",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#dda9ff",
+    "illustration": "assets/poses/two-hands-front-asymmetric.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.45,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.55,
+        "y": 0.61,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "vertical-offset",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.08,
+        "simpleHint": "左手再高一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "日常",
+      "室内"
+    ],
+    "props": [],
+    "steps": [
+      "双手放在身前不同高度",
+      "手指放松，避免双手握得太紧",
+      "身体略侧，肩膀保持自然"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "forward-lean-hands-low",
+    "title": "前倾双手放低",
+    "subtitle": "身体前倾，双手靠近膝盖",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ff9fbd",
+    "illustration": "assets/poses/forward-lean-hands-low.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.2,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.31,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.31,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.38,
+        "y": 0.47,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.62,
+        "y": 0.47,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.42,
+        "y": 0.66,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.58,
+        "y": 0.66,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "vertical-offset",
+        "from": "nose",
+        "to": "leftShoulder",
+        "tolerance": 0.08,
+        "simpleHint": "身体再往前一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "街拍",
+      "日常"
+    ],
+    "props": [],
+    "steps": [
+      "双脚站稳，膝盖略微弯曲",
+      "身体从髋部轻轻前倾",
+      "双手放低靠近膝盖，抬头看向镜头"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "arms-crossed-one-leg-lifted",
+    "title": "抱臂抬脚",
+    "subtitle": "抱住双臂，一脚向后抬",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/arms-crossed-one-leg-lifted.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.42,
+        "y": 0.38,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.58,
+        "y": 0.38,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.57,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.43,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.61,
+        "y": 0.75,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.68,
+        "y": 0.66,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "rightElbow",
+        "tolerance": 0.12,
+        "simpleHint": "左手再靠近右臂",
+        "critical": true
+      },
+      {
+        "type": "distance",
+        "from": "rightAnkle",
+        "to": "leftAnkle",
+        "tolerance": 0.12,
+        "simpleHint": "右脚再抬高一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "街拍",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "先轻轻抱臂站稳",
+      "重心放在一条腿上，另一只脚向后抬",
+      "保持平衡，肩膀不耸起"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "arms-open-look-side",
+    "title": "打开双臂侧看",
+    "subtitle": "双臂张开，看向一边",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/arms-open-look-side.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.6,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.25,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.75,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.08,
+        "y": 0.31,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.92,
+        "y": 0.31,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.18,
+        "simpleHint": "双臂再打开一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "两脚站稳，双臂向两侧展开",
+      "手肘和手指保持放松",
+      "头转向侧方，让视线顺着手臂方向"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "back-facing-both-hands-in-hair",
+    "title": "背身双手扶发",
+    "subtitle": "背对镜头，双手放头边",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#ffd36e",
+    "illustration": "assets/poses/back-facing-both-hands-in-hair.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.2
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.32,
+        "y": 0.32,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.68,
+        "y": 0.32,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.43,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.57,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近头发",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "旅行",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "背对镜头站稳",
+      "双手轻扶头发，手肘向两侧打开",
+      "肩膀放低，头部不必过度后仰"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  },
+  {
+    "id": "crouch-knees-together-both-hands-cup-face",
+    "title": "蹲姿双手托脸",
+    "subtitle": "双膝靠近，双手放脸旁",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#9dc7ff",
+    "illustration": "assets/poses/crouch-knees-together-both-hands-cup-face.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.44,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.46,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.54,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.33,
+        "y": 0.86,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.67,
+        "y": 0.86,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近脸",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "在平整地面慢慢蹲下",
+      "双膝靠近，双手轻放脸旁",
+      "保持平衡，不舒服时改为坐姿"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "crouch-knees-together-hands-low",
+    "title": "蹲姿双手放低",
+    "subtitle": "双膝靠近，双手自然放下",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#dda9ff",
+    "illustration": "assets/poses/crouch-knees-together-hands-low.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.46,
+        "y": 0.66,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.54,
+        "y": 0.66,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.46,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.54,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.33,
+        "y": 0.86,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.67,
+        "y": 0.86,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "蹲下并把双膝靠近",
+      "双手自然放低在腿前",
+      "背部保持舒服的弧度，看向镜头"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "crouch-knees-together-one-hand-cheek",
+    "title": "蹲姿单手托脸",
+    "subtitle": "双膝靠近，一手碰脸",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#ff9fbd",
+    "illustration": "assets/poses/crouch-knees-together-one-hand-cheek.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.63,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.43,
+        "y": 0.63,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.46,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.54,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.33,
+        "y": 0.86,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.67,
+        "y": 0.86,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "右手再靠近脸",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [],
+    "steps": [
+      "先蹲稳，双膝靠近",
+      "一只手轻碰脸颊，另一只手放低",
+      "头略侧，不要把全身重量压在手上"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "crouch-one-hand-in-hair",
+    "title": "蹲姿撩发",
+    "subtitle": "蹲下时一手碰头发",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/crouch-one-hand-in-hair.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.34,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.44,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.61,
+        "y": 0.61,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.65,
+        "y": 0.68,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.33,
+        "y": 0.86,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.67,
+        "y": 0.86,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "左手再靠近头发",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "街拍",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "蹲下并调整到稳定的位置",
+      "一只手轻碰头发，另一只手放松",
+      "手肘与脸留出空隙，再看向镜头"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "crouch-one-knee-up-hand-near-face",
+    "title": "单膝抬高蹲姿",
+    "subtitle": "一手靠脸，一边膝盖抬高",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/crouch-one-knee-up-hand-near-face.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.63,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.62,
+        "y": 0.55,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.33,
+        "y": 0.86,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.68,
+        "y": 0.82,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "右手再靠近脸",
+        "critical": true
+      },
+      {
+        "type": "vertical-offset",
+        "from": "rightKnee",
+        "to": "leftKnee",
+        "tolerance": 0.1,
+        "simpleHint": "右膝再高一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "街拍",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "蹲下，让一边膝盖稍高",
+      "一只手靠近脸或头发",
+      "另一只手用于保持平衡，动作幅度以舒服为准"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "low-crouch",
+    "title": "低位蹲姿",
+    "subtitle": "身体放低，双手自然",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#ffd36e",
+    "illustration": "assets/poses/low-crouch.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.4,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.4,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.48,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.34,
+        "y": 0.69,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.66,
+        "y": 0.69,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.33,
+        "y": 0.86,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.67,
+        "y": 0.86,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "vertical-offset",
+        "from": "nose",
+        "to": "leftHip",
+        "tolerance": 0.1,
+        "simpleHint": "身体再蹲低一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "街拍",
+      "户外"
+    ],
+    "props": [],
+    "steps": [
+      "双脚放稳，慢慢降低身体",
+      "双手放在膝前或身侧",
+      "重心保持稳定，不必蹲到最低"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "one-knee-kneel",
+    "title": "单膝跪姿",
+    "subtitle": "一边膝盖落低",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#9dc7ff",
+    "illustration": "assets/poses/one-knee-kneel.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.15,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.4,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.62,
+        "y": 0.64,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.33,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.68,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "vertical-offset",
+        "from": "leftKnee",
+        "to": "rightKnee",
+        "tolerance": 0.1,
+        "simpleHint": "左膝再低一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "户外",
+      "旅行"
+    ],
+    "props": [
+      "柔软或平整地面"
+    ],
+    "steps": [
+      "一边膝盖轻轻落低",
+      "另一只脚踩稳，身体保持平衡",
+      "双手自然放在腿边，避免压迫膝盖"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "low-kneel-arms-extended-look-side",
+    "title": "低跪打开双臂",
+    "subtitle": "跪低后双臂向两边伸",
+    "category": "crouching",
+    "shotType": "full-body",
+    "tags": [
+      "蹲跪",
+      "试用"
+    ],
+    "accent": "#dda9ff",
+    "illustration": "assets/poses/low-kneel-arms-extended-look-side.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.59,
+        "y": 0.18,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.25,
+        "y": 0.37,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.75,
+        "y": 0.37,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.08,
+        "y": 0.4,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.92,
+        "y": 0.4,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.4,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.6,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.34,
+        "y": 0.89,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.67,
+        "y": 0.89,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.18,
+        "simpleHint": "双臂再打开一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "户外",
+      "旅行"
+    ],
+    "props": [
+      "柔软或平整地面"
+    ],
+    "steps": [
+      "先找到舒服稳定的低跪位置",
+      "双臂向两侧轻轻伸开",
+      "头转向一侧，不适时换成坐姿"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "seated-both-hands-cup-face",
+    "title": "坐姿双手托脸",
+    "subtitle": "坐好后双手放脸旁",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#ff9fbd",
+    "illustration": "assets/poses/seated-both-hands-cup-face.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.39,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.44,
+        "y": 0.2,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.2,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.65,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.3,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近脸",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "室内",
+      "咖啡店"
+    ],
+    "props": [
+      "椅子或台阶"
+    ],
+    "steps": [
+      "坐稳后把双手放到脸旁",
+      "双肘自然打开，不用托住全身",
+      "肩膀放低，身体稍侧向镜头"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "seated-hand-near-forehead",
+    "title": "坐姿手靠额头",
+    "subtitle": "坐着把一手放额前",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/seated-hand-near-forehead.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.66,
+        "y": 0.36,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.57,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.17,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.65,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.3,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.1,
+        "simpleHint": "右手再靠近额头",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "室内",
+      "咖啡店"
+    ],
+    "props": [
+      "椅子或台阶"
+    ],
+    "steps": [
+      "坐稳，身体稍微前倾",
+      "一只手轻靠额头，另一只手放腿上",
+      "手肘不挡眼睛，头轻轻转向镜头"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "seated-knees-open-hands-low",
+    "title": "坐姿双膝打开",
+    "subtitle": "双手自然放低",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/seated-knees-open-hands-low.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.44,
+        "y": 0.64,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.64,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.28,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.72,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.24,
+        "y": 0.89,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.76,
+        "y": 0.89,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "minimum-distance",
+        "from": "leftKnee",
+        "to": "rightKnee",
+        "tolerance": 0.12,
+        "simpleHint": "双膝再打开一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "街拍"
+    ],
+    "props": [
+      "椅子或台阶"
+    ],
+    "steps": [
+      "坐在稳定位置，双脚踩地",
+      "双膝自然分开，双手放低",
+      "背部放松，身体稍向前"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "seated-one-hand-in-hair",
+    "title": "坐姿撩发",
+    "subtitle": "坐着一手碰头发",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#ffd36e",
+    "illustration": "assets/poses/seated-one-hand-in-hair.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.34,
+        "y": 0.38,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.44,
+        "y": 0.19,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.57,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.65,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.3,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "左手再靠近头发",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "室内",
+      "咖啡店"
+    ],
+    "props": [
+      "椅子或台阶"
+    ],
+    "steps": [
+      "坐稳，双腿自然放置",
+      "一只手轻扶头发",
+      "另一只手放腿边，肩膀下沉"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "seated-one-hand-support-cheek",
+    "title": "坐姿单手托腮",
+    "subtitle": "一只手轻轻托住脸",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#9dc7ff",
+    "illustration": "assets/poses/seated-one-hand-support-cheek.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.62,
+        "y": 0.44,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.57,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.65,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.3,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "右手再靠近脸",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "室内",
+      "咖啡店"
+    ],
+    "props": [
+      "椅子或桌面"
+    ],
+    "steps": [
+      "坐稳，让一只手轻靠脸颊",
+      "手肘找到舒服的支撑位置",
+      "头略侧，脸不要用力压在手上"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "seated-one-hand-support-chin",
+    "title": "坐姿托下巴",
+    "subtitle": "一只手放在下巴下",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#dda9ff",
+    "illustration": "assets/poses/seated-one-hand-support-chin.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.39,
+        "y": 0.44,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.49,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.57,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.65,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.3,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "nose",
+        "tolerance": 0.1,
+        "simpleHint": "左手再靠近下巴",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "室内",
+      "咖啡店"
+    ],
+    "props": [
+      "椅子或桌面"
+    ],
+    "steps": [
+      "一只手轻放下巴下方",
+      "手肘自然支撑，另一只手放松",
+      "身体稍向前，眼睛看镜头或侧方"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "floor-seated-cross-legged-hold-prop",
+    "title": "盘腿双手拿书",
+    "subtitle": "盘腿坐下，双手放身前",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#ff9fbd",
+    "illustration": "assets/poses/floor-seated-cross-legged-hold-prop.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.45,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.55,
+        "y": 0.53,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.3,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.7,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.58,
+        "y": 0.77,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.42,
+        "y": 0.77,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "leftWrist",
+        "to": "rightWrist",
+        "tolerance": 0.1,
+        "simpleHint": "双手再靠近一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "室内",
+      "户外"
+    ],
+    "props": [
+      "书或小道具"
+    ],
+    "steps": [
+      "在平整位置盘腿坐好",
+      "双手把书或道具放在身前",
+      "肩膀放松，先坐舒服再调整视线"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "floor-seated-knees-raised-one-hand-near-face",
+    "title": "抱膝坐姿手靠脸",
+    "subtitle": "双膝抬起，一手靠脸",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/floor-seated-knees-raised-one-hand-near-face.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.63,
+        "y": 0.4,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.57,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.22,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.39,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.61,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.35,
+        "y": 0.82,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.65,
+        "y": 0.82,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "右手再靠近脸",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "室内",
+      "户外"
+    ],
+    "props": [
+      "平整地面"
+    ],
+    "steps": [
+      "坐稳后把双膝轻轻收起",
+      "一只手放脸旁，另一只手放松",
+      "身体略侧，避免把脸完全挡住"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "low-seated-one-leg-extended-selfie",
+    "title": "低坐伸腿自拍",
+    "subtitle": "一腿伸直，一手向前",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/low-seated-one-leg-extended-selfie.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.28,
+        "y": 0.4,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.65,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.08,
+        "y": 0.35,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.57,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.69,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.62,
+        "y": 0.62,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.16,
+        "y": 0.87,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.68,
+        "y": 0.82,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "minimum-distance",
+        "from": "leftWrist",
+        "to": "leftShoulder",
+        "tolerance": 0.12,
+        "simpleHint": "左手再伸远一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "日常",
+      "户外"
+    ],
+    "props": [
+      "手机、稳定座位"
+    ],
+    "steps": [
+      "坐稳，将一条腿自然向前伸",
+      "另一条腿弯曲，保持舒服的位置",
+      "一只手向前举手机，注意画面不要切掉脚"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "steps-seated-crossed-legs-both-hands-behind-head",
+    "title": "台阶坐姿双手脑后",
+    "subtitle": "双腿交叉，双手放脑后",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#ffd36e",
+    "illustration": "assets/poses/steps-seated-crossed-legs-both-hands-behind-head.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.28,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.72,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.45,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.55,
+        "y": 0.16,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.35,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.65,
+        "y": 0.72,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.6,
+        "y": 0.86,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.42,
+        "y": 0.82,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "distance",
+        "from": "leftElbow",
+        "to": "rightElbow",
+        "tolerance": 0.12,
+        "simpleHint": "双肘再打开一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "建筑",
+      "街拍"
+    ],
+    "props": [
+      "稳定台阶"
+    ],
+    "steps": [
+      "坐在宽且稳定的台阶上",
+      "双腿自然交叉，双手轻放脑后",
+      "手肘向外，避免用力拉扯颈部"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "steps-seated-side-one-hand-near-ear",
+    "title": "台阶侧坐手靠耳",
+    "subtitle": "侧身坐下，一手靠耳边",
+    "category": "seated",
+    "shotType": "seated",
+    "tags": [
+      "坐姿",
+      "试用"
+    ],
+    "accent": "#9dc7ff",
+    "illustration": "assets/poses/steps-seated-side-one-hand-near-ear.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.58,
+        "y": 0.17,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.44,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.59,
+        "y": 0.28,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.35,
+        "y": 0.43,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.38,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.34,
+        "y": 0.57,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.57,
+        "y": 0.2,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.47,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.38,
+        "y": 0.7,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.61,
+        "y": 0.66,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.3,
+        "y": 0.88,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.11,
+        "simpleHint": "右手再靠近耳边",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "female",
+    "scenes": [
+      "建筑",
+      "街拍"
+    ],
+    "props": [
+      "稳定台阶"
+    ],
+    "steps": [
+      "侧身坐在台阶上，双腿自然放置",
+      "一只手轻放耳边",
+      "另一只手保持平衡，头转向镜头"
+    ],
+    "cameraHint": "让镜头靠近被拍者坐下或蹲下后的胸口高度，先确认手脚完整入镜。"
+  },
+  {
+    "id": "railing-standing-one-hand-shade-eyes",
+    "title": "栏杆边抬手遮光",
+    "subtitle": "一手放到额前看远处",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#dda9ff",
+    "illustration": "assets/poses/railing-standing-one-hand-shade-eyes.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.59,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.67,
+        "y": 0.3,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.36,
+        "y": 0.56,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.56,
+        "y": 0.13,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "nose",
+        "tolerance": 0.1,
+        "simpleHint": "右手再靠近额头",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "旅行",
+      "建筑"
+    ],
+    "props": [
+      "安全栏杆"
+    ],
+    "steps": [
+      "站在栏杆内侧，先保持稳定",
+      "一只手抬到额前轻轻遮光",
+      "另一只手放松，看向远处，勿攀爬栏杆"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "wall-touch-one-hand-one-foot-forward",
+    "title": "扶墙一脚向前",
+    "subtitle": "一手扶墙，一只脚迈出",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ff9fbd",
+    "illustration": "assets/poses/wall-touch-one-hand-one-foot-forward.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.28,
+        "y": 0.34,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.12,
+        "y": 0.32,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.66,
+        "y": 0.58,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.4,
+        "y": 0.73,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.28,
+        "y": 0.9,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "minimum-distance",
+        "from": "leftWrist",
+        "to": "leftShoulder",
+        "tolerance": 0.12,
+        "simpleHint": "左手再伸远一点",
+        "critical": true
+      },
+      {
+        "type": "minimum-distance",
+        "from": "leftAnkle",
+        "to": "rightAnkle",
+        "tolerance": 0.1,
+        "simpleHint": "左脚再往前一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "街拍",
+      "建筑"
+    ],
+    "props": [
+      "墙面"
+    ],
+    "steps": [
+      "一只手轻扶墙面",
+      "一只脚向前迈出，重心保持稳定",
+      "另一只手放松，身体略侧开"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "wall-lean-body-side-hands-low",
+    "title": "侧靠双手放低",
+    "subtitle": "身体侧靠，双手自然下垂",
+    "category": "standing",
+    "shotType": "full-body",
+    "tags": [
+      "站姿",
+      "试用"
+    ],
+    "accent": "#ff9f7f",
+    "illustration": "assets/poses/wall-lean-body-side-hands-low.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.57,
+        "y": 0.14,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.43,
+        "y": 0.29,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.62,
+        "y": 0.24,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.42,
+        "y": 0.62,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.62,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.46,
+        "y": 0.55,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.64,
+        "y": 0.71,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.7,
+        "y": 0.88,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "vertical-offset",
+        "from": "leftShoulder",
+        "to": "rightShoulder",
+        "tolerance": 0.08,
+        "simpleHint": "身体再侧靠一点",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "街拍",
+      "建筑"
+    ],
+    "props": [
+      "墙面"
+    ],
+    "steps": [
+      "身体一侧轻靠墙面",
+      "双手自然放低，与身体留出空隙",
+      "两脚前后错开，头轻轻转向镜头"
+    ],
+    "cameraHint": "镜头保持平稳，先给头顶、双手和脚留出空间，再调整人物在画面中的位置。"
+  },
+  {
+    "id": "mirror-standing-one-hand-phone",
+    "title": "单手镜面自拍",
+    "subtitle": "一手举手机，另一手放松",
+    "category": "half",
+    "shotType": "half-body",
+    "tags": [
+      "半身",
+      "试用"
+    ],
+    "accent": "#89d9c2",
+    "illustration": "assets/poses/mirror-standing-one-hand-phone.webp",
+    "landmarks": {
+      "nose": {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 1
+      },
+      "leftShoulder": {
+        "x": 0.4,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "rightShoulder": {
+        "x": 0.6,
+        "y": 0.25,
+        "visibility": 1
+      },
+      "leftElbow": {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 1
+      },
+      "rightElbow": {
+        "x": 0.62,
+        "y": 0.36,
+        "visibility": 1
+      },
+      "leftWrist": {
+        "x": 0.35,
+        "y": 0.59,
+        "visibility": 1
+      },
+      "rightWrist": {
+        "x": 0.55,
+        "y": 0.26,
+        "visibility": 1
+      },
+      "leftHip": {
+        "x": 0.45,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "rightHip": {
+        "x": 0.55,
+        "y": 0.52,
+        "visibility": 1
+      },
+      "leftKnee": {
+        "x": 0.45,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "rightKnee": {
+        "x": 0.55,
+        "y": 0.74,
+        "visibility": 1
+      },
+      "leftAnkle": {
+        "x": 0.44,
+        "y": 0.93,
+        "visibility": 1
+      },
+      "rightAnkle": {
+        "x": 0.56,
+        "y": 0.93,
+        "visibility": 1
+      }
+    },
+    "relations": [
+      {
+        "type": "near",
+        "from": "rightWrist",
+        "to": "rightShoulder",
+        "tolerance": 0.1,
+        "simpleHint": "右手再靠近胸前",
+        "critical": true
+      }
+    ],
+    "source": {
+      "usageStatus": "owned",
+      "label": "Posey 原创抽象模板；已有真人动作证据，来源准入继续补充中",
+      "evidenceStatus": "experimental"
+    },
+    "gender": "male",
+    "scenes": [
+      "室内",
+      "日常"
+    ],
+    "props": [
+      "手机、镜子"
+    ],
+    "steps": [
+      "站在镜子前，一只手举手机",
+      "另一只手自然放低或轻碰衣角",
+      "调整手机位置，避免挡住想保留的面部区域"
+    ],
+    "cameraHint": "镜头与脸部接近同高，给手肘和头顶留出空间。"
+  }
+]

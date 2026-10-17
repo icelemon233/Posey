@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:posey/features/poses/pose_template.dart';
+import 'package:posey/core/ui/reference_image.dart';
 
 class PoseDetailsSheet extends StatelessWidget {
   const PoseDetailsSheet({
@@ -7,9 +8,12 @@ class PoseDetailsSheet extends StatelessWidget {
     required this.pose,
     required this.onCamera,
     required this.onImport,
+    this.onRename,
+    this.onDelete,
   });
   final PoseTemplate pose;
   final VoidCallback onCamera, onImport;
+  final VoidCallback? onRename, onDelete;
   @override
   Widget build(BuildContext context) => SafeArea(
     child: SingleChildScrollView(
@@ -18,21 +22,48 @@ class PoseDetailsSheet extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(pose.illustration, height: 260, fit: BoxFit.contain),
+            ReferenceImage(
+              pose.illustration,
+              height: 260,
+              mirrored: pose.mirrored,
+            ),
             Text(pose.title, style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 8),
             Text(pose.subtitle),
             const SizedBox(height: 12),
-            Text(pose.tags.join(' · ')),
-            const SizedBox(height: 12),
-            const Text('跟着参考调整身体姿势，选择舒服自然的幅度。', textAlign: TextAlign.center),
-            const SizedBox(height: 8),
-            Text(
-              pose.sourceLabel,
-              style: Theme.of(context).textTheme.bodySmall,
-              textAlign: TextAlign.center,
+            Wrap(
+              spacing: 8,
+              children: [
+                for (final value in [...pose.scenes, ...pose.props])
+                  Chip(label: Text(value)),
+              ],
             ),
-            if (pose.experimental) const Text('探索中的参考姿势，按身体感受调整。'),
+            const SizedBox(height: 12),
+            for (final entry in pose.steps.indexed)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('${entry.$1 + 1}. ${entry.$2}'),
+                ),
+              ),
+            const SizedBox(height: 8),
+            if (pose.cameraHint.isNotEmpty)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: const Icon(Icons.camera_alt_outlined),
+                title: Text(pose.cameraHint),
+              ),
+            if (pose.isUserReference)
+              Wrap(
+                spacing: 12,
+                children: [
+                  if (onRename != null)
+                    TextButton(onPressed: onRename, child: const Text('修改名称')),
+                  if (onDelete != null)
+                    TextButton(onPressed: onDelete, child: const Text('删除参考')),
+                ],
+              ),
             const SizedBox(height: 24),
             Row(
               children: [

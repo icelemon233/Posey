@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:posey/core/ui/feedback.dart';
 import 'package:posey/features/ai_pose/ai_job.dart';
 import 'package:posey/features/ai_pose/ai_jobs_view_model.dart';
+import 'package:posey/features/ai_pose/ai_consent.dart';
 
 class AiJobsScreen extends StatelessWidget {
   const AiJobsScreen({
@@ -14,6 +15,23 @@ class AiJobsScreen extends StatelessWidget {
   });
   final AiJobsViewModel viewModel;
   final ValueChanged<AiJob> onOpenResult;
+
+  Future<void> retry(BuildContext context, AiJob job) async {
+    if (viewModel.isRetrying(job.id)) return;
+    final options = viewModel.retryOptions(job);
+    if (await confirmAiGeneration(
+          context,
+          options: options,
+          poseTitle: '${job.targetTitle}${job.targetSnapshot?['mirrorReference']==true?'（镜像）':''}',
+          retry: true,
+        ) &&
+        context.mounted) {
+      await runUiAction(
+        context,
+        () => viewModel.retry(job, consent: true, options: options),
+      );
+    }
+  }
 
   Future<void> resetHistory(BuildContext context) async {
     final agreed = await showDialog<bool>(
@@ -77,11 +95,41 @@ class AiJobsScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             viewModel.backgroundSupported
-                ? 'iOS 可继续处理后台任务；完成后返回这里查看。'
+                ? '可在后台继续处理任务。完成后会保留结果。'
                 : '生成时请保持应用打开。中断的任务需要你确认重试。',
           ),
           const SizedBox(height: 8),
-          const Text('保留最近 20 张成片，喜欢的照片记得保存到相册。'),
+          const Text('生成的成片会留存在作品。这里保留最近 20 个成功任务。'),
+          if (viewModel.jobs.any(
+            (job) =>
+                job.state == AiJobState.failed ||
+                job.state == AiJobState.cancelled,
+          ))
+            TextButton(
+              onPressed: () async {
+                final agreed = await showDialog<bool>(
+                  context: context,
+                  builder: (dialog) => AlertDialog(
+                    title: const Text('清理失败和取消的任务？'),
+                    content: const Text('作品和系统相册里的照片会保留。'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(dialog, false),
+                        child: const Text('取消'),
+                      ),
+                      FilledButton(
+                        onPressed: () => Navigator.pop(dialog, true),
+                        child: const Text('清理'),
+                      ),
+                    ],
+                  ),
+                );
+                if (agreed == true && context.mounted) {
+                  await runUiAction(context, () => viewModel.clearFinished());
+                }
+              },
+              child: const Text('清理失败和取消的任务'),
+            ),
           const SizedBox(height: 20),
           if (viewModel.persistenceError != null)
             ListTile(
@@ -178,20 +226,19 @@ class AiJobsScreen extends StatelessWidget {
                         ),
                         child: const Text('取消生成'),
                       ),
-                    if ((job.state == AiJobState.failed ||
-                            job.state == AiJobState.cancelled) &&
-                        job.sourcePath.isNotEmpty)
+                    if (!job.active && job.sourcePath.isNotEmpty)
                       TextButton(
                         onPressed:
                             viewModel.activeJobs >= 3 ||
                                 viewModel.isRetrying(job.id)
                             ? null
-                            : () => runUiAction(
-                                context,
-                                () => viewModel.retry(job),
-                              ),
+                            : () => retry(context, job),
                         child: Text(
-                          viewModel.isRetrying(job.id) ? '已重新提交' : '重新生成',
+                          viewModel.isRetrying(job.id)
+                              ? '已重新提交'
+                              : job.state == AiJobState.completed
+                              ? '再次生成'
+                              : '重新生成',
                         ),
                       ),
                     if (job.resultPath != null)
@@ -206,6 +253,35 @@ class AiJobsScreen extends StatelessWidget {
                         }),
                         icon: const Icon(Icons.download),
                         label: const Text('保存成片'),
+                      ),
+                    if (job.archiveError != null)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(job.archiveError!),
+                          TextButton(
+                            onPressed: () => runUiAction(
+                              context,
+                              () => viewModel.archiveResult(job.id),
+                            ),
+                            child: const Text('重试留存到作品'),
+                          ),
+                        ],
+                      ),
+                    if (job.requestMetadata != null)
+                      ExpansionTile(
+                        tilePadding: EdgeInsets.zero,
+                        title: const Text('生成设置'),
+                        children: [
+                          ListTile(
+                            title: Text('${job.requestMetadata!['model']}'),
+                            subtitle: Text(
+                              '${job.requestMetadata!['endpoint']}',
+                            ),
+                          ),
+                          if (job.targetSnapshot?['mirrorReference'] == true)
+                            const ListTile(title: Text('镜像参考')),
+                        ],
                       ),
                   ],
                 ),

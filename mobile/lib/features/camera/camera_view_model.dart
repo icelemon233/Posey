@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:posey/core/media/photo_library.dart';
 import 'package:posey/features/camera/camera_gateway.dart';
 import 'package:posey/features/poses/pose_template.dart';
+import 'package:posey/features/camera/camera_preferences.dart';
+import 'package:flutter/painting.dart';
 
 enum CameraPhase { idle, opening, ready, failed }
 
@@ -16,9 +18,31 @@ class CameraViewModel extends ChangeNotifier {
     this._target, {
     required this.photos,
     this.gateway = const DeviceCameraGateway(),
-  });
+    CameraPreferences preferences = const CameraPreferences(),
+    this.onPreferencesChanged,
+    this.beforeImport,
+    this.importCancelled,
+    this.importSelected,
+  }) {
+    _grid = preferences.grid;
+    _showGuide = preferences.showGuide;
+    _opacity = preferences.opacity;
+    _mirror = _target.raw.containsKey('mirrorReference')
+        ? _target.mirrored
+        : preferences.mirror;
+    _timerSeconds = preferences.timerSeconds;
+    if (preferences.poseId == _target.id) {
+      _guideScale = preferences.guideScale;
+      _guideX = preferences.guideX;
+      _guideY = preferences.guideY;
+    }
+  }
   final CameraGateway gateway;
   final PhotoLibrary photos;
+  final Future<void> Function(CameraPreferences)? onPreferencesChanged;
+  final Future<void> Function(PoseTemplate)? beforeImport;
+  final Future<void> Function()? importCancelled;
+  final Future<void> Function(String, PoseTemplate)? importSelected;
   CameraSession? _session;
   List<CameraDescription> _cameras = [];
   PoseTemplate _target;
@@ -29,6 +53,47 @@ class CameraViewModel extends ChangeNotifier {
   double _opacity = .38, _zoom = 1, _minZoom = 1, _maxZoom = 1;
   int _cameraIndex = 0, _generation = 0, _zoomRequest = 0;
   Future<void> _sessionOperations = Future.value();
+  double _guideScale = 1, _guideX = 0, _guideY = 0;
+  int _timerSeconds = 0, _countdown = 0;
+  Timer? _countdownTimer, _focusTimer;
+  Completer<bool>? _countdownGate;
+  Offset? _focusPoint;
+  String? preferencesError;
+  double get guideScale => _guideScale;
+  double get guideX => _guideX;
+  double get guideY => _guideY;
+  int get timerSeconds => _timerSeconds;
+  int get countdown => _countdown;
+  Offset? get focusPoint => _focusPoint;
+  CameraPreferences get preferences => CameraPreferences(
+    grid: _grid,
+    mirror: _mirror,
+    showGuide: _showGuide,
+    opacity: _opacity,
+    guideScale: _guideScale,
+    guideX: _guideX,
+    guideY: _guideY,
+    timerSeconds: _timerSeconds,
+    poseId: _target.id,
+  );
+  Future<void> waitForRelease() => _sessionOperations;
+  void _savePreferences() {
+    final save = onPreferencesChanged;
+    if (save == null) return;
+    unawaited(
+      save(preferences).then(
+        (_) {
+          preferencesError = null;
+          _notify();
+        },
+        onError: (Object _) {
+          preferencesError = '相机设置未能保存，请在设置中重试。';
+          _notify();
+        },
+      ),
+    );
+  }
+
   CameraController? get preview => _session?.preview;
   List<CameraDescription> get cameras => List.unmodifiable(_cameras);
   PoseTemplate get target => _target;
@@ -115,6 +180,9 @@ class CameraViewModel extends ChangeNotifier {
       return;
     }
     _generation++;
+    cancelCountdown();
+    _focusTimer?.cancel();
+    _focusPoint = null;
     final previous = _session;
     _session = null;
     _phase = CameraPhase.idle;
@@ -131,7 +199,7 @@ class CameraViewModel extends ChangeNotifier {
   }
 
   Future<CapturedPhoto?> capture() async {
-    final session = _session, pose = _target;
+    final session = _session, pose = _target.withMirror(_mirror);
     if (_captureBusy ||
         _phase != CameraPhase.ready ||
         session == null ||
@@ -142,6 +210,27 @@ class CameraViewModel extends ChangeNotifier {
     _captureBusy = true;
     _notify();
     try {
+      if (_timerSeconds > 0) {
+        _countdown = _timerSeconds;
+        final gate = Completer<bool>();
+        _countdownGate = gate;
+        _notify();
+        _countdownTimer = Timer.periodic(const Duration(seconds: 1), (_) {
+          if (!_current(generation)) {
+            cancelCountdown();
+            return;
+          }
+          _countdown--;
+          _notify();
+          if (_countdown <= 0) {
+            _countdownTimer?.cancel();
+            _countdownGate?.complete(true);
+            _countdownGate = null;
+          }
+        });
+        final ready = await gate.future;
+        if (!ready || !_current(generation)) return null;
+      }
       final path = await session.capture();
       return _current(generation) ? (path: path, target: pose) : null;
     } catch (_) {
@@ -149,17 +238,25 @@ class CameraViewModel extends ChangeNotifier {
       return null;
     } finally {
       _captureBusy = false;
+      _countdownTimer?.cancel();
+      _countdown = 0;
       _notify();
     }
   }
 
   Future<CapturedPhoto?> importPhoto() async {
     if (_captureBusy || _disposed) return null;
-    final pose = _target;
+    final pose = _target.withMirror(_mirror);
     _captureBusy = true;
     _notify();
     try {
+      await beforeImport?.call(pose);
       final path = await photos.pickPhoto();
+      if (path == null) {
+        await importCancelled?.call();
+      } else {
+        await importSelected?.call(path, pose);
+      }
       return path != null && !_disposed ? (path: path, target: pose) : null;
     } finally {
       _captureBusy = false;
@@ -192,26 +289,85 @@ class CameraViewModel extends ChangeNotifier {
   void toggleGrid() {
     _grid = !_grid;
     _notify();
+    _savePreferences();
   }
 
   void toggleMirror() {
     _mirror = !_mirror;
     _notify();
+    _savePreferences();
   }
 
   void toggleGuide() {
     _showGuide = !_showGuide;
     _notify();
+    _savePreferences();
   }
 
   void setOpacity(double value) {
     _opacity = value.clamp(.1, .85).toDouble();
     _notify();
+    _savePreferences();
   }
 
   void selectPose(PoseTemplate pose) {
     _target = pose;
+    _guideScale = 1;
+    _guideX = 0;
+    _guideY = 0;
     _notify();
+    _savePreferences();
+  }
+
+  void setTimer(int value) {
+    if (![0, 3, 5, 10].contains(value)) return;
+    _timerSeconds = value;
+    _notify();
+    _savePreferences();
+  }
+
+  void cancelCountdown() {
+    _countdownTimer?.cancel();
+    _countdown = 0;
+    final gate = _countdownGate;
+    _countdownGate = null;
+    if (gate != null && !gate.isCompleted) gate.complete(false);
+    _notify();
+  }
+
+  void transformGuide(double scale, double x, double y) {
+    if (_captureBusy || _disposed) return;
+    _guideScale = scale.clamp(.3, 2.5);
+    _guideX = x.clamp(-.6, .6);
+    _guideY = y.clamp(-.6, .6);
+    _notify();
+  }
+
+  void saveGuide() {
+    _savePreferences();
+  }
+
+  void resetGuide() {
+    _guideScale = 1;
+    _guideX = 0;
+    _guideY = 0;
+    _notify();
+    _savePreferences();
+  }
+
+  Future<void> focusAt(Offset point) async {
+    final session = _session, generation = _generation;
+    if (session == null || _phase != CameraPhase.ready || _captureBusy) return;
+    final normalized = Offset(point.dx.clamp(0, 1), point.dy.clamp(0, 1));
+    if (!await session.focusAt(normalized)) throw StateError('当前镜头不支持点按对焦');
+    if (!_current(generation)) return;
+    _focusPoint = normalized;
+    _focusTimer?.cancel();
+    _notify();
+    _focusTimer = Timer(const Duration(seconds: 2), () {
+      _focusPoint = null;
+      _notify();
+    });
   }
 
   Future<void> _close(CameraSession? session) async {
@@ -225,6 +381,8 @@ class CameraViewModel extends ChangeNotifier {
   @override
   void dispose() {
     _disposed = true;
+    cancelCountdown();
+    _focusTimer?.cancel();
     _generation++;
     final previous = _session;
     _session = null;

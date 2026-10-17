@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:posey/core/json.dart';
 
-enum AiJobState { queued, generating, completed, failed, cancelled }
+enum AiJobState { queued, generating, awaitingResult, completed, failed, cancelled }
+enum PendingAiResult { download,save }
 
 class AiJob {
   AiJob({
@@ -16,9 +17,19 @@ class AiJob {
     this.message,
     this.completedAt,
     this.retryOf,
+    this.sourceWorkId,
+    this.targetSnapshot,
+    this.requestMetadata,
+    this.archivedWorkId,
+    this.archiveError,
+    this.pendingResult,
   });
   final String id, targetId, targetTitle, sourcePath;
   final String? retryOf;
+  final String? sourceWorkId;
+  final Json? targetSnapshot, requestMetadata;
+  String? archivedWorkId, archiveError;
+  PendingAiResult? pendingResult;
   final int createdAt;
   AiJobState state;
   String? resultPath, message;
@@ -41,6 +52,16 @@ class AiJob {
         ? integerOf(json['completedAt'])
         : null,
     retryOf: json['retryOf'] as String?,
+    sourceWorkId: json['sourceWorkId'] as String?,
+    targetSnapshot: json['targetSnapshot'] is Map
+        ? objectOf(json['targetSnapshot'])
+        : null,
+    requestMetadata: json['requestMetadata'] is Map
+        ? objectOf(json['requestMetadata'])
+        : null,
+    archivedWorkId: json['archivedWorkId'] as String?,
+    archiveError: json['archiveError'] as String?,
+    pendingResult:PendingAiResult.values.where((value)=>value.name==json['pendingResult']).firstOrNull,
   );
   Json toJson() => {
     'id': id,
@@ -53,6 +74,12 @@ class AiJob {
     'message': message,
     'completedAt': completedAt,
     if (retryOf != null) 'retryOf': retryOf,
+    if (sourceWorkId != null) 'sourceWorkId': sourceWorkId,
+    if (targetSnapshot != null) 'targetSnapshot': targetSnapshot,
+    if (requestMetadata != null) 'requestMetadata': requestMetadata,
+    if (archivedWorkId != null) 'archivedWorkId': archivedWorkId,
+    if (archiveError != null) 'archiveError': archiveError,
+    if(pendingResult!=null)'pendingResult':pendingResult!.name,
   };
 }
 

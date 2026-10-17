@@ -45,4 +45,6 @@ class NativeBackgroundAi {
   Future<void> cancel(String id) =>
       channel.invokeMethod('cancel', {'jobId': id});
   Future<void> clear(String id) => channel.invokeMethod('clear', {'jobId': id});
+  Future<Uint8List?> image(String id,{bool source=false})=>channel.invokeMethod<Uint8List>('getImage',{'jobId':id,'source':source});
+  Future<void> repairHistory()=>channel.invokeMethod('repairHistory');
 }

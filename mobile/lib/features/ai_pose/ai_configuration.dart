@@ -35,20 +35,58 @@ class AiConfiguration {
   String get normalizedKey => key
       .replaceFirst(RegExp(r'^ARK_API_KEY\s*=\s*'), '')
       .replaceAll(RegExp(r'[\s\u200B-\u200D\uFEFF]'), '');
-  Uri get uri => Uri.parse(
-    '${endpoint.replaceFirst(RegExp(r'/$'), '')}/images/generations',
-  );
+  Uri get baseUri {
+    final parsed = Uri.parse(endpoint.trim());
+    var path = parsed.path.replaceFirst(RegExp(r'/+$'), '');
+    if (path.endsWith('/images/generations')) {
+      path = path.substring(0, path.length - 19);
+    }
+    return parsed.replace(path: path);
+  }
+
+  Uri get uri => baseUri.replace(path: '${baseUri.path}/images/generations');
   void validate() {
     if (normalizedKey.isEmpty) {
       throw const FormatException('请先在设置中填写你的火山方舟 API Key');
     }
-    if (uri.scheme != 'https' || uri.host.isEmpty) {
+    if (uri.scheme != 'https' ||
+        uri.host.isEmpty ||
+        uri.userInfo.isNotEmpty ||
+        uri.hasQuery ||
+        uri.hasFragment) {
       throw const FormatException('AI 服务需要有效的 HTTPS 地址');
     }
     if (model.trim().isEmpty) throw const FormatException('请选择可用的图像模型');
   }
 
-  Json metadata() => {'endpoint': endpoint, 'model': model};
+  Json metadata() => {'endpoint': baseUri.toString(), 'model': model.trim()};
+}
+
+class AiRequestOptions {
+  const AiRequestOptions(
+    this.configuration,
+    this.preferences, {
+    this.frozenPrompt,
+  });
+  final AiConfiguration configuration;
+  final AiPreferences preferences;
+  final String? frozenPrompt;
+  Json metadata() => {
+    ...configuration.metadata(),
+    'preferences': preferences.toJson(),
+  };
+}
+
+class AiConnectionCheck {
+  const AiConnectionCheck(this.message, this.models, {this.verified = false});
+  final String message;
+  final List<String> models;
+  final bool verified;
+}
+
+abstract interface class AiConnectionTester {
+  Future<AiConnectionCheck> checkConnection(AiConfiguration configuration);
+  void cancelConnectionCheck();
 }
 
 String buildPosePrompt(String title, AiPreferences preferences) {

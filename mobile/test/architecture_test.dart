@@ -102,6 +102,8 @@ class FakeSession implements CameraSession {
   @override
   Future<void> setZoom(double value) async {}
   @override
+  Future<bool> focusAt(Offset point) async => true;
+  @override
   Future<void> toggleFlash() async {
     flashAuto = !flashAuto;
   }

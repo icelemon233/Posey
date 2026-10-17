@@ -16,10 +16,13 @@ class AiJobRepository extends ChangeNotifier {
     this.storage,
     this.service, {
     this.native = const NativeBackgroundAi(),
+    this.preserveResult,
   });
   final PoseyStorage storage;
   final AiPoseService service;
   final NativeBackgroundAi native;
+  final Future<String> Function(AiJob)? preserveResult;
+  final _archiving = <String>{};
   List<AiJob> _jobs = [];
   List<AiJob> get jobs =>
       List.unmodifiable(_jobs.map((job) => AiJob.fromJson(job.toJson())));
@@ -35,6 +38,8 @@ class AiJobRepository extends ChangeNotifier {
   Future<void> _persistTail = Future.value();
   int get activeJobs => _jobs.where((job) => job.active).length + _enqueuing;
   bool get backgroundSupported => native.supported;
+  bool get hasPendingIO =>
+      _running || _nativeSyncing || _enqueuing > 0 || _archiving.isNotEmpty;
   bool isRetrying(String id) =>
       _retryReservations.contains(id) ||
       _jobs.any((job) => job.retryOf == id && job.active);
@@ -64,6 +69,11 @@ class AiJobRepository extends ChangeNotifier {
           job.state = AiJobState.failed;
           job.message = '上次任务被中断，确认后可以重试。';
         }
+      }
+      for (final job in _jobs.where(
+        (job) => job.state == AiJobState.completed,
+      )) {
+        await _archiveResult(job);
       }
       await _persistJobs();
       loadError = null;
@@ -106,11 +116,16 @@ class AiJobRepository extends ChangeNotifier {
     required AiConfiguration configuration,
     required AiPreferences preferences,
     String? retryOf,
+    String? sourceWorkId,
+    String? frozenPrompt,
   }) async {
     if (_disposed) throw StateError('任务列表已关闭');
     if (loadError != null) throw StateError('请先在 AI Pose 页面恢复任务记录，再开始生成。');
     if (!consent) throw StateError('请先确认将这张照片和姿势参考发送给 AI 服务');
     configuration.validate();
+    if (_jobs.any((job) => job.archiveError != null)) {
+      throw StateError('请先在任务页将未留存的成片保存到作品，再开始新的生成。');
+    }
     if (activeJobs >= maxActiveJobs) {
       throw StateError('最多同时保留 3 个进行中的任务，请等待或取消一个任务');
     }
@@ -123,12 +138,18 @@ class AiJobRepository extends ChangeNotifier {
     String? startingNativeId;
     try {
       // Freeze model, credentials and preferences before this job enters the queue.
-      final prepared = await service.prepare(
+      var prepared = await service.prepare(
         configuration,
         preferences,
         target,
         image,
       );
+      if (frozenPrompt != null) {
+        prepared = PreparedAiRequest(prepared.configuration, {
+          ...prepared.body,
+          'prompt': frozenPrompt,
+        }, prepared.title);
+      }
       if (_disposed) throw StateError('任务列表已关闭');
       source = await storage.saveBytes(
         '${const Uuid().v4()}-source.jpg',
@@ -143,6 +164,12 @@ class AiJobRepository extends ChangeNotifier {
         sourcePath: source,
         createdAt: DateTime.now().millisecondsSinceEpoch,
         retryOf: retryOf,
+        sourceWorkId: sourceWorkId,
+        targetSnapshot: target.raw,
+        requestMetadata: {
+          ...AiRequestOptions(configuration, preferences).metadata(),
+          'prompt': prepared.body['prompt'],
+        },
       );
       if (native.supported) {
         startingNativeId = id;
@@ -223,6 +250,7 @@ class AiJobRepository extends ChangeNotifier {
           job.resultPath = path;
           job.completedAt = DateTime.now().millisecondsSinceEpoch;
           job.state = AiJobState.completed;
+          await _archiveResult(job);
         } catch (failure) {
           _prepared.remove(job.id);
           if (_disposed) continue;
@@ -243,6 +271,46 @@ class AiJobRepository extends ChangeNotifier {
     RegExp(r'^(Bad state: |FormatException: )'),
     '',
   );
+
+  Future<void> _archiveResult(AiJob job) async {
+    if (preserveResult == null ||
+        job.resultPath == null ||
+        job.archivedWorkId != null ||
+        !_archiving.add(job.id)) {
+      return;
+    }
+    try {
+      job.archivedWorkId = await preserveResult!(AiJob.fromJson(job.toJson()));
+      job.archiveError = null;
+    } catch (_) {
+      job.archiveError = '成片已生成，但未能保存到作品。请重试留存，或先保存到系统相册。';
+    } finally {
+      _archiving.remove(job.id);
+    }
+  }
+
+  Future<void> archiveResult(String id) async {
+    final job = _jobs.where((job) => job.id == id).firstOrNull;
+    if (job == null || job.state != AiJobState.completed) return;
+    await _archiveResult(job);
+    await _tryPersistJobs();
+    _notify();
+    if (job.archiveError != null) throw StateError(job.archiveError!);
+  }
+
+  Future<void> clearFinished({bool includeCompleted = false}) async {
+    final ids = jobs
+        .where(
+          (job) =>
+              !job.active &&
+              (includeCompleted || job.state != AiJobState.completed),
+        )
+        .map((job) => job.id)
+        .toList();
+    for (final id in ids) {
+      await clear(id);
+    }
+  }
 
   Future<void> _tryPersistJobs() async {
     try {
@@ -377,6 +445,7 @@ class AiJobRepository extends ChangeNotifier {
         job.message = message;
         job.completedAt = completedAt;
         job.resultPath = resultPath;
+        if (nextState == AiJobState.completed) await _archiveResult(job);
       }
       if (_disposed || revision != _nativeRevision) return;
       final nativeIds = records.map((record) => record['id']).toSet();
