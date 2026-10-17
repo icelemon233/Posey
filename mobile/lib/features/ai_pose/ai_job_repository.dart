@@ -31,6 +31,7 @@ class AiJobRepository extends ChangeNotifier {
   int _nativeRevision = 0;
   final _prepared = <String, PreparedAiRequest>{};
   final _retryReservations = <String>{};
+  final _startingNative = <String>{};
   Future<void> _persistTail = Future.value();
   int get activeJobs => _jobs.where((job) => job.active).length + _enqueuing;
   bool get backgroundSupported => native.supported;
@@ -119,6 +120,7 @@ class AiJobRepository extends ChangeNotifier {
     _notify();
     bool reserved = true;
     String? source;
+    String? startingNativeId;
     try {
       // Freeze model, credentials and preferences before this job enters the queue.
       final prepared = await service.prepare(
@@ -142,6 +144,11 @@ class AiJobRepository extends ChangeNotifier {
         createdAt: DateTime.now().millisecondsSinceEpoch,
         retryOf: retryOf,
       );
+      if (native.supported) {
+        startingNativeId = id;
+        _startingNative.add(id);
+        _nativeRevision++;
+      }
       // A rejected local commit must never leave runnable or native work behind.
       await _persistJobs(adding: job);
       _enqueuing--;
@@ -157,6 +164,7 @@ class AiJobRepository extends ChangeNotifier {
         try {
           final accepted = await native.start(prepared, jobId: id);
           if (accepted != id) throw const FormatException('后台任务编号不一致');
+          _nativeRevision++;
         } catch (failure) {
           job.state = AiJobState.failed;
           job.message = _message(failure);
@@ -176,6 +184,7 @@ class AiJobRepository extends ChangeNotifier {
     } finally {
       if (reserved) _enqueuing--;
       if (retryOf != null) _retryReservations.remove(retryOf);
+      if (startingNativeId != null) _startingNative.remove(startingNativeId);
       _notify();
     }
     _notify();
@@ -368,6 +377,17 @@ class AiJobRepository extends ChangeNotifier {
         job.message = message;
         job.completedAt = completedAt;
         job.resultPath = resultPath;
+      }
+      if (_disposed || revision != _nativeRevision) return;
+      final nativeIds = records.map((record) => record['id']).toSet();
+      for (final job in _jobs.where(
+        (job) =>
+            job.active &&
+            !nativeIds.contains(job.id) &&
+            !_startingNative.contains(job.id),
+      )) {
+        job.state = AiJobState.failed;
+        job.message = '上次任务未能继续，确认后可以重试。';
       }
       _jobs.sort((a, b) => b.createdAt.compareTo(a.createdAt));
       await _persistJobs();

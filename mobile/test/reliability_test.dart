@@ -61,6 +61,7 @@ class RecordingNative extends NativeBackgroundAi {
   int starts = 0;
   String? id;
   bool savedBeforeStart = false;
+  Completer<void>? jobsGate;
   @override
   bool get supported => true;
   @override
@@ -75,9 +76,13 @@ class RecordingNative extends NativeBackgroundAi {
   }
 
   @override
-  Future<List<Json>> jobs({List<String> knownResults = const []}) async => [
-    if (id != null) {'id': id!, 'state': 'generating', 'createdAt': 1},
-  ];
+  Future<List<Json>> jobs({List<String> knownResults = const []}) async {
+    final snapshot = <Json>[
+      if (id != null) {'id': id!, 'state': 'generating', 'createdAt': 1},
+    ];
+    await jobsGate?.future;
+    return snapshot;
+  }
 }
 
 class ExclusiveCamera implements CameraGateway {
@@ -578,5 +583,49 @@ void main() {
           .start(prepared, jobId: id),
       id,
     );
+  });
+
+  test('native recovery marks a locally saved task that never reached the native queue as interrupted', () async {
+    storage.data['jobs'] = encodeJobs([
+      AiJob(
+        id: 'before-native-start',
+        targetId: target.id,
+        targetTitle: target.title,
+        sourcePath: 'synthetic.jpg',
+        createdAt: 1,
+      ),
+    ]);
+    final native = RecordingNative(storage);
+    final repository = AiJobRepository(
+      storage,
+      DelayedService(),
+      native: native,
+    );
+    addTearDown(repository.dispose);
+    await repository.load();
+    expect(repository.jobs.single.state, AiJobState.failed);
+    expect(repository.activeJobs, 0);
+    expect(native.starts, 0);
+  });
+
+  test('native polling captured before a submission cannot mark the accepted task as missing', () async {
+    final native = RecordingNative(storage);
+    final repository = AiJobRepository(
+      storage,
+      DelayedService(),
+      native: native,
+    );
+    addTearDown(repository.dispose);
+    await repository.load();
+    native.jobsGate = Completer<void>();
+    final polling = repository.syncNative();
+    await flush();
+    await submit(repository);
+    native.jobsGate!.complete();
+    await polling;
+    expect(repository.jobs.single.active, isTrue);
+    native.jobsGate = null;
+    await repository.syncNative();
+    expect(repository.jobs.single.state, AiJobState.generating);
   });
 }
