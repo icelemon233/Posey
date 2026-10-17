@@ -8,6 +8,7 @@
         android:allowBackup="false"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="developer" android:value="Cinna" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
