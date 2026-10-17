@@ -139,10 +139,15 @@ class FakeNative extends NativeBackgroundAi {
   Completer<void>? jobsGate;
   Completer<String>? startGate;
   final started = Completer<void>();
+  String? submittedId;
   @override
-  Future<String> start(PreparedAiRequest request) async {
+  Future<String> start(
+    PreparedAiRequest request, {
+    required String jobId,
+  }) async {
+    submittedId = jobId;
     started.complete();
-    return await startGate?.future ?? 'native-job';
+    return await startGate?.future ?? jobId;
   }
 
   @override
@@ -466,14 +471,14 @@ void main() {
     await native.started.future;
     native.records = [
       {
-        'id': 'native-job',
+        'id': native.submittedId!,
         'state': 'generating',
         'targetTitle': target.title,
         'createdAt': 1,
       },
     ];
     await repository.syncNative();
-    native.startGate!.complete('native-job');
+    native.startGate!.complete(native.submittedId!);
     await pending;
     expect(repository.jobs, hasLength(1));
     expect(repository.jobs.single.targetId, target.id);

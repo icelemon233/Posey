@@ -28,6 +28,7 @@ class CameraViewModel extends ChangeNotifier {
   bool _grid = false, _mirror = false, _showGuide = true;
   double _opacity = .38, _zoom = 1, _minZoom = 1, _maxZoom = 1;
   int _cameraIndex = 0, _generation = 0, _zoomRequest = 0;
+  Future<void> _sessionOperations = Future.value();
   CameraController? get preview => _session?.preview;
   List<CameraDescription> get cameras => List.unmodifiable(_cameras);
   PoseTemplate get target => _target;
@@ -49,53 +50,61 @@ class CameraViewModel extends ChangeNotifier {
   bool _current(int generation) =>
       !_disposed && _active && generation == _generation;
 
+  Future<void> _serializeSession(Future<void> Function() action) =>
+      _sessionOperations = _sessionOperations
+          .catchError((Object _) {})
+          .then((_) => action());
+
   Future<void> initialize() async {
     if (_disposed || !_active || _phase == CameraPhase.opening) return;
     final generation = ++_generation;
     _phase = CameraPhase.opening;
     _error = null;
     _notify();
-    CameraSession? next;
-    try {
-      final devices = await gateway.devices();
+    await _serializeSession(() async {
       if (!_current(generation)) return;
-      if (devices.isEmpty) throw StateError('没有找到可用的摄像头，可以导入照片继续。');
-      _cameras = devices;
-      _cameraIndex %= devices.length;
-      final previous = _session;
-      _session = null;
-      await previous?.close();
-      if (!_current(generation)) return;
-      next = gateway.create(devices[_cameraIndex]);
-      await next.initialize();
-      if (!_current(generation)) {
+      CameraSession? next;
+      try {
+        final devices = await gateway.devices();
+        if (!_current(generation)) return;
+        if (devices.isEmpty) throw StateError('没有找到可用的摄像头，可以导入照片继续。');
+        _cameras = devices;
+        _cameraIndex %= devices.length;
+        final previous = _session;
+        _session = null;
+        await previous?.close();
+        if (!_current(generation)) return;
+        next = gateway.create(devices[_cameraIndex]);
+        await next.initialize();
+        if (!_current(generation)) {
+          await _close(next);
+          return;
+        }
+        final limits = await next.zoomLimits();
+        if (!_current(generation)) {
+          await _close(next);
+          return;
+        }
+        _session = next;
+        _minZoom = limits[0];
+        _maxZoom = math.max(_minZoom, math.min(limits[1], 5));
+        _zoom = _minZoom;
+        _phase = CameraPhase.ready;
+      } catch (failure) {
         await _close(next);
-        return;
+        if (!_current(generation)) return;
+        _phase = CameraPhase.failed;
+        _error = failure is CameraException
+            ? switch (failure.code) {
+                'CameraAccessDenied' ||
+                'CameraAccessDeniedWithoutPrompt' ||
+                'CameraAccessRestricted' => '相机权限尚未打开。请在系统设置中允许相机，或导入照片继续。',
+                _ => '相机暂时无法使用，请重试或导入照片。',
+              }
+            : failure.toString().replaceFirst('Bad state: ', '');
       }
-      final limits = await next.zoomLimits();
-      if (!_current(generation)) {
-        await _close(next);
-        return;
-      }
-      _session = next;
-      _minZoom = limits[0];
-      _maxZoom = math.max(_minZoom, math.min(limits[1], 5));
-      _zoom = _minZoom;
-      _phase = CameraPhase.ready;
-    } catch (failure) {
-      await _close(next);
-      if (!_current(generation)) return;
-      _phase = CameraPhase.failed;
-      _error = failure is CameraException
-          ? switch (failure.code) {
-              'CameraAccessDenied' ||
-              'CameraAccessDeniedWithoutPrompt' ||
-              'CameraAccessRestricted' => '相机权限尚未打开。请在系统设置中允许相机，或导入照片继续。',
-              _ => '相机暂时无法使用，请重试或导入照片。',
-            }
-          : failure.toString().replaceFirst('Bad state: ', '');
-    }
-    _notify();
+      _notify();
+    });
   }
 
   void setActive(bool value) {
@@ -109,7 +118,7 @@ class CameraViewModel extends ChangeNotifier {
     final previous = _session;
     _session = null;
     _phase = CameraPhase.idle;
-    unawaited(_close(previous));
+    unawaited(_serializeSession(() => _close(previous)));
     _notify();
   }
 
@@ -219,7 +228,7 @@ class CameraViewModel extends ChangeNotifier {
     _generation++;
     final previous = _session;
     _session = null;
-    unawaited(_close(previous));
+    unawaited(_serializeSession(() => _close(previous)));
     super.dispose();
   }
 }

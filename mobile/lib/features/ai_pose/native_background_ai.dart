@@ -10,9 +10,15 @@ class NativeBackgroundAi {
   });
   final MethodChannel channel;
   bool get supported => Platform.isIOS;
-  Future<String> start(PreparedAiRequest request) async {
+  Future<String> start(
+    PreparedAiRequest request, {
+    required String jobId,
+  }) async {
     final response = objectOf(
-      await channel.invokeMethod('start', request.nativePayload()),
+      await channel.invokeMethod('start', {
+        ...request.nativePayload(),
+        'jobId': jobId,
+      }),
     );
     final id = response['jobId'];
     if (id is! String || id.isEmpty) throw const FormatException('后台任务未返回有效标识');

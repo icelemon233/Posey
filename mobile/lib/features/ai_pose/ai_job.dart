@@ -15,8 +15,10 @@ class AiJob {
     this.resultPath,
     this.message,
     this.completedAt,
+    this.retryOf,
   });
   final String id, targetId, targetTitle, sourcePath;
+  final String? retryOf;
   final int createdAt;
   AiJobState state;
   String? resultPath, message;
@@ -38,6 +40,7 @@ class AiJob {
     completedAt: json['completedAt'] is num
         ? integerOf(json['completedAt'])
         : null,
+    retryOf: json['retryOf'] as String?,
   );
   Json toJson() => {
     'id': id,
@@ -49,6 +52,7 @@ class AiJob {
     'resultPath': resultPath,
     'message': message,
     'completedAt': completedAt,
+    if (retryOf != null) 'retryOf': retryOf,
   };
 }
 

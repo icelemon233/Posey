@@ -36,6 +36,7 @@ class _PoseyCameraScreenState extends State<PoseyCameraScreen>
   double get zoom => viewModel.zoom;
   double get minZoom => viewModel.minZoom;
   double get maxZoom => viewModel.maxZoom;
+  bool _reviewing = false;
   @override
   void initState() {
     super.initState();
@@ -52,17 +53,34 @@ class _PoseyCameraScreenState extends State<PoseyCameraScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) =>
-      viewModel.setActive(state == AppLifecycleState.resumed);
+      viewModel.setActive(state == AppLifecycleState.resumed && !_reviewing);
+
+  Future<void> reviewPhoto(String path, PoseTemplate pose) async {
+    _reviewing = true;
+    viewModel.setActive(false);
+    try {
+      await widget.onPhoto(path, pose);
+    } finally {
+      _reviewing = false;
+      if (mounted) {
+        final state = WidgetsBinding.instance.lifecycleState;
+        viewModel.setActive(
+          state == null || state == AppLifecycleState.resumed,
+        );
+      }
+    }
+  }
+
   Future<void> capture() => runUiAction(context, () async {
     final photo = await viewModel.capture();
     if (photo != null && mounted) {
-      await widget.onPhoto(photo.path, photo.target);
+      await reviewPhoto(photo.path, photo.target);
     }
   });
   Future<void> importPhoto() => runUiAction(context, () async {
     final photo = await viewModel.importPhoto();
     if (photo != null && mounted) {
-      await widget.onPhoto(photo.path, photo.target);
+      await reviewPhoto(photo.path, photo.target);
     }
   });
   Future<void> flash() => runUiAction(context, viewModel.toggleFlash);
